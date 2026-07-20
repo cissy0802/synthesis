@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>跨站合成 — BigCat Synthesis</title>
+<meta name="description" content="把存量变成网络：同一个概念在几个主题站里分别是什么，以及它们为什么对不上。每篇的源材料全部来自已发布的页面，每一节都深链回源页。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"SF Pro Display","Noto Serif SC","Songti SC",serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0a0e1a 100%);color:#e4e6eb;line-height:1.8;min-height:100vh}
+.container{max-width:860px;margin:0 auto;padding:48px 24px 80px}
+.lang-toggle{position:fixed;top:18px;right:18px;background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:5px;display:flex;z-index:100;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem}
+.lang-toggle a{padding:5px 12px;border-radius:14px;color:#a0a8c0;text-decoration:none;transition:all 0.15s}
+.lang-toggle a.active{background:#7b61ff;color:#fff;font-weight:700}
+.lang-toggle a:not(.active):hover{background:rgba(255,255,255,0.08);color:#fff}
+header{text-align:center;padding:40px 0 24px}
+header .kicker{font-size:0.78rem;color:#7b61ff;letter-spacing:2px;text-transform:uppercase;font-family:"SF Mono",Menlo,monospace;margin-bottom:14px}
+header h1{font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,#00d4ff 0%,#7b61ff 50%,#ff6ec4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px;margin-bottom:12px}
+header .tagline{font-size:0.98rem;color:#a0a8c0;font-weight:300}
+.method{max-width:680px;margin:22px auto 0;font-size:0.84rem;color:#8a93ad;font-family:"SF Mono",Menlo,monospace;background:rgba(123,97,255,0.06);border:1px solid rgba(123,97,255,0.22);border-radius:10px;padding:13px 17px;line-height:1.75;text-align:left}
+.method b{color:#c4b8ff}
+.entry{display:block;margin:22px 0;padding:22px 24px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;text-decoration:none;transition:all 0.18s}
+.entry:hover{background:rgba(255,255,255,0.07);border-color:rgba(0,212,255,0.4);transform:translateY(-2px)}
+.entry .no{font-family:"SF Mono",Menlo,monospace;font-size:0.76rem;color:#7b61ff;letter-spacing:1.5px;text-transform:uppercase}
+.entry .title{display:block;font-size:1.4rem;font-weight:800;color:#fff;margin:6px 0 10px;line-height:1.4}
+.entry .hook{display:block;color:#c9cede;font-size:0.95rem;margin-bottom:12px}
+.entry .sites{display:block;font-family:"SF Mono",Menlo,monospace;font-size:0.76rem;color:#7a8298}
+.entry .go{display:inline-block;margin-top:12px;font-size:0.84rem;color:#00d4ff;font-family:"SF Mono",Menlo,monospace}
+h2{font-size:1.1rem;font-weight:700;color:#fff;margin:44px 0 14px;padding-left:12px;border-left:4px solid #7b61ff}
+p{margin:12px 0;color:#c9cede;font-size:0.95rem}
+ul{margin:12px 0 12px 1.5em;color:#c9cede;font-size:0.93rem}
+li{margin:6px 0}
+strong{color:#fff}
+.upcoming{margin:14px 0;padding:14px 18px;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:11px;color:#98a0b4;font-size:0.89rem}
+.upcoming b{color:#c4b8ff;font-weight:700}
+footer{text-align:center;padding:52px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
+footer a{color:#7b61ff;text-decoration:none}
+footer a:hover{color:#00d4ff}
+@media(max-width:700px){header h1{font-size:1.6rem}.container{padding:32px 16px 60px}.entry .title{font-size:1.15rem}}
+</style>
+</head>
+<body>
+<div class="lang-toggle">
+  <a href="index.html" class="active">中文</a>
+  <a href="index.en.html">EN</a>
+</div>
+<div class="container">
+<header>
+  <div class="kicker">// Cross-Site Synthesis</div>
+  <h1>跨站合成</h1>
+  <div class="tagline">把存量变成网络，而不是继续加长列表</div>
+  <div class="method">
+    <b>这是什么：</b>普通内容站回答「X 是什么」；合成文回答「<b>X 这个东西，在我这几个站里分别是什么，以及它们为什么对不上</b>」。每篇的源材料全部来自本 Hub 已发布的页面，每一节都深链回源页——读者可以顺着链接钻回去，存量因此变成一张网。
+  </div>
+</header>
+
+<a class="entry" href="entropy.html">
+  <span class="no">Syn 1 · 体裁 A · 同一个词，不同机器</span>
+  <span class="title">熵：一个词，五个房间</span>
+  <span class="hook">热力学熵有物理定律撑腰，「房间会变乱」没有。先找出五处用法真正共享的那根数学脊柱——它比大多数人以为的更硬；再指出脊柱断掉的确切位置，并给出四条判据：什么条件下，一个东西才配叫熵。</span>
+  <span class="sites">源页 10 篇 · physics · mathematics · ai-ml · meta-knowledge · deep-reading · mental-models</span>
+  <span class="go">读全文 →</span>
+</a>
+
+<h2>选题标准</h2>
+<p>一个概念<strong>跨站出现</strong>不构成选题理由。必须同时满足四条：</p>
+<ul>
+<li><strong>甜区 4–8 站。</strong>覆盖 15+ 站的概念（如「风险」「决策」）写出来必然是浆糊——每站沾一句，哪站都不深；少于 4 站则不成网。</li>
+<li><strong>各站的「机器」真正不同</strong>——同一个词背后是不同的机制，而不是同一件事换个说法。</li>
+<li><strong>有一个锋利的钩子</strong>：要么是<strong>断裂点</strong>（类比在哪里失效），要么是<strong>透镜差</strong>（同一对象被几个学科看见了不同的层）。</li>
+<li><strong>源材料实打实</strong>：至少 3 个站有成篇（而非顺带提及）的源页。</li>
+</ul>
+
+<h2>三种体裁</h2>
+<ul>
+<li><strong>A · 同一个词，不同机器</strong>——词旅行到别的领域，机器没跟过来。灵魂是写清断裂在哪。</li>
+<li><strong>B · 同一个对象，多重透镜</strong>——一件事被几个学科各看到一层。灵魂是透镜之间的互补与冲突。</li>
+<li><strong>C · 同一套方法，跨域复用</strong>——一种推理工具在各领域的不同要求与标准。</li>
+</ul>
+
+<h2>接下来</h2>
+<div class="upcoming"><b>Syn 2 · 合作的演化</b>〔A/C〕—— 「为什么会有合作？」四套互不相容的答案：演化生物学算基因的账、博弈论算重复的账、国际关系算可信承诺的账、佛学拒绝算账。前三套用「其实是自利」消解利他，第四套掀桌子。</div>
+<div class="upcoming"><b>Syn 3 · 自我，与无我</b>〔B〕—— 佛学两千年前说「无我」，神经科学从注意图式理论走到几乎同一结论。但别让收敛太便宜：一个是修行结论，一个是价值中立的机制描述。</div>
+<div class="upcoming"><b>Syn 4 · 注意力</b>〔A〕—— 词从心理学到机器学习到经济学旅行了三轮，三套机器毫无关系：Transformer 的 QK 点积、丘脑的选择性门控、作为稀缺资源被交易的注意力。</div>
+<p style="font-size:0.86rem;color:#7a8298;margin-top:16px">季度一篇，手写，不走自动化。完整路线图见仓库里的 <a href="https://github.com/cissy0802/synthesis/blob/main/TOPICS.md" style="color:#7b61ff;text-decoration:none">TOPICS.md</a>（共 17 篇）。</p>
+
+<footer>
+  <a href="/index.zh.html">← BigCat's Learning Hub</a> · <a href="https://github.com/cissy0802/synthesis">GitHub</a>
+</footer>
+</div>
+<script src="https://hub.cissychen.com/comments.js" defer></script>
+<script src="https://hub.cissychen.com/search.js" defer></script>
+</body></html>
