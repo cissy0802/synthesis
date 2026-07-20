@@ -50,10 +50,19 @@ Hub 层的长文路线图。**这条线的目的是把存量变成网络,而不�
 
 ---
 
-## 第一梯队(材料厚 + 钩子锋利,先写这 6 篇)
+## 已发布
 
-- **Syn 1: 熵** 〔A〕— 断裂:热力学熵有物理定律撑腰,「房间会变乱」没有。全网被滥用最狠的概念。
-  源:`physics/entropy-arrow-day7`(100 次) · `ai-ml/probability-information-day33`(75) · `mathematics/information-theory-day13`(46) · `mental-models/information-theory-day58`、`physics-thinking-day36` · `meta-knowledge/bioenergetics-day23`(生命作为抗熵机器) · `deep-reading/order-of-time-read18`(时间之箭)、`flow-read15`(精神熵) · `book-recommendations/time-many-faces-book29`
+### Syn 1. 熵:五个房间里的同一个数 〔A〕 ✅ 2026-07
+- 页面:`entropy.html` × zh/en · <https://hub.cissychen.com/synthesis/entropy.html>
+- 共通点:四个领域(热力学 / 信息论 / 机器学习 / 生物能量学)算的是**同一个数**——微观态等可能时 `S=k log W` 与 `H=−Σp log p` 只差换算常数 k。四者问的是同一个问题:「在我能看见的之下,还有多少种可能」,而数学不问这些可能性是什么做的。
+- 承重证据:兰道尔原理(擦除 1 比特 ≥ kT ln2 的热)给了比特与焦耳一个汇率,并据此解决了卡了七十多年的麦克斯韦妖悖论——判据是「它解决过一个原本无解的具体问题」,而不只是让人觉得优雅。
+- 互联换来了什么:信息论拿到压缩的地板(编码定理);机器学习拿到有物理意义的损失函数(loss 的单位是比特/token);生物学摆脱「生命是否违反第二定律」的困惑(开放系统的账可以真算)。
+- 边界判据(四问):① 微观态是什么、按什么粗粒化打包?② 有单位吗、能报出两个时刻的值吗?③ 那条定律是从大数(10²³)里涌现的吗?④ 是不是把开放系统当成了孤立系统?——四问全过是测量,机制说得清是模型,都不过是修辞。
+- 源页:10 篇 / 6 站 —— `physics/entropy-arrow-day7`、`heat-temperature-day6` · `mathematics/information-theory-day13` · `ai-ml/loss-optimization-day10`、`probability-information-day33` · `meta-knowledge/bioenergetics-day23` · `deep-reading/order-of-time-read18`、`flow-read15` · `mental-models/information-theory-day58`、`physics-thinking-day36`
+- 未用上的备选源:`book-recommendations/time-many-faces-book29`(时间的多副面孔)——写时觉得与 Read 18 重合过多,留给日后增补
+- 后记:初稿把重心压在断裂点上,读起来像挑错;2026-07 重写为「先讲共通点与它换来了什么,边界服务于共通点」。这条经验已写进本文件的选题标准与 `weekly-synthesis` 的 SKILL.md。
+
+## 第一梯队(材料厚 + 钩子锋利)
 
 - **Syn 2: 合作的演化** 〔A/C〕— 「为什么会有合作?」四套**互不相容**的答案:演化生物学算基因的账(汉密尔顿 `rB>C`)、博弈论算重复的账(Axelrod 的 tit-for-tat)、国际关系算可信承诺的账、佛学**拒绝算账**(菩萨道不图回报)。前三套用「其实是自利」消解利他,第四套掀桌子。收尾落在自然主义谬误。
   源:`mental-models/game-cooperation-day28`(博弈 60 / 合作 21)、`strategy-day04`、`evolutionary-psychology-day53` · `meta-knowledge/game-theory-day11`(40)、`trust-cooperation-day58`(26)、`evolutionary-biology-day4` · `deep-reading/selfish-gene-read2`(合作 28 / 选择层级 15) · `civics-geopolitics/war-and-peace-rules-day13`(可信承诺 13)、`great-power-rivalry-day10` · `buddhism/bodhisattva-day11`(利他 21) · `leadership/office-politics-day6`(19) · `philosophy/individual-society-day15`、`ethics-virtue-day5` · `psychology/evolutionary-psychology-day32` · `sales/trust-currency-day2`(信任作为昂贵信号)
