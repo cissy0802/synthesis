@@ -36,6 +36,7 @@ Hub 层的长文路线图。**这条线的目的是把存量变成网络,而不�
   `<script src="https://hub.cissychen.com/comments.js" defer></script>` 和 `search.js`
 - 返回 hub 的链接用**根相对且语言正确**:中文页 `/index.zh.html`、英文页 `/index.en.html`
   (⚠️ 别用 `index.html` —— 它是英文默认的跳转 stub,中文页链它会把读者弹去英文版)
+- **篇幅 4500–6000 中文字。各领域的介绍要短——只留后面论证真正用得到的,其余交给深链。**源页已经把每个领域讲透了,合成文再讲一遍,深链就成了摆设
 - 每篇写完:① 把引用的源页路径登记进 `synthesis-map.json`(供反向链接注入);② 把新文章加进 `index.html` 与 `index.en.html` 两个落地页,否则成孤儿页
 - 搜索索引自动覆盖:本仓已在 hub 的 `build-search.yml` clone 循环里,无需另行登记
 - hub 首页的卡片入口在 `generate_hub.py` 的 `SYNTHESIS_CARDS`,是**整个站一张卡**,加新文章不用动它
