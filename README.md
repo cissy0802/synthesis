@@ -16,7 +16,9 @@ BigCat's Learning Hub 的合成长文站 —— **把存量变成网络,而不�
 
 ## 仓库结构
 
-- `TOPICS.md` —— 路线图与写作约定(17 篇的选题清单、选题硬门槛、三种体裁)。**人类维护**
+- `TOPICS.md` —— 路线图与写作约定(17 篇的选题清单、选题硬门槛、三种体裁)。**人类维护,routine 只读**
+- `ENGINE.md` —— routine 的执行规范。**改写作规则改这份,不用动 trigger**
+- `ROUTINE-NOTES.md` —— 云端沙箱连通性实测记录(2026-07 探针运行)
 - `index.html` / `index.en.html` —— 双语落地页,新文章必须登记进去,否则成孤儿页
 - `{slug}.html` / `{slug}.en.html` —— 文章本体,手写双语,无自动同步机制
 - `synthesis-map.json` —— 每篇引用的源页路径登记表,供日后的反向链接注入使用
