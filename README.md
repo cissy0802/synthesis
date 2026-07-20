@@ -17,16 +17,16 @@ BigCat's Learning Hub 的合成长文站 —— **把存量变成网络,而不�
 ## 仓库结构
 
 - `TOPICS.md` —— 路线图与写作约定(17 篇的选题清单、选题硬门槛、三种体裁)。**人类维护,routine 只读**
-- `ENGINE.md` —— routine 的执行规范。**改写作规则改这份,不用动 trigger**
-- `ROUTINE-NOTES.md` —— 云端沙箱连通性实测记录(2026-07 探针运行)
 - `index.html` / `index.en.html` —— 双语落地页,新文章必须登记进去,否则成孤儿页
 - `{slug}.html` / `{slug}.en.html` —— 文章本体,手写双语,无自动同步机制
 - `synthesis-map.json` —— 每篇引用的源页路径登记表,供日后的反向链接注入使用
 
 ## 与其他仓的不同
 
-这个站**季度更新**(trigger `synthesis-quarterly`,每年 1/4/7/10 月 1 日 17:00 UTC),不是日更——所以 hub 首页那张卡片显示徽章而非 commit 日期,也不纳入 `verify-routine-caps` 的浮动封顶引擎。它没有 `publish.sh` 闸门、没有 `.maxchars`,页尾的共享脚本硬写在页面里(与 `deep-research` 同样处理)。
+这个站由**本地 routine 周更**(`~/.claude/scheduled-tasks/weekly-synthesis/SKILL.md`,每周四 09:00 本地时间),和 `deep-research` 同一套机制——**不是云端 trigger**。写作规则全在那份 SKILL.md 里,仓内不放第二份。
 
-**routine 读源页只能 `git clone` GitHub 源仓**——云端沙箱访问 `hub.cissychen.com` 整站 403,渲染后的页面这条路走不通;实测记录见 `ROUTINE-NOTES.md`。
+为什么必须本地跑:合成文的前提是**真读了源页**,而云端沙箱访问 `hub.cissychen.com` 整站 403、`api.github.com` 也被挡;本地才能直接读 `~/Desktop/repos/` 下的各个源仓。
+
+它不是日更,所以 hub 首页那张卡片显示徽章而非 commit 日期,也不纳入 `verify-routine-caps` 的浮动封顶引擎。没有 `publish.sh` 闸门、没有 `.maxchars`,页尾的共享脚本硬写在页面里(与 `deep-research` 同样处理)。
 
 搜索索引由 hub 仓的 `build-search.yml` 覆盖(本仓在它的 clone 循环里);hub 首页的入口卡片在 `generate_hub.py` 的 `SYNTHESIS_CARDS`,是整个站一张卡,加新文章不用动它。

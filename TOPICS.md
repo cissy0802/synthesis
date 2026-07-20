@@ -38,8 +38,9 @@ Hub 层的季度长文路线图。**这条线的目的是把存量变成网络,�
 - hub 首页的卡片入口在 `generate_hub.py` 的 `SYNTHESIS_CARDS`,是**整个站一张卡**,加新文章不用动它
 
 **为什么独立成仓**(2026-07,写完 Syn 1 后迁出):原计划放 hub 仓根目录,实操下来发现 hub 根目录的手写长文落在所有自动化路径之外——导航链接槽、sitemap、搜索索引三处都得手工补,而且 `blog-pipeline` 因此**从来没有被搜索索引过**。分界线是:**一次性的东西留在 hub 根目录(blog-pipeline),成系列的东西开仓。**
-- **由云端 routine 季度生成**(trigger `synthesis-quarterly`,每年 1/4/7/10 月 1 日 17:00 UTC)。执行规范见仓根 `ENGINE.md`——改写作规则改那份,不用动 trigger
+- **由本地 routine 周更生成**(`~/.claude/scheduled-tasks/weekly-synthesis/SKILL.md`,每周四 09:00 本地时间,与 `weekly-deep-research` 同一套机制)。**改写作规则改那份 SKILL.md**
   (原计划「暂不做 routine、先手写 3–4 篇」已于 2026-07 推翻:Syn 1 手写完即开 routine)
+- **必须本地跑,不能改成云端 routine**:云端沙箱访问 `hub.cissychen.com` 整站 403、`api.github.com` 也被挡,读不到线上页面;本地才能直接读 `~/Desktop/repos/` 下的源仓,而「真读了源页」是这条内容线成立的前提
 - **routine 不许自己发明选题**:只能挑本文件里编号最小、且还没写的一条;写完全部条目就停下发 PushNotification 请求补充,**绝不自造主题**
 - **routine 不许改本文件**。新条目由 BigCat 补充
 - **合成文是活的**:源站继续更新时,已发布的合成文可以增补新的一节(如 physics 补上拓扑物态后,Syn 16 才补齐)
