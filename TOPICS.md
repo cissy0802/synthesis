@@ -47,7 +47,7 @@ Hub 层的长文路线图。**这条线的目的是把存量变成网络,而不�
 - **必须本地跑,不能改成云端 routine**:云端沙箱访问 `hub.cissychen.com` 整站 403、`api.github.com` 也被挡,读不到线上页面;本地才能直接读 `~/Desktop/repos/` 下的源仓,而「真读了源页」是这条内容线成立的前提
 - **routine 不许自己发明选题**:只能挑本文件里编号最小、且还没写的一条;写完全部条目就停下发 PushNotification 请求补充,**绝不自造主题**
 - **routine 不许改本文件**。新条目由 BigCat 补充
-- **合成文是活的**:源站继续更新时,已发布的合成文可以增补新的一节(如 physics 补上拓扑物态后,Syn 16 才补齐)
+- **合成文是活的**:源站继续更新时,已发布的合成文可以增补新的一节(如 physics 补上拓扑物态后,Syn 17 才补齐)
 
 ---
 
@@ -63,74 +63,82 @@ Hub 层的长文路线图。**这条线的目的是把存量变成网络,而不�
 - 未用上的备选源:`book-recommendations/time-many-faces-book29`(时间的多副面孔)——写时觉得与 Read 18 重合过多,留给日后增补
 - 后记:初稿把重心压在断裂点上,读起来像挑错;2026-07 重写为「先讲共通点与它换来了什么,边界服务于共通点」。这条经验已写进本文件的选题标准与 `weekly-synthesis` 的 SKILL.md。
 
+### Syn 2. 进化博弈:同一副底牌,三种文明 〔B〕 ✅ 2026-07
+- 页面:`evolutionary-game.html` × zh/en · <https://hub.cissychen.com/synthesis/evolutionary-game.html>
+- 共通点:进化给所有人类社会发了**同一副底牌**——亲缘利他(汉密尔顿 `rB>C`)、互惠利他、以牙还牙、群体边界;差别在于不同环境把不同的牌推到主位。三种文明回答的是同一道题:「如何让一群携带自私基因的灵长类合作」。
+- 承重:差序格局=亲缘利他制度化(费孝通的涟漪≈Hamilton 公式的社会学翻译);契约/法治=让 tit-for-tat 在陌生人社会运转的基础设施;种姓=固化群体边界降低搜寻成本;而各自的哲学是给已运行的操作系统写说明书。价值在翻译——一个文明的制度创新可被另一个直接提货。
+- 边界(三条):① 进化博弈解释约束不解释选择(宋代有一切物质前提却没走向工业革命);② 文化传播是水平的、比基因遗传快几个数量级,速度常数变了;③「同一道题」只抓底层,每种文明的上层建筑远比底层丰富。
+- 源页:9 篇 / 6 站 —— `deep-reading/selfish-gene-read2`、`from-the-soil-read21`、`guns-germs-steel-read4` · `mental-models/game-cooperation-day28`、`ecology-evolution-day18` · `psychology/evolutionary-psychology-day32` · `philosophy/indian-darshanas-day33` · `thinker-arena` 圆桌:`geography-shapes-thought`、`east-west-philosophy`
+- 与原路线图的关系:本篇不在原 17 篇清单内;写作后占用 Syn 2,原「合作的演化」顺延为 Syn 3,其后各篇依次 +1。
+
 ## 第一梯队(材料厚 + 钩子锋利)
 
-- **Syn 2: 合作的演化** 〔A/C〕— 「为什么会有合作?」四套**互不相容**的答案:演化生物学算基因的账(汉密尔顿 `rB>C`)、博弈论算重复的账(Axelrod 的 tit-for-tat)、国际关系算可信承诺的账、佛学**拒绝算账**(菩萨道不图回报)。前三套用「其实是自利」消解利他,第四套掀桌子。收尾落在自然主义谬误。
+- **Syn 3: 合作的演化** 〔A/C〕— 「为什么会有合作?」四套**互不相容**的答案:演化生物学算基因的账(汉密尔顿 `rB>C`)、博弈论算重复的账(Axelrod 的 tit-for-tat)、国际关系算可信承诺的账、佛学**拒绝算账**(菩萨道不图回报)。前三套用「其实是自利」消解利他,第四套掀桌子。收尾落在自然主义谬误。
   源:`mental-models/game-cooperation-day28`(博弈 60 / 合作 21)、`strategy-day04`、`evolutionary-psychology-day53` · `meta-knowledge/game-theory-day11`(40)、`trust-cooperation-day58`(26)、`evolutionary-biology-day4` · `deep-reading/selfish-gene-read2`(合作 28 / 选择层级 15) · `civics-geopolitics/war-and-peace-rules-day13`(可信承诺 13)、`great-power-rivalry-day10` · `buddhism/bodhisattva-day11`(利他 21) · `leadership/office-politics-day6`(19) · `philosophy/individual-society-day15`、`ethics-virtue-day5` · `psychology/evolutionary-psychology-day32` · `sales/trust-currency-day2`(信任作为昂贵信号)
   待补:book-recommendations Issue 62《博弈论与合作的演化》发布后再加一节书单锚点
 
-- **Syn 3: 自我,与无我** 〔B〕— 全站最惊人的一次东西方收敛:佛学两千年前说「无我」,神经科学从**注意图式理论**走到几乎同一结论——自我是大脑造的一个模型、一个有用的失真。**但别让收敛太便宜**:佛学的无我是修行结论(看破我执为离苦),神经科学的自我模型是价值中立的机制描述;把 AST 当成「科学证实了佛陀」是廉价的胜利。收尾落在意识难题——两条路都没解决「为什么会有主观体验」。
+- **Syn 4: 自我,与无我** 〔B〕— 全站最惊人的一次东西方收敛:佛学两千年前说「无我」,神经科学从**注意图式理论**走到几乎同一结论——自我是大脑造的一个模型、一个有用的失真。**但别让收敛太便宜**:佛学的无我是修行结论(看破我执为离苦),神经科学的自我模型是价值中立的机制描述;把 AST 当成「科学证实了佛陀」是廉价的胜利。收尾落在意识难题——两条路都没解决「为什么会有主观体验」。
   源:`buddhism/dialogue-day31`(无我 35)、`lankavatara-day17`、`yogacara-day3`、`mysticism-day36` · `neuroscience/self-model-topic12`(注意图式)、`global-workspace-topic13`、`hard-problem-topic10`、`neural-correlates-topic11` · `philosophy/free-will-day3`(无我 16)、`life-death-day6`(人格同一性)、`consciousness-awareness-day25`、`existence-day1` · `psychology/consciousness-day24` · `book-recommendations/mind-machine-book9` · `deep-reading/being-you-read20`
   已知缺腿:**AI 那条**(「LLM 有没有自我」)几乎无材料,仅 `cs-papers-deepread/constitutional-ai-paper15` 沾边
 
-- **Syn 4: 注意力** 〔A〕— 词从心理学 → 机器学习 → 经济学**旅行了三轮**,三套机制毫无关系:Transformer 的 QK 点积、丘脑的选择性门控、作为稀缺资源被交易的注意力。
+- **Syn 5: 注意力** 〔A〕— 词从心理学 → 机器学习 → 经济学**旅行了三轮**,三套机制毫无关系:Transformer 的 QK 点积、丘脑的选择性门控、作为稀缺资源被交易的注意力。
   源:`ai-ml`(8 页,注意力机制) · `neuroscience/attention-topic2` · `super-individual`(5 页,注意力经济) · `cs-papers-deepread`(2 页) · `mental-models` · `philosophy`(专注)
 
-- **Syn 5: 记忆** 〔A/B〕— 「模型记忆」和「人的记忆」是不是同一回事?LLM 的 context window ≠ 记忆,参数里的也不是——这个混淆在产品设计上代价很大。
+- **Syn 6: 记忆** 〔A/B〕— 「模型记忆」和「人的记忆」是不是同一回事?LLM 的 context window ≠ 记忆,参数里的也不是——这个混淆在产品设计上代价很大。
   源:`neuroscience/long-term-memory-topic4`、`working-memory-topic3` · `ai-ml`(8 页) · `meta-knowledge`(间隔重复) · `mental-models`(6 页) · `super-individual`(6 页,agent 记忆工程) · `book-recommendations`(7 页)
 
-- **Syn 6: 因果** 〔C〕— 史学家、流行病学家、ML 工程师说「因果」时,**要求的证据标准差三个数量级**。
+- **Syn 7: 因果** 〔C〕— 史学家、流行病学家、ML 工程师说「因果」时,**要求的证据标准差三个数量级**。
   源:`history`(23 页,史学因果) · `health-longevity`(混杂与 RCT) · `ai-ml`(相关≠因果) · `meta-knowledge`(Pearl 因果阶梯) · `mathematics`
   待补:meta-knowledge Day 67「因果推断」发布后作为主锚
 
 ## 第二梯队(成立,材料够)
 
-- **Syn 7: 复利** 〔A〕— 断裂:金融复利有**再投资**这个物理机制;「技能复利」「人脉复利」只是激励隐喻,没有对应机制。
+- **Syn 8: 复利** 〔A〕— 断裂:金融复利有**再投资**这个物理机制;「技能复利」「人脉复利」只是激励隐喻,没有对应机制。
   源:`investing`(17 页) · `personal-finance` · `leadership` · `writing` · `mental-models`
 
-- **Syn 8: 睡眠** 〔B〕— B 类范本:同一件事的生理 / 认知 / 发育 / 行为四层透镜。
+- **Syn 9: 睡眠** 〔B〕— B 类范本:同一件事的生理 / 认知 / 发育 / 行为四层透镜。
   源:`health-longevity`(21 页,含 `sleep-day3`) · `neuroscience`(记忆巩固) · `psychology` · `parenting` · `mental-models`
 
-- **Syn 9: 死亡与有限性** 〔B〕— 科学延长它、佛学接受它、哲学追问它——三种回应同一个事实。
+- **Syn 10: 死亡与有限性** 〔B〕— 科学延长它、佛学接受它、哲学追问它——三种回应同一个事实。
   源:`health-longevity`(衰老生物学 5 页) · `buddhism`(无常) · `philosophy/life-death-day6` · `deep-reading` · `book-recommendations`
 
-- **Syn 10: 苦 / 疼痛** 〔B〕— 「苦」(dukkha)和「pain」在翻译层就不是一回事:一个是生理信号,一个是存在论判断。
+- **Syn 11: 苦 / 疼痛** 〔B〕— 「苦」(dukkha)和「pain」在翻译层就不是一回事:一个是生理信号,一个是存在论判断。
   源:`buddhism`(11 页,苦谛) · `health-longevity`(疼痛生理) · `psychology`(慢性痛与情绪) · `philosophy` · `mental-models` · `deep-reading`
 
-- **Syn 11: 幂律与长尾** 〔A〕— 断裂:大量被声称的「幂律」其实是对数正态,**误判会毁掉风险模型**。
+- **Syn 12: 幂律与长尾** 〔A〕— 断裂:大量被声称的「幂律」其实是对数正态,**误判会毁掉风险模型**。
   源:`mental-models`(6 页) · `ai-ml`(scaling law) · `investing`(尾部风险) · `cs-papers-deepread` · `mathematics` · `meta-knowledge`
 
-- **Syn 12: 叙事** 〔B〕— 同一个工具:被用来写作、被用来构建自我、被用来给公司定价。
+- **Syn 13: 叙事** 〔B〕— 同一个工具:被用来写作、被用来构建自我、被用来给公司定价。
   源:`writing`(22 页,技艺) · `book-recommendations`(16 页) · `investing`(故事驱动估值 9 页) · `psychology`(叙事身份) · `biographies` · `art-aesthetics`
 
 ## 第三梯队(成立但更窄,或需等材料长出来)
 
-- **Syn 13: 免疫** 〔A〕— 「认知免疫 / 思想接种」这个借喻,借得有多准确?生物免疫有记忆细胞和特异性,认知接种有对应物吗?
+- **Syn 14: 免疫** 〔A〕— 「认知免疫 / 思想接种」这个借喻,借得有多准确?生物免疫有记忆细胞和特异性,认知接种有对应物吗?
   源:`health-longevity`(6 页) · `meta-knowledge`(6 页,接种理论) · `psychology` · `deep-reading`
 
-- **Syn 14: 情绪** 〔B〕— 建构论(情绪是被造出来的)vs 基本情绪论,以及审美情绪为何被排除在心理学之外。
+- **Syn 15: 情绪** 〔B〕— 建构论(情绪是被造出来的)vs 基本情绪论,以及审美情绪为何被排除在心理学之外。
   源:`psychology`(25 页) · `neuroscience/emotion-construction-topic8` · `parenting`(19 页) · `art-aesthetics`(18 页) · `leadership`
 
-- **Syn 15: 临界与相变** 〔A〕— 材料最多(14 站)但**必须收窄**,否则写散。锁定四条腿即可:物理相变 / 历史革命 / 系统过载崩溃 / 疾病阈值。
+- **Syn 16: 临界与相变** 〔A〕— 材料最多(14 站)但**必须收窄**,否则写散。锁定四条腿即可:物理相变 / 历史革命 / 系统过载崩溃 / 疾病阈值。
   源:`physics` · `history` · `system-design` · `health-longevity` · `mental-models`(tipping point)
 
-- **Syn 16: 拓扑** 〔A〕— 亮点:`neuroscience` 的**视网膜拓扑映射(retinotopy)是拓扑的字面实现**——大脑真的在跑连续映射;而 `system-design` 的「网络拓扑」是完美的断裂案例:词旅行了,「连续形变下的不变量」那套推理一点没跟过来。
+- **Syn 17: 拓扑** 〔A〕— 亮点:`neuroscience` 的**视网膜拓扑映射(retinotopy)是拓扑的字面实现**——大脑真的在跑连续映射;而 `system-design` 的「网络拓扑」是完美的断裂案例:词旅行了,「连续形变下的不变量」那套推理一点没跟过来。
   源:`mathematics/topology-day9`(26)、`graph-theory-day8` · `meta-knowledge/topology-day62`(48) · `mental-models/mathematical-structures-day67` · `neuroscience/ref-visual-pathway` · `system-design/cdn-edge-day28`
   **等材料**:physics 的拓扑物态(2016 诺奖那条线)尚未写,最硬的一条腿现在缺席。建议 physics TOPICS 补一行后再动笔
   **顺带发现**:`mathematics/topology-day9` 与 `meta-knowledge/topology-day62` 角度高度重合(都是「拓扑直觉科普」)——cross-ref-sync 只防 ai-ml↔super-individual,没人防这一对
 
-- **Syn 17: 自由意志** 〔B〕— 甜区但材料偏薄(6 站/9 页)。与 Syn 3 有重叠(`philosophy/free-will-day3` 两边都用),写时需明确分工:Syn 3 问「谁在做决定」,本篇问「这个决定是不是自由的」。
+- **Syn 18: 自由意志** 〔B〕— 甜区但材料偏薄(6 站/9 页)。与 Syn 4 有重叠(`philosophy/free-will-day3` 两边都用),写时需明确分工:Syn 4 问「谁在做决定」,本篇问「这个决定是不是自由的」。
   源:`physics`(决定论) · `philosophy/free-will-day3` · `neuroscience` · `deep-reading` · `super-individual`
 
 ---
 
 ## 已评估但不收录(记下来免得重复讨论)
 
-- **信任与合作** —— 与 Syn 2 重叠过多(`meta-knowledge/trust-cooperation-day58` 是两者共同主锚),已并入 Syn 2
+- **信任与合作** —— 与 Syn 3 重叠过多(`meta-knowledge/trust-cooperation-day58` 是两者共同主锚),已并入 Syn 3
 - **风险 / 不确定性**(18 站)、**决策**(21 站)、**稀缺**(12 站) —— 覆盖太广,不满足甜区门槛,写出来必然是浆糊
 - **涌现**(10 站)、**贝叶斯**(11 站)、**非线性 / 混沌**(10 站) —— 略超甜区,若日后收窄到 4–6 条腿可重新考虑
 - **美 / 审美**(5 站/9 页)、**群体与集体**(8 站/16 页) —— 甜区但材料偏薄,待存量增长
-- **学习 / 技能**、**记忆巩固**单列 —— 已被 Syn 5 覆盖
+- **学习 / 技能**、**记忆巩固**单列 —— 已被 Syn 6 覆盖
 
 ## 扫描方法备忘(下次找选题时复用)
 

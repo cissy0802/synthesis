@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evolutionary Games: One Hand, Three Civilizations · Synthesis Syn 2</title>
+<meta name="description" content="Evolution dealt every human society the same hand — kin altruism, reciprocal altruism, tit-for-tat. Different environments pushed different cards to the front. The differential order, the rule of law, caste segregation: three stable equilibria. Philosophy is the theory a system writes for the OS it already runs.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"SF Pro Display","Noto Serif SC","Songti SC",serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0a0e1a 100%);color:#e4e6eb;line-height:1.95;min-height:100vh}
+.container{max-width:780px;margin:0 auto;padding:48px 24px 80px}
+.lang-toggle{position:fixed;top:18px;right:18px;background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:5px;display:flex;z-index:100;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem}
+.lang-toggle a{padding:5px 12px;border-radius:14px;color:#a0a8c0;text-decoration:none;transition:all 0.15s}
+.lang-toggle a.active{background:#7b61ff;color:#fff;font-weight:700}
+.lang-toggle a:not(.active):hover{background:rgba(255,255,255,0.08);color:#fff}
+header{text-align:center;padding:40px 0 8px}
+header .kicker{font-size:0.78rem;color:#7b61ff;letter-spacing:2px;text-transform:uppercase;font-family:"SF Mono",Menlo,monospace;margin-bottom:14px}
+header h1{font-size:1.9rem;font-weight:800;line-height:1.5;background:linear-gradient(135deg,#00d4ff 0%,#7b61ff 50%,#ff6ec4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+header .meta{font-size:0.82rem;color:#6a7080;font-family:"SF Mono",Menlo,monospace}
+.lede{margin:32px 0 8px;padding:18px 22px;background:rgba(123,97,255,0.08);border-left:3px solid #7b61ff;border-radius:0 10px 10px 0;color:#c9cede;font-size:0.98rem}
+h2{font-size:1.35rem;font-weight:700;color:#fff;margin:52px 0 18px;padding-left:14px;border-left:4px solid #7b61ff;line-height:1.5}
+h3{font-size:1.05rem;font-weight:700;color:#c4b8ff;margin:32px 0 10px}
+p{margin:14px 0;color:#c9cede}
+strong{color:#fff}
+a{color:#7b61ff;text-decoration:none}
+a:hover{color:#00d4ff}
+ul,ol{margin:14px 0 14px 1.6em;color:#c9cede}
+li{margin:7px 0}
+code{font-family:"SF Mono",Menlo,monospace;font-size:0.86em;background:rgba(0,212,255,0.1);color:#7dd8f0;padding:1px 6px;border-radius:5px}
+pre{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px;overflow-x:auto;margin:18px 0;font-family:"SF Mono",Menlo,monospace;font-size:0.76rem;line-height:1.6;color:#a8d8e8}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);border-left:3px solid #00d4ff;border-radius:0 10px 10px 0;color:#a8b0c0;font-size:0.92rem}
+.principle{margin:14px 0;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px}
+.principle b{color:#00d4ff}
+.source{margin:16px 0;padding:11px 16px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.14);border-radius:9px;font-size:0.85rem;color:#8fa5b8;font-family:"SF Mono",Menlo,monospace}
+.source b{color:#7dd8f0;font-weight:600}
+.source a{color:#7dd8f0}
+.source a:hover{color:#fff}
+footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
+footer a{color:#7b61ff}
+@media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<div class="lang-toggle">
+  <a href="evolutionary-game.html">中文</a>
+  <a href="evolutionary-game.en.html" class="active">EN</a>
+</div>
+<div class="container">
+<header>
+  <div class="kicker">// Synthesis · Syn 2</div>
+  <h1>Evolutionary Games: One Hand, Three Civilizations</h1>
+  <div class="meta">BigCat · 2026-07 · Cross-Site Synthesis</div>
+</header>
+
+<div class="lede">
+In this Hub, "evolutionary games" gets touched in at least six different ways. The Selfish Gene derives kin altruism and reciprocal altruism from the gene's point of view; game theory turns the conditions for cooperation into a formula; Guns, Germs and Steel says geography decided who was dealt the good cards first; From the Soil describes an order grown out of blood ties; the six schools of Indian philosophy pronounce the whole game an illusion; and three roundtable debates ask how geography, language and philosophical traditions split one species into different civilizations.<br><br>
+Here is the interesting part: evolution dealt every human society the same hand — kin altruism, reciprocal altruism, tit-for-tat, group boundaries. What differs is which card each environment pushed to the front. And a civilization — its institutions, its ethics, its philosophy — is what grows out of the card that got pushed forward.
+</div>
+
+<h2>1. The hand everyone holds</h2>
+
+<p>The difference between evolutionary game theory and ordinary game theory is worth stating first. Nash equilibrium assumes every player is rational and picks the strategy best for themselves. Evolutionary game theory drops that assumption — it says: rational or not, the strategy that survives and gets copied is the winner. Genes don't compute payoff matrices, but given enough time the surviving behavior patterns often match what rational calculation would produce — not because they're thinking, but because everyone who didn't behave that way died.</p>
+
+<p>There are four cards.</p>
+
+<p><strong>Kin selection.</strong> Hamilton's rule <code>rB > C</code> — altruism is retained by natural selection when relatedness r, times the benefit B to the recipient, exceeds the cost C to yourself. "Affection has a discount rate, and the discount rate is relatedness." Hymenoptera workers are sterile because sisters share r = 3/4, making it more profitable to help the mother reproduce than to reproduce yourself.</p>
+
+<p><strong>Reciprocal altruism.</strong> Cooperation among non-kin, on the conditions that interactions repeat, memory exists, and the cost of helping is low relative to the benefit received. Vampire bats regurgitate blood to hungry companions in expectation of future return.</p>
+
+<p><strong>Tit-for-tat.</strong> Axelrod's computer tournaments repeatedly proved it: be nice first, retaliate against defection, forgive once the other reforms, stay predictable — these four principles beat every complex strategy in repeated games. "A non-moral, hard-core explanation for why the world hasn't collapsed into pure predation: cooperation pays because games repeat and memory makes betrayal costly."</p>
+
+<p><strong>Evolutionarily stable strategy (ESS).</strong> The Hawk-Dove game shows evolution doesn't settle at the group optimum but at the point no one can profitably deviate from. "Don't ask what's best for everyone; ask what's stable."</p>
+
+<p>These four cards are humanity's shared factory settings. Evolutionary psychology supplies brain-scan-level evidence: favoring the close over the distant, tit-for-tat, anger at free-riders — these moral intuitions are cross-culturally universal because they are modules preinstalled by natural selection, not products of upbringing. The divergence isn't in the hand; it's in which card the environment pushed to the front.</p>
+
+<div class="source"><b>Sources →</b> Full derivation of kin selection (Hamilton's rule, hymenoptera check, green-beard effect), reciprocal altruism (Trivers, vampire bats), ESS (Hawk-Dove), tit-for-tat (Axelrod's tournaments), the group-selection debate, meme theory: <a href="/deep-reading/selfish-gene-read2.en.html">Deep Reading · The Selfish Gene (Read 2)</a> · The four tit-for-tat principles, repeated games and the Folk Theorem, spontaneous WWI-trench cooperation: <a href="/mental-models/game-cooperation-day28.en.html">Mental Models · Game Theory & Cooperation (Day 28)</a> · The evolutionary preinstalling of moral intuition, evolutionary mismatch, gene-culture coevolution: <a href="/psychology/evolutionary-psychology-day32.en.html">Psychology · Evolutionary Psychology (Day 32)</a></div>
+
+<h2>2. China: the civilization of kin altruism</h2>
+
+<p>The differential mode of association (<em>chaxu geju</em>) that Fei Xiaotong describes in From the Soil is, through the lens of evolutionary games, kin altruism institutionalized at civilizational scale.</p>
+
+<p>Its core is that a person's social relations are like ripples from a stone dropped in water: they radiate outward from the self, fading with distance. Moral obligation declines with distance — one standard for parents, another for kin, another again for strangers. This is not a metaphor; it is Hamilton's rule rendered sociologically: the intensity of investment declines with relatedness r. Fei's ripple and Hamilton's formula independently describe the same thing — care has a radius, and the radius is set by closeness.</p>
+
+<p>In this system "renqing" (human feeling / social debt) is essentially structured reciprocal altruism: the debt is deliberately never settled — settle it and the relationship ends. It is structurally designed so you cannot exit the cooperative game. And "li" (ritual) — the rule governing village order — is an evolutionarily stable strategy: not the group optimum, but stable because no one can profit by unilaterally deviating. Elders enforce it not through state power but through tradition internalized as instinct.</p>
+
+<p>The contrast with the West is what Fei calls the "organizational mode" — bounded groups (church, guild, corporation, nation) inside which uniform rules apply. China's differential order refuses this universalism — morality is always relative to the relationship. "Which rules apply depends on how far you are from my center." The root of this divide is visible at the evolutionary level: whether a society organizes cooperation mainly through blood ties or mainly through contracts among strangers will necessarily grow different moral philosophies.</p>
+
+<div class="source"><b>Sources →</b> Full account of the differential mode, contrast with the organizational mode, the structural function of renqing and face, the divide between rule-by-ritual and rule-by-law: <a href="/deep-reading/from-the-soil-read21.en.html">Deep Reading · From the Soil (Read 21)</a></div>
+
+<h2>3. The West: reciprocal altruism institutionalized</h2>
+
+<p>If the operating system of Chinese civilization is kin altruism, the operating system of Western civilization is reciprocal altruism.</p>
+
+<p>The key difference is the precondition for cooperation. Kin altruism needs no institution — blood ties are the collateral. Reciprocal altruism needs to solve a problem: how do strangers build trust? The answer is institutions — law, contract, property rights, an independent judiciary. For tit-for-tat to run in a large society of strangers, defection must be detectable, punishment enforceable, and the game genuinely repeated. Each requires institutions to guarantee it.</p>
+
+<p>Several forces pushed this path to the front. First, ecology. In the roundtable debate Nisbett supplies experimental evidence: rice farming requires collective water management, breeding holistic thinking and reliance on kin networks; wheat farming is individual plots, breeding analytic thinking and stranger-to-stranger trade. Ecology decided which mode of cooperation got selected first — wheat-region farmers faced the question "how do I cooperate with non-kin" earlier and more often.</p>
+
+<p>Second, the war-and-taxation game. Dense warfare forced the capacity to tax, and taxation in turn forced accountability — "you can have the money, but let us have a say in how it's spent." Parliaments, budget powers, representation grew out of this repeated game. The tit-for-tat logic is plain: taxpayers cooperate (pay) on condition the state cooperates (permits oversight); either side's defection triggers retaliation.</p>
+
+<p>Third, the independent force of ideas. Weber's argument, raised again and again in the geography-shapes-thought debate: the Protestant ethic bred the spirit of capitalism. The same material conditions, paired with different ideas, run to entirely different histories. Song-dynasty China had every material precondition for capitalism and did not produce an industrial revolution — something pure environmental determinism cannot explain. Evolutionary games explain why certain strategies can survive, but not why certain strategies went uninvented in certain places.</p>
+
+<div class="source"><b>Sources →</b> Experimental evidence linking rice/wheat to cognitive style, Diamond's geographic determinism and Weber's rebuttal, Ibn Khaldun's asabiyya cycles: <a href="/thinker-arena/debate.en.html?d=geography-shapes-thought">Roundtable · Did geography shape thought?</a> · The philosophical divide of "the East seeks the Way within, the West seeks principle without," the measurability of Nisbett's holistic/analytic split: <a href="/thinker-arena/debate.en.html?d=east-west-philosophy">Roundtable · Eastern and Western Philosophy</a></div>
+
+<h2>4. India: transcending the game itself</h2>
+
+<p>If China built a civilization on the board of kin altruism and the West built another on the board of reciprocal altruism, India did a third thing: some kept playing the game (the caste system) while others tried to quit the game itself (the renunciant traditions).</p>
+
+<p>Caste is the extreme freezing of group boundaries. Varna and jati split society into unmovable strata; each stratum cooperates internally while interaction across strata is strictly limited. It answers "how do strangers cooperate" in a particular way: they don't. Each caste is a closed cooperative circle, and between circles there is only rank, no reciprocity. This differs from the West's organizational mode — Western boundaries are joinable (conversion, naturalization); caste boundaries are inborn and uncrossable. The Indian subcontinent's extreme ecological diversity — from Himalayan snowline to Keralan rainforest — made different groups' survival strategies so divergent that group boundaries were reinforced rather than dissolved.</p>
+
+<p>And Indian philosophy's most radical contribution is the denial of the game itself. Shankara's Advaita Vedanta — "only Brahman is real, the world is maya" — pronounces the entire competitive-and-cooperative evolutionary game to be illusion. Nagarjuna's Madhyamaka uses "emptiness" to dismantle all views of inherent essence, taking apart even the premise that "a game exists." This is not choosing a different strategy within the game; it is refusing to concede that the table is there.</p>
+
+<p>Through the evolutionary lens, the renunciant tradition is itself a strategy — only the arena has switched from genes to memes. The monastic institutions of Buddhism and Jainism let some people exit the reproductive game and pour all their energy into propagating ideas. Dawkins's meme theory explains why such "anti-gene" behavior can survive and spread: at the gene level it is a dead end, at the meme level it is an instrument of transmission. The celibate leaves no offspring yet trains believers across all of Asia — the meme's replicative success bypasses the gene's constraint.</p>
+
+<div class="source"><b>Sources →</b> Samkhya's purusa/prakriti dualism, Vedanta's non-dual Brahman-self and the doctrine of maya, Yoga's methodology of liberation: <a href="/philosophy/indian-darshanas-day33.en.html">Philosophy · The Six Schools of Indian Philosophy (Day 33)</a> · The full argument and limits of meme theory (Darwinian transmission of cultural replicators): <a href="/deep-reading/selfish-gene-read2.en.html">Deep Reading · The Selfish Gene (Read 2)</a></div>
+
+<h2>5. Who dealt the cards</h2>
+
+<p>Same four cards, different play. Diamond's answer is the most thoroughgoing: geography dealt the cards.</p>
+
+<p>Continental axes decided whether technology and crops could spread — the east-west axis of Eurasia allowed diffusion along the same latitude; the north-south axes of the Americas and Africa blocked it. Domesticable plants and animals were unevenly distributed, and the crowd diseases Eurasians co-evolved with ultimately wiped out ~95% of Native Americans — a group-level Red Queen effect, a gene-pathogen arms race cashed out at civilizational scale.</p>
+
+<p>These seemingly game-irrelevant material conditions actually set the payoff matrix: population density set the frequency of encountering strangers, the scale of surplus set the possibility of trade, terrain set the cost of war. Dense irrigation agriculture (rice) rewards kin networks and collective action — kin altruism gets pushed to the front. Dryland agriculture (wheat) suits independent operation, and stranger-to-stranger trade is more frequent — reciprocal altruism gets pushed to the front. Extreme ecological diversity (the subcontinent) made different groups' survival strategies so divergent that group boundaries were reinforced.</p>
+
+<p>But geography is not fate. Nisbett's most important piece of evidence in the debate points to plasticity: prime a subject with another culture's cues and their holistic/analytic thinking switches on the spot, right there in the lab. "Thinking style is a default setting installed by ecology and culture — and defaults can be changed." Geography set the initial conditions, but once culture starts running it has its own evolutionary speed, far faster than genes.</p>
+
+<div class="source"><b>Sources →</b> Continental axes and the Anna Karenina principle, the civilizational-scale consequences of domestication and disease: <a href="/deep-reading/guns-germs-steel-read4.en.html">Deep Reading · Guns, Germs and Steel (Read 4)</a> · The Red Queen effect, niche construction, symbiosis vs. competition: <a href="/mental-models/ecology-evolution-day18.en.html">Mental Models · Ecology & Evolution (Day 18)</a></div>
+
+<h2>6. Why it's the same thing</h2>
+
+<p>Put the three paths side by side and the most important finding is not the difference but the relatedness.</p>
+
+<p>All three civilizations answer the same question: <strong>how do you get a troop of primates carrying selfish genes to cooperate?</strong> This question wasn't dreamed up by a philosopher in an armchair; it was forced by natural selection — groups that failed to cooperate were eliminated in the competition for resources.</p>
+
+<p>The differential order, contract society, caste segregation are, respectively, the institutionalizations of the three cards: kin altruism, reciprocal altruism, group boundaries. And each philosophical tradition — the Confucian "ren" radiating outward and thinning by degrees, the West's egalitarian premise of universal human rights, India's "Brahman-self unity" transcending the entire world of difference — is the theorization of its own social operating system. Philosophy doesn't grow out of nowhere; it writes the manual for a system already running.</p>
+
+<div class="principle"><b>The practical value of this view is translation.</b> An institutional innovation one civilization built at great cost can be translated into a language another civilization understands. "The rule of law in the West," in evolutionary-game translation, is "infrastructure that lets reciprocal altruism run in a large society of strangers." "China's relationship culture" is "the institutional arrangement extending kin altruism from blood ties to blood-like networks." "India's caste" is "lowering the search cost of cooperation by freezing group boundaries, at the price of mobility." Translation is not for ranking; it is so that a problem already solved in one tradition can be picked up directly by another — as the last essay said, the whole reason cross-disciplinary connection is worth doing is that it saves the cost of reinventing.</div>
+
+<p>Evolutionary psychology supplies the underlying thread here: human moral intuitions — favoring the close over the distant, tit-for-tat, anger at free-riders — are cross-culturally universal evolutionary preinstalls. Different civilizations are not painting on a blank canvas; they installed different operating systems on the same factory settings. "Your double standard for insiders and outsiders is an evolutionary default — not to be eliminated but to have its radius of insiders consciously widened. Moral growth is often widening the radius of care." The three civilizations widen the radius differently: Confucianism by extending from oneself outward, the West by universal legislation, Buddhism by dissolving the boundary itself through "all beings are equal."</p>
+
+<div style="overflow-x:auto;margin:24px 0">
+<svg viewBox="0 0 720 530" width="100%" style="min-width:600px;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC','Noto Sans SC',sans-serif">
+<defs>
+<marker id="dn" markerWidth="10" markerHeight="8" refX="5" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,0 L5,7 Z" fill="#6a7080"/></marker>
+</defs>
+
+<rect x="24" y="12" width="672" height="56" rx="10" fill="rgba(123,97,255,0.1)" stroke="#7b61ff" stroke-width="1.6"/>
+<text x="360" y="34" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Same hand: kin altruism · reciprocal altruism · tit-for-tat · group boundaries</text>
+<text x="360" y="56" text-anchor="middle" fill="#a99ee0" font-size="11">Humanity's shared evolutionary preinstall — the split is which card the environment pushed forward</text>
+
+<line x1="140" y1="68" x2="140" y2="96" stroke="#6a7080" stroke-width="1.3" marker-end="url(#dn)"/>
+<line x1="360" y1="68" x2="360" y2="96" stroke="#6a7080" stroke-width="1.3" marker-end="url(#dn)"/>
+<line x1="580" y1="68" x2="580" y2="96" stroke="#6a7080" stroke-width="1.3" marker-end="url(#dn)"/>
+
+<text x="140" y="90" text-anchor="middle" fill="#7a8298" font-size="10">rice · collective irrigation</text>
+<text x="360" y="90" text-anchor="middle" fill="#7a8298" font-size="10">wheat · individual plots</text>
+<text x="580" y="90" text-anchor="middle" fill="#7a8298" font-size="10">extreme ecological diversity</text>
+
+<rect x="24" y="100" width="226" height="130" rx="9" fill="rgba(255,255,255,0.04)" stroke="#00d4ff" stroke-width="1.3"/>
+<text x="137" y="124" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">China</text>
+<text x="137" y="146" text-anchor="middle" fill="#7dd8f0" font-size="11">lead card: kin altruism</text>
+<text x="137" y="168" text-anchor="middle" fill="#9aa2b8" font-size="10">institution: differential order</text>
+<text x="137" y="188" text-anchor="middle" fill="#9aa2b8" font-size="10">philosophy: ren, thinning by degree</text>
+<text x="137" y="208" text-anchor="middle" fill="#9aa2b8" font-size="10">widen radius: extend from self</text>
+
+<rect x="256" y="100" width="226" height="130" rx="9" fill="rgba(255,255,255,0.04)" stroke="#00d4ff" stroke-width="1.3"/>
+<text x="369" y="124" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">The West</text>
+<text x="369" y="146" text-anchor="middle" fill="#7dd8f0" font-size="11">lead card: reciprocal altruism</text>
+<text x="369" y="168" text-anchor="middle" fill="#9aa2b8" font-size="10">institution: contract, rule of law</text>
+<text x="369" y="188" text-anchor="middle" fill="#9aa2b8" font-size="10">philosophy: universal rights</text>
+<text x="369" y="208" text-anchor="middle" fill="#9aa2b8" font-size="10">widen radius: universal law</text>
+
+<rect x="488" y="100" width="208" height="130" rx="9" fill="rgba(255,255,255,0.04)" stroke="#00d4ff" stroke-width="1.3"/>
+<text x="592" y="124" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">India</text>
+<text x="592" y="146" text-anchor="middle" fill="#7dd8f0" font-size="11">lead: boundary + transcend</text>
+<text x="592" y="168" text-anchor="middle" fill="#9aa2b8" font-size="10">institution: caste, renunciation</text>
+<text x="592" y="188" text-anchor="middle" fill="#9aa2b8" font-size="10">philosophy: Brahman-self, emptiness</text>
+<text x="592" y="208" text-anchor="middle" fill="#9aa2b8" font-size="10">widen radius: dissolve boundary</text>
+
+<line x1="140" y1="230" x2="140" y2="260" stroke="#6a7080" stroke-width="1.3" marker-end="url(#dn)"/>
+<line x1="369" y1="230" x2="369" y2="260" stroke="#6a7080" stroke-width="1.3" marker-end="url(#dn)"/>
+<line x1="592" y1="230" x2="592" y2="260" stroke="#6a7080" stroke-width="1.3" marker-end="url(#dn)"/>
+
+<rect x="24" y="264" width="672" height="66" rx="10" fill="rgba(0,212,255,0.07)" stroke="#00d4ff" stroke-width="1.6"/>
+<text x="360" y="288" text-anchor="middle" fill="#7dd8f0" font-size="13" font-weight="700">Same question: how do you get selfish-gene primates to cooperate?</text>
+<text x="360" y="310" text-anchor="middle" fill="#c9cede" font-size="10.5">Three institutions = three ESS — not optima, but equilibria no one can profitably deviate from</text>
+<text x="360" y="322" text-anchor="middle" fill="#9aa2b8" font-size="10">Philosophy theorizes a running system · translation = picking up for free</text>
+
+<rect x="24" y="350" width="672" height="126" rx="10" fill="rgba(255,110,196,0.05)" stroke="#ff6ec4" stroke-width="1.4" stroke-dasharray="6 5"/>
+<text x="360" y="374" text-anchor="middle" fill="#ffa8dc" font-size="12.5" font-weight="700">Where the reasoning stops</text>
+<text x="44" y="400" fill="#f0d0e4" font-size="10.5">① Evolutionary games explain constraint, not choice — Song China had every precondition, no takeoff</text>
+<text x="44" y="422" fill="#f0d0e4" font-size="10.5">② Cultural transmission is horizontal, orders faster than genes — the speed constant changed</text>
+<text x="44" y="444" fill="#f0d0e4" font-size="10.5">③ "Same question" catches only the substrate — each civilization's superstructure is far richer</text>
+<text x="44" y="466" fill="#9fe0bd" font-size="10.5">One key, three locks: it opens the bottom bolt, not every door above it</text>
+
+<text x="360" y="504" text-anchor="middle" fill="#8f88b8" font-size="10" font-style="italic">testable structural analogy → predict　　analytic frame → translate　　civilizational ranking → discard</text>
+<text x="360" y="522" text-anchor="middle" fill="#6a7080" font-size="10">Syn 2 · Evolutionary Games · BigCat's Learning Hub</text>
+</svg>
+</div>
+
+<h2>7. Where the reasoning stops</h2>
+
+<p>As in the last essay, what you borrow you must pay back. Evolutionary game theory as a lens for civilizational analysis has three clear boundaries.</p>
+
+<p><strong>First, evolutionary games explain constraint, not choice.</strong> They can tell you which strategies survive in a given environment, but not why a civilization chose this feasible strategy over that one. Song-dynasty China met every material precondition and did not move toward an industrial revolution — evolutionary games say "this doesn't violate my prediction," but they didn't predict it either. Constraint and behavior are two different things. Weber remains powerful in the debate precisely because he pointed to the independent force of ideas — on the same payoff matrix, different cultures can select different equilibria.</p>
+
+<p><strong>Second, a civilization is not a species, and cultural transmission is not genetic inheritance.</strong> Genetic inheritance is vertical (parent to offspring); cultural transmission is horizontal (copied among contemporaries). This means the "variation-selection-inheritance" loop of culture is far faster than biological evolution, more directional, and more easily altered on purpose by individuals. Meme theory pointed to the possibility of this analogy, but also exposed its limits: memes have no clean replicative unit like DNA, and their "mutation rate" cannot be measured. Move game strategies from the gene level to the civilization level and the speed constant shifts by orders of magnitude; many inferences valid in biological evolution do not automatically carry over at civilizational scale.</p>
+
+<p><strong>Third, the phrase "same question" has its own boundary.</strong> "How do selfish individuals cooperate" is indeed a question all three civilizations face, but China is simultaneously answering "how to maintain the order of all-under-heaven," the West "how individual freedom coexists with the collective," India "how to be liberated from the cycle of rebirth." Evolutionary games catch the shared substrate, but each civilization's superstructure is far richer than the substrate. One key opens the bottom bolt of three locks — not every door above it.</p>
+
+<h2>8. How to use it</h2>
+
+<p>Three registers, the same standard as the last essay.</p>
+
+<p><strong>When it's a testable structural analogy, use it to predict.</strong> A society dominated by kin altruism will have these features: cycling renqing debts, law enforcement dependent on relational networks, corruption hard to root out (because "helping your own people" is a feature of the system, not a bug). A society dominated by reciprocal altruism will have others: high trust toward strangers, heavy reliance on institutions, and — once institutions fail — a more total collapse of trust (because there's no blood-tie backstop). These predictions can be checked against cross-national trust surveys, corruption indices and law-enforcement data; they are falsifiable.</p>
+
+<p><strong>When it's an analytic frame, use it to translate.</strong> Next time you meet the judgment "Chinese people don't follow rules" or "Westerners are cold," try translating: the former is a person acting by the differential order inside a kin-altruism system, meeting institutions designed on reciprocal-altruism rules; the latter is a person acting by a uniform standard inside a reciprocal-altruism system, judged by a kin-altruism yardstick. Translation isn't a defense; it's a way to see the structural source of the friction — and structural problems can't be solved by moral persuasion, only answered by institutional design.</p>
+
+<p><strong>When it turns into a ranking of civilizations, throw it out.</strong> The core insight of evolutionary game theory is precisely that the surviving strategy is not "the best" but "the one stable in that environment." An ESS is not an optimum; it is an equilibrium no one can profitably deviate from. Using evolutionary games to argue that some civilization is "more advanced" is using the theory's conclusion to contradict its own premise.</p>
+
+<p>Finally, back to the question. Three civilizations walked three different paths, but they answer the same question: how does a troop of primates carrying selfish genes go on living together? The differential order, the spirit of contract, caste-and-renunciation — these are three stable equilibria natural selection sifted out on three different boards. They are not a contest of three value systems; they are three ways of playing the same hand.</p>
+
+<p>Knowing it's the same hand is what lets you learn something from how the others play it.</p>
+
+<footer>
+  <a href="/index.en.html">← BigCat's Learning Hub</a>
+</footer>
+</div>
+<script src="https://hub.cissychen.com/comments.js" defer></script>
+<script src="https://hub.cissychen.com/search.js" defer></script>
+<script src="https://hub.cissychen.com/index-button.js" defer></script>
+<script src="https://hub.cissychen.com/i18n-tts.js" defer></script>
+</body></html>

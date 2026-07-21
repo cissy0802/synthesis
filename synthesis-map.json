@@ -24,6 +24,29 @@
         "/mental-models/information-theory-day58.html",
         "/mental-models/physics-thinking-day36.html"
       ]
+    },
+    {
+      "id": "syn-2",
+      "slug": "evolutionary-game",
+      "title_zh": "进化博弈：同一副底牌，三种文明",
+      "title_en": "Evolutionary Games: One Hand, Three Civilizations",
+      "genre": "B",
+      "published": "2026-07",
+      "pages": {
+        "zh": "/synthesis/evolutionary-game.html",
+        "en": "/synthesis/evolutionary-game.en.html"
+      },
+      "sources": [
+        "/deep-reading/selfish-gene-read2.html",
+        "/deep-reading/from-the-soil-read21.html",
+        "/deep-reading/guns-germs-steel-read4.html",
+        "/mental-models/game-cooperation-day28.html",
+        "/mental-models/ecology-evolution-day18.html",
+        "/psychology/evolutionary-psychology-day32.html",
+        "/philosophy/indian-darshanas-day33.html",
+        "/thinker-arena/debate.html?d=geography-shapes-thought",
+        "/thinker-arena/debate.html?d=east-west-philosophy"
+      ]
     }
   ]
 }
