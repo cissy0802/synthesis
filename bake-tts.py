@@ -38,7 +38,7 @@ ENDPOINT_TEMPLATE = "https://{region}.tts.speech.microsoft.com/cognitiveservices
 DEFAULT_VOICE_ZH = "zh-CN-XiaoxiaoNeural"
 DEFAULT_VOICE_EN = "en-US-JennyNeural"
 # Elements whose data-zh/data-en text becomes part of a model's narration.
-NARRATION_TAGS = ("h1", "h2", "h3", "h4", "p", "div", "li", "summary")
+NARRATION_TAGS = ("h1", "h2", "h3", "h4", "p", "div", "li", "summary", "span")
 REPO_DIR = Path(__file__).parent.resolve()
 AUDIO_DIR = REPO_DIR / "audio"
 # Azure tolerates much larger bodies than Volcano. 3000 chars gives plenty of
@@ -316,6 +316,35 @@ def collect_groups(soup) -> list[tuple]:
                     # inner leaf divs (e.g. <div class="label">THIS WEEK</div>)
                     # aren't re-narrated.
                     skip_descendants_of.add(id(node))
+            # Inline <span> is normally covered by its parent (a <p>, heading,
+            # or leaf div already narrates it). The one case it is NOT: a span
+            # sitting directly inside a div that has block children — that div
+            # gets skipped as a wrapper, and no block child contains the span.
+            # e.g. <div class="sec"><span class="label">机制解读</span><p>…</p></div>
+            # <span> is normally covered by its parent. Include it only when
+            # it is a genuine sub-heading that no other element carries:
+            # a span sitting directly inside a wrapper div (one with block
+            # children), AND carrying a label-ish class.
+            #   ✅ <span class="label">机制解读</span>  — real sub-heading
+            #   ❌ <span class="tag">倾听深度</span>     — keyword chip after h2
+            #   ❌ <span class="num">01</span>          — decorative numbering
+            if node.name == "span":
+                par = node.parent
+                if par is None or par.name != "div":
+                    continue
+                if not any(
+                    getattr(ch, "name", None) in _BLOCK_TAGS for ch in par.children
+                ):
+                    continue
+                _cls = set(classes)
+                _labelish = any(
+                    "label" in x for x in _cls
+                ) and not (_cls & {"bar-label", "axis-label"})
+                _question = "q" in _cls
+                _bare_sentence = not _cls and len(node.get_text(strip=True)) >= 8
+                if not (_labelish or _question or _bare_sentence):
+                    continue
+
             # Skip elements explicitly tagged as the opposite language
             if lang == "zh" and "en" in classes:
                 continue
@@ -546,8 +575,14 @@ def main():
     if args.files:
         files = [Path(f) if Path(f).is_absolute() else REPO_DIR / f for f in args.files]
     else:
+        # Every content page, whatever the naming scheme. Sites vary:
+        # foo-day12.html, foo-read3.html, entropy.html, ref-thalamus.html.
+        # Excludes the English mirrors and index/landing pages.
         files = sorted(
-            p for p in REPO_DIR.iterdir() if re.match(r".+-day\d+\.html$", p.name)
+            p for p in REPO_DIR.iterdir()
+            if p.suffix == ".html"
+            and not p.name.endswith(".en.html")
+            and not p.name.startswith("index.")
         )
 
     for path in files:
