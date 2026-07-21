@@ -36,12 +36,16 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 .source b{color:#7dd8f0;font-weight:600}
 .source a{color:#7dd8f0}
 .source a:hover{color:#fff}
+.sec{padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,0.09)}
+.sec:last-of-type{border-bottom:none;padding-bottom:0}
+.sec>h2:first-child{margin-top:44px}
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
 </style>
 </head>
 <body>
+<a href="https://cissy0802.github.io/" style="position:fixed;top:14px;left:14px;font-size:0.82rem;color:inherit;opacity:0.55;text-decoration:none;padding:6px 12px;border:1px solid currentColor;border-radius:20px;z-index:100;backdrop-filter:blur(6px);transition:opacity 0.2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.55">← Hub</a>
 <div class="lang-toggle">
   <a href="entropy.html">中文</a>
   <a href="entropy.en.html" class="active">EN</a>
@@ -58,6 +62,7 @@ Across this hub, "entropy" turns up on at least six unrelated sites. Physics cou
 What makes this interesting is that it isn't one word borrowed by several groups for their own purposes. In four of those rooms they are computing the same number — not a similar-looking formula, the same number up to a conversion constant. This piece is about why that happens, and what a field actually gains when a result can travel between disciplines like that. The fifth room borrowed only the shape of the word; that comes last, because to say what it borrowed you first have to say what there was to borrow.
 </div>
 
+<section class="sec">
 <h2>1. Five Rooms</h2>
 
 <p>Before any definitions, just stand in them.</p>
@@ -73,7 +78,9 @@ What makes this interesting is that it isn't one word borrowed by several groups
 <p>The fifth is somebody's mind. They have just come back from a week of doing nothing and feel worse than they do at work: unresolved worries flood in and fight with their goals, and their attention is churned into a mess. Psychologists named that state psychic entropy.</p>
 
 <p>Put the five side by side and the easy question is whether they're related. But that question is too shallow. The genuinely strange thing is this: molecules, letters, tokens and cells share no physical substrate whatsoever, so why does one piece of mathematics govern all four?</p>
+</section>
 
+<section class="sec">
 <h2>2. Physics: Entropy Is a Number You Can Count</h2>
 
 <p>Answering that means first getting rid of the slogan "entropy equals disorder." It's handy, but it turns entropy into an adjective, when entropy is really an act of counting.</p>
@@ -89,7 +96,9 @@ What makes this interesting is that it isn't one word borrowed by several groups
 <p><strong>Second, entropy is not an intrinsic property of an object.</strong> Take one cup of water: care only about temperature and volume and its entropy is enormous; record the position and velocity of every molecule and it occupies exactly one microstate, entropy zero. So computing any entropy means first declaring which macroscopic variables you're bundling microstates under — that choice of how coarsely to look is called coarse-graining, and it's step one of writing the formula, not philosophy. (Rovelli pushes this to its limit in <em>The Order of Time</em>, arguing that even the difference between past and future comes from that blurring — a very attractive conjecture, and one the field is far from agreeing on.)</p>
 
 <div class="source"><b>Sources →</b> why entropy is the only law that yields an arrow of time, the second law's three faces, and full replies to Loschmidt and Poincaré recurrence: <a href="/physics/entropy-arrow-day7.html">Physics · Entropy and the Arrow of Time (Day 7)</a>, <a href="/physics/heat-temperature-day6.html">Heat and Temperature (Day 6)</a> · Rovelli's full argument and the objections to it (why Albert and Carroll think it argues in a circle): <a href="/deep-reading/order-of-time-read18.html">Deep Reading · <em>The Order of Time</em> (Read 18)</a></div>
+</section>
 
+<section class="sec">
 <h2>3. Information: Another Route, Same Destination</h2>
 
 <pre><code>H = −Σ p(x) log₂ p(x)</code></pre>
@@ -103,7 +112,9 @@ What makes this interesting is that it isn't one word borrowed by several groups
 <p>And the number went to work immediately: the source coding theorem proves that no lossless code can average fewer than H bits. That's a floor nothing gets under, not a figure of speech.</p>
 
 <div class="source"><b>Sources →</b> the axiomatic derivation in detail, mutual information, channel capacity and the noisy-channel coding theorem: <a href="/mathematics/information-theory-day13.html">Mathematics · Information Theory (Day 13)</a> · information ≠ meaning, why English redundancy lets you read a sentence with letters missing, and entropy as the test of how far a document moved your probability distribution: <a href="/mental-models/information-theory-day58.html">Mental Models · Thinking in Information Theory (Day 58)</a></div>
+</section>
 
+<section class="sec">
 <h2>4. Machine Learning: Entropy Becomes Something You Optimise</h2>
 
 <p>In the first two rooms entropy is observed and computed. Here it becomes the thing being minimised.</p>
@@ -117,7 +128,9 @@ What makes this interesting is that it isn't one word borrowed by several groups
 <p>What matters is that these numbers have a scale. An untrained model on a 50k vocabulary sits at loss ≈ ln(50000) ≈ 10.8, exactly the uniform-guessing baseline; a well-trained LLM on web text runs about 2.0–2.5, a perplexity of 8 to 12 words. Raw UTF-8 text runs about 5 bits per byte, and a well-trained LLM compresses human text to 30–50% of its original size, comfortably beating gzip's roughly 70%. None of that is metaphor: cross-entropy is denominated in bits, which is why "compression is intelligence" can be argued as a proposition rather than repeated as a slogan.</p>
 
 <div class="source"><b>Sources →</b> why cross-entropy beats MSE, how to read loss values in practice, and the full case for compression as intelligence: <a href="/ai-ml/loss-optimization-day10.html">AI/ML · Loss and Optimization (Day 10)</a> · how entropy, KL, mutual information and the ELBO all reduce to KL as the single atom: <a href="/ai-ml/probability-information-day33.html">AI/ML · Probability and Information Theory (Day 33)</a></div>
+</section>
 
+<section class="sec">
 <h2>5. Life: Order Is Borrowed, and Repaid in Flow</h2>
 
 <p>The fourth room poses the oldest question. Life assembles scattered atoms into cells, order rising against the current — surely that violates the second law?</p>
@@ -129,7 +142,9 @@ What makes this interesting is that it isn't one word borrowed by several groups
 <p>Prigogine's dissipative structures — ordered forms that exist only while a flow of energy passes through them — invert an old intuition. Order doesn't mean equilibrium and stillness; push a system far from equilibrium and order emerges spontaneously. Heat a thin layer of oil in a pan and, once the temperature difference crosses a critical point, the whole layer organises itself into a tidy grid of hexagonal convection cells with no external design at all. The corollary matters later: structure is fundamentally a verb rather than a noun. A whirlpool, a candle flame, a cell, a company — each exists only while energy streams through it, and dissolves when the stream stops. (Distributed systems corroborate this nicely: the mechanism Cassandra and Dynamo use to hold replicas consistent is called <code>anti-entropy repair</code>.)</p>
 
 <div class="source"><b>Sources →</b> the second law and life, dissipative structures, metabolic scaling, energy budgets: <a href="/meta-knowledge/bioenergetics-day23.html">Meta-Knowledge · Biophysics and Energy (Day 23)</a> · the full method for using dissipative structures as a thinking tool, including the "where does the energy come from, where does the entropy go" audit: <a href="/mental-models/physics-thinking-day36.html">Mental Models · Thinking in Physics (Day 36)</a></div>
+</section>
 
+<section class="sec">
 <h2>6. One Question</h2>
 
 <p>Back to the question at the end of §1: molecules, letters, tokens and cells share no physical substrate, so why does one piece of mathematics govern all four?</p>
@@ -145,7 +160,9 @@ What makes this interesting is that it isn't one word borrowed by several groups
 <p>And it settled a question that had been open for a very long time. Maxwell's demon, proposed in 1867, is a thought experiment: a small demon who can see each molecule's speed need only open a valve for the fast ones and block the slow ones to create a temperature difference at no cost in work, and the second law breaks. The paradox held out for more than seventy years. The answer turned out to lie in information — the demon really can lower physical entropy using what it observes, but it has to record those observations somewhere, and its memory is finite. Sooner or later it must erase, erasure costs heat by Landauer's principle, and that bill exactly cancels the gain.</p>
 
 <p>That is the test of whether a cross-domain connection is worth anything. Not that it feels elegant, but that it resolved a specific, long-standing, previously intractable problem.</p>
+</section>
 
+<section class="sec">
 <h2>7. So What Does Cross-Disciplinary Connection Actually Buy?</h2>
 
 <p>Step back from entropy and something more general comes into view.</p>
@@ -163,7 +180,9 @@ What makes this interesting is that it isn't one word borrowed by several groups
 <p>So the point of connecting disciplines comes down to not paying twice for the same invention. When the same mathematical structure keeps turning up in different fields, a result you worked hard for in one of them can simply be collected in another. That is the whole case for doing it.</p>
 
 <p>And precisely because what you collect is real, it's worth knowing where it stops travelling.</p>
+</section>
 
+<section class="sec">
 <h2>8. Where the Reasoning Stops</h2>
 
 <p>Back to the fifth room, and the whole neighbourhood around it: rooms get messy on their own, organisations suffer entropy, knowledge decays, relationships need work or entropy takes them.</p>
@@ -238,7 +257,9 @@ What makes this interesting is that it isn't one word borrowed by several groups
 <text x="360" y="515" text-anchor="middle" fill="#6a7080" font-size="9.5">Syn 1 · Entropy · BigCat's Learning Hub</text>
 </svg>
 </div>
+</section>
 
+<section class="sec">
 <h2>9. How to Use It</h2>
 
 <p>Taking something apart without offering a replacement is just a different rhetoric. Roughly three tiers.</p>
@@ -252,7 +273,7 @@ What makes this interesting is that it isn't one word borrowed by several groups
 <p>Finally, back to those four rooms. The connection between them is real: physical and information entropy are one mathematical object, Landauer's principle makes bits and joules convertible, life's entropy ledger can be tallied down to the watt. That unity isn't a coincidence. It comes from a question plain enough to cross any disciplinary boundary — given what I can see, how many possibilities remain underneath?</p>
 
 <p>Worth keeping an eye on the word, then — not out of fear that someone will misuse it, but because concepts that genuinely travel from one field to another, losing nothing on the way, are rare enough to be worth guarding.</p>
-
+</section>
 <footer>
   <a href="/index.en.html">← BigCat's Learning Hub</a>
 </footer>
