@@ -47,6 +47,35 @@
         "/thinker-arena/debate.html?d=geography-shapes-thought",
         "/thinker-arena/debate.html?d=east-west-philosophy"
       ]
+    },
+    {
+      "id": "syn-3",
+      "slug": "cooperation",
+      "title_zh": "合作：三本账，和一张掀翻的桌子",
+      "title_en": "Cooperation: Three Ledgers, and One Flipped Table",
+      "genre": "A/C",
+      "published": "2026-07",
+      "pages": {
+        "zh": "/synthesis/cooperation.html",
+        "en": "/synthesis/cooperation.en.html"
+      },
+      "sources": [
+        "/mental-models/game-cooperation-day28.html",
+        "/mental-models/strategy-day04.html",
+        "/mental-models/evolutionary-psychology-day53.html",
+        "/meta-knowledge/game-theory-day11.html",
+        "/meta-knowledge/trust-cooperation-day58.html",
+        "/meta-knowledge/evolutionary-biology-day4.html",
+        "/deep-reading/selfish-gene-read2.html",
+        "/civics-geopolitics/war-and-peace-rules-day13.html",
+        "/civics-geopolitics/great-power-rivalry-day10.html",
+        "/buddhism/bodhisattva-day11.html",
+        "/leadership/office-politics-day6.html",
+        "/philosophy/individual-society-day15.html",
+        "/philosophy/ethics-virtue-day5.html",
+        "/psychology/evolutionary-psychology-day32.html",
+        "/sales/trust-currency-day2.html"
+      ]
     }
   ]
 }
