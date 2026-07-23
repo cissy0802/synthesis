@@ -71,11 +71,17 @@ Hub 层的长文路线图。**这条线的目的是把存量变成网络,而不�
 - 源页:9 篇 / 6 站 —— `deep-reading/selfish-gene-read2`、`from-the-soil-read21`、`guns-germs-steel-read4` · `mental-models/game-cooperation-day28`、`ecology-evolution-day18` · `psychology/evolutionary-psychology-day32` · `philosophy/indian-darshanas-day33` · `thinker-arena` 圆桌:`geography-shapes-thought`、`east-west-philosophy`
 - 与原路线图的关系:本篇不在原 17 篇清单内;写作后占用 Syn 2,原「合作的演化」顺延为 Syn 3,其后各篇依次 +1。
 
-## 第一梯队(材料厚 + 钩子锋利)
+### Syn 3. 合作:三本账,和一张掀翻的桌子 〔A/C〕 ✅ 2026-07
+- 页面:`cooperation.html` × zh/en · <https://hub.cissychen.com/synthesis/cooperation.html>
+- 共通点:三本账(基因 / 重复 / 可信承诺)其实是**同一本**。剥掉外壳全是同一张囚徒困境收益矩阵;破局装置是同一个形状——把背叛的短期收益,换算成一笔越过未来的长期代价,只是换算的钩子不同:生物学用亲缘度 `r`、博弈论用再相遇概率 `w`、国际关系用可信承诺。`r`/`w`/承诺是同一变量在三种货币里的三副面孔,都在回答「背叛的账,多久之后、以什么形式回到你头上」。
+- 承重证据:汉密尔顿规则化解了达尔文自己那道「差点掀翻整套进化论」的裂痕——肯吃亏的行为(不育工蜂)为何没被斩草除根(亲缘度把利他的收益顺着共享基因导回给「未来自己」的拷贝)。判据同 Syn 1:解决一个原本无解的具体问题,而非仅仅优雅。同一副骨架还精确预言合作**怎么死**:群体过大、未来缩短、信息变噪、惩罚缺位,任一越过临界即相变式雪崩。
+- 互联换来了什么:一个领域证过的定理换个房间不必重证——`w` 被 BitTorrent 写进协议(tit-for-tat 硬编码压搭便车)、`q>c/b` 被 Uber/Airbnb 双向评分工程化、区块链质押罚没把匿名节点拉进重复博弈、霍布斯那一步长成机制设计整个学科(次价拍卖让如实出价成占优策略)。
+- 断裂点(五问判据):① 用哪种货币算账?(收益回流到基因 / 未来的你 / 第三方声誉——三种不能混记)② 有没有「未来的影子」?(短 → 理论预言背叛,别指望道德补缺)③ 需不需要一个有边界的「自我」做受益人?(需要 → 在算账;以消解自我为前提 → 掀了桌子,别硬塞「其实是自利」)④ 翻译成「其实是划算的自利」,原命题会不会塌?(不塌 = 本就是自利账;塌了 = 你在用廉价收敛偷走它)⑤ 讲「是」还是「应该」?(从 `rB>C` 推「所以应偏袒亲属」缺一步价值前提 = 自然主义谬误)。
+- 源页:15 篇 / 9 站 —— `mental-models/game-cooperation-day28`、`strategy-day04`、`evolutionary-psychology-day53` · `meta-knowledge/game-theory-day11`、`trust-cooperation-day58`、`evolutionary-biology-day4` · `deep-reading/selfish-gene-read2` · `civics-geopolitics/war-and-peace-rules-day13`、`great-power-rivalry-day10` · `buddhism/bodhisattva-day11` · `leadership/office-politics-day6` · `philosophy/individual-society-day15`、`ethics-virtue-day5` · `psychology/evolutionary-psychology-day32` · `sales/trust-currency-day2`
+- 待补:book-recommendations Issue 62《博弈论与合作的演化》发布后再加一节书单锚点。
+- 后记:本题被两次 routine 撞车并发生成;先落地的版本(15 源 / 9 站,〔A/C〕)已发布,后一版(8 源 / 6 站)撞车后主动作废、未污染线上。登记步骤由后一版补全。
 
-- **Syn 3: 合作的演化** 〔A/C〕— 「为什么会有合作?」四套**互不相容**的答案:演化生物学算基因的账(汉密尔顿 `rB>C`)、博弈论算重复的账(Axelrod 的 tit-for-tat)、国际关系算可信承诺的账、佛学**拒绝算账**(菩萨道不图回报)。前三套用「其实是自利」消解利他,第四套掀桌子。收尾落在自然主义谬误。
-  源:`mental-models/game-cooperation-day28`(博弈 60 / 合作 21)、`strategy-day04`、`evolutionary-psychology-day53` · `meta-knowledge/game-theory-day11`(40)、`trust-cooperation-day58`(26)、`evolutionary-biology-day4` · `deep-reading/selfish-gene-read2`(合作 28 / 选择层级 15) · `civics-geopolitics/war-and-peace-rules-day13`(可信承诺 13)、`great-power-rivalry-day10` · `buddhism/bodhisattva-day11`(利他 21) · `leadership/office-politics-day6`(19) · `philosophy/individual-society-day15`、`ethics-virtue-day5` · `psychology/evolutionary-psychology-day32` · `sales/trust-currency-day2`(信任作为昂贵信号)
-  待补:book-recommendations Issue 62《博弈论与合作的演化》发布后再加一节书单锚点
+## 第一梯队(材料厚 + 钩子锋利)
 
 - **Syn 4: 自我,与无我** 〔B〕— 全站最惊人的一次东西方收敛:佛学两千年前说「无我」,神经科学从**注意图式理论**走到几乎同一结论——自我是大脑造的一个模型、一个有用的失真。**但别让收敛太便宜**:佛学的无我是修行结论(看破我执为离苦),神经科学的自我模型是价值中立的机制描述;把 AST 当成「科学证实了佛陀」是廉价的胜利。收尾落在意识难题——两条路都没解决「为什么会有主观体验」。
   源:`buddhism/dialogue-day31`(无我 35)、`lankavatara-day17`、`yogacara-day3`、`mysticism-day36` · `neuroscience/self-model-topic12`(注意图式)、`global-workspace-topic13`、`hard-problem-topic10`、`neural-correlates-topic11` · `philosophy/free-will-day3`(无我 16)、`life-death-day6`(人格同一性)、`consciousness-awareness-day25`、`existence-day1` · `psychology/consciousness-day24` · `book-recommendations/mind-machine-book9` · `deep-reading/being-you-read20`
