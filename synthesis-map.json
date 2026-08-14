@@ -76,6 +76,35 @@
         "/psychology/evolutionary-psychology-day32.html",
         "/sales/trust-currency-day2.html"
       ]
+    },
+    {
+      "id": "syn-4",
+      "slug": "self",
+      "title_zh": "自我：一只橡皮手，和一个两千五百年前的论证",
+      "title_en": "The Self: A Rubber Hand and a 2,500-Year-Old Argument",
+      "genre": "B",
+      "published": "2026-08",
+      "pages": {
+        "zh": "/synthesis/self.html",
+        "en": "/synthesis/self.en.html"
+      },
+      "sources": [
+        "/deep-reading/being-you-read20.html",
+        "/buddhism/dialogue-day31.html",
+        "/buddhism/yogacara-day3.html",
+        "/buddhism/lankavatara-day17.html",
+        "/philosophy/existence-day1.html",
+        "/neuroscience/self-model-topic12.html",
+        "/philosophy/consciousness-awareness-day25.html",
+        "/book-recommendations/mind-machine-book9.html",
+        "/psychology/consciousness-day24.html",
+        "/buddhism/mysticism-day36.html",
+        "/neuroscience/neural-correlates-topic11.html",
+        "/neuroscience/hard-problem-topic10.html",
+        "/neuroscience/global-workspace-topic13.html",
+        "/philosophy/free-will-day3.html",
+        "/philosophy/life-death-day6.html"
+      ]
     }
   ]
 }
