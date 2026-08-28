@@ -22,7 +22,21 @@
         "/deep-reading/order-of-time-read18.html",
         "/deep-reading/flow-read15.html",
         "/mental-models/information-theory-day58.html",
-        "/mental-models/physics-thinking-day36.html"
+        "/mental-models/physics-thinking-day36.html",
+        "/physics/statistical-mechanics-day8.html",
+        "/physics/information-physics-day9.html",
+        "/cs-papers-deepread/mathematical-theory-of-communication-paper36.html",
+        "/complexity-science/dissipative-structures-topic15.html"
+      ],
+      "augmented": "2026-08",
+      "keywords": [
+        "熵"
+      ],
+      "evaluated_rejected": [
+        "/physics/physics-philosophy-day39.html",
+        "/physics/big-bang-day28.html",
+        "/mental-models/cross-disciplinary-day26.html",
+        "/book-recommendations/time-many-faces-book29.html"
       ]
     },
     {
@@ -46,7 +60,15 @@
         "/philosophy/indian-darshanas-day33.html",
         "/thinker-arena/debate.html?d=geography-shapes-thought",
         "/thinker-arena/debate.html?d=east-west-philosophy"
-      ]
+      ],
+      "keywords": [
+        "亲缘利他",
+        "互惠利他",
+        "囚徒困境",
+        "演化稳定",
+        "进化稳定"
+      ],
+      "evaluated_rejected": []
     },
     {
       "id": "syn-3",
@@ -75,6 +97,17 @@
         "/philosophy/ethics-virtue-day5.html",
         "/psychology/evolutionary-psychology-day32.html",
         "/sales/trust-currency-day2.html"
+      ],
+      "keywords": [
+        "囚徒困境",
+        "汉密尔顿",
+        "以牙还牙",
+        "合作的演化",
+        "互惠"
+      ],
+      "evaluated_rejected": [
+        "/book-recommendations/munger-worldview-book2.html",
+        "/sales/influence-principles-day15.html"
       ]
     },
     {
@@ -104,6 +137,17 @@
         "/neuroscience/global-workspace-topic13.html",
         "/philosophy/free-will-day3.html",
         "/philosophy/life-death-day6.html"
+      ],
+      "keywords": [
+        "无我",
+        "橡皮手",
+        "自我模型",
+        "末那",
+        "自我感"
+      ],
+      "evaluated_rejected": [
+        "/buddhism/impermanence-day20.html",
+        "/buddhism/tantra-day13.html"
       ]
     },
     {
@@ -130,6 +174,22 @@
         "/mental-models/energy-attention-day27.html",
         "/parenting/attention-adhd-day17.html",
         "/psychology/curiosity-boredom-day38.html"
+      ],
+      "keywords": [
+        "注意力",
+        "注意的"
+      ],
+      "evaluated_rejected": [
+        "/book-recommendations/focus-flow-book45.html",
+        "/ai-ml/graph-ml-day37.html",
+        "/ai-ml/frontier-architectures-day34.html",
+        "/mathematics/ai-math-day30.html",
+        "/cs-papers-deepread/vision-transformer-paper5.html",
+        "/meta-knowledge/spatial-cognition-day53.html",
+        "/psychology/self-control-day58.html",
+        "/psychology/adhd-day14.html",
+        "/psychology/willpower-day29.html",
+        "/deep-reading/amusing-ourselves-read25.html"
       ]
     }
   ]
