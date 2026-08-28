@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Attention: A Borrowed Metaphor That Was Wrong · Cross-Site Synthesis Syn 5</title>
+<meta content="Attention in the brain, attention in a Transformer, attention as a traded commodity, attention as Simone Weil meant it. What the four share is not a mechanism but the shape of a constraint: a channel with a hard ceiling, a far larger candidate set, and an allocation decision due now. This essay is about why that shape crosses disciplinary borders, what it bought, and where it stops travelling." name="description"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"SF Pro Display","Noto Serif SC","Songti SC",serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0a0e1a 100%);color:#e4e6eb;line-height:1.95;min-height:100vh}
+.container{max-width:780px;margin:0 auto;padding:48px 24px 80px}
+.lang-toggle{position:fixed;top:18px;right:18px;background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:5px;display:flex;z-index:100;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem}
+.lang-toggle a{padding:5px 12px;border-radius:14px;color:#a0a8c0;text-decoration:none;transition:all 0.15s}
+.lang-toggle a.active{background:#7b61ff;color:#fff;font-weight:700}
+.lang-toggle a:not(.active):hover{background:rgba(255,255,255,0.08);color:#fff}
+header{text-align:center;padding:40px 0 8px}
+header .kicker{font-size:0.78rem;color:#7b61ff;letter-spacing:2px;text-transform:uppercase;font-family:"SF Mono",Menlo,monospace;margin-bottom:14px}
+header h1{font-size:1.9rem;font-weight:800;line-height:1.5;background:linear-gradient(135deg,#00d4ff 0%,#7b61ff 50%,#ff6ec4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+header .meta{font-size:0.82rem;color:#6a7080;font-family:"SF Mono",Menlo,monospace}
+.lede{margin:32px 0 8px;padding:18px 22px;background:rgba(123,97,255,0.08);border-left:3px solid #7b61ff;border-radius:0 10px 10px 0;color:#c9cede;font-size:0.98rem}
+h2{font-size:1.35rem;font-weight:700;color:#fff;margin:52px 0 18px;padding-left:14px;border-left:4px solid #7b61ff;line-height:1.5}
+h3{font-size:1.05rem;font-weight:700;color:#c4b8ff;margin:32px 0 10px}
+p{margin:14px 0;color:#c9cede}
+strong{color:#fff}
+a{color:#7b61ff;text-decoration:none}
+a:hover{color:#00d4ff}
+ul,ol{margin:14px 0 14px 1.6em;color:#c9cede}
+li{margin:7px 0}
+code{font-family:"SF Mono",Menlo,monospace;font-size:0.86em;background:rgba(0,212,255,0.1);color:#7dd8f0;padding:1px 6px;border-radius:5px}
+pre{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px;overflow-x:auto;margin:18px 0;font-family:"SF Mono",Menlo,monospace;font-size:0.76rem;line-height:1.6;color:#a8d8e8}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);border-left:3px solid #00d4ff;border-radius:0 10px 10px 0;color:#a8b0c0;font-size:0.92rem}
+.principle{margin:14px 0;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px}
+.principle b{color:#00d4ff}
+.source{margin:16px 0;padding:11px 16px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.14);border-radius:9px;font-size:0.85rem;color:#8fa5b8;font-family:"SF Mono",Menlo,monospace}
+.source b{color:#7dd8f0;font-weight:600}
+.source a{color:#7dd8f0}
+.source a:hover{color:#fff}
+.sec{padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,0.09)}
+.sec:last-of-type{border-bottom:none;padding-bottom:0}
+.sec>h2:first-child{margin-top:44px}
+footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
+footer a{color:#7b61ff}
+@media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<a href="https://cissy0802.github.io/" onmouseout="this.style.opacity=0.55" onmouseover="this.style.opacity=1" style="position:fixed;top:14px;left:14px;font-size:0.82rem;color:inherit;opacity:0.55;text-decoration:none;padding:6px 12px;border:1px solid currentColor;border-radius:20px;z-index:100;backdrop-filter:blur(6px);transition:opacity 0.2s">← Hub</a>
+<div class="lang-toggle">
+<a href="attention.html">中文</a>
+<a class="active" href="attention.en.html">EN</a>
+</div>
+<div class="container">
+<header>
+<div class="kicker">// Synthesis · Syn 5</div>
+<h1>Attention: A Borrowed Metaphor That Was Wrong, and the Nine BLEU It Bought</h1>
+<div class="meta">BigCat · 2026-08 · Cross-Site Synthesis</div>
+</header>
+<div class="lede">
+In the autumn of 2014 an intern in Montreal bolted a new module onto a machine translation model and called it "attention." He had taken the word from psychology. The translation score went up by nearly nine points.<br/><br/>
+Meanwhile, the neuroscience site on this hub says it flatly, in the page on attention: what the brain does and what the machine does are relatives in function and strangers in mechanism.<br/><br/>
+The analogy was wrong about the mechanism. The invention was right anyway. So what was it that actually crossed the disciplinary border?
+</div>
+<section class="sec">
+<h2>A student and a single-file bridge</h2>
+<p>In 2014 the best neural approach to translation was read-then-retell: one network read the English sentence all the way through and squeezed it into a fixed-length string of numbers, and a second network wrote the French out from that string. Translation quality was scored with BLEU, an automatic metric for how much a machine translation overlaps a human reference — higher is better. Past about twenty words, BLEU fell off a cliff, and it kept falling no matter how big you made the network.</p>
+<p>The consensus read was that the networks were not yet large enough. Dmitry Bahdanau disagreed. He was an intern in the lab of the deep learning researcher Yoshua Bengio, and his read was that the flaw was the phrase "fixed length" itself. Sixty words of text, allowed one small note of a fixed size, then reconstructed in full detail from that note. Of course it fails.</p>
+<p>His way out came from thinking about how people do the job. No human translator memorizes the paragraph before picking up a pen; you translate a stretch, you look at that stretch, and the source sits open on the desk the whole time. So he let the model work that way: before writing each output word, sweep back across every word of the source, score each one for relevance, draw more from the high scorers and less from the low ones, and blend a context tailored to that one word. He called the module attention.</p>
+<p>Same data, same backbone, plus the module: BLEU went from 17.82 to 26.75, nearly nine points, and the length curve flattened — past fifty words it barely degraded at all. Three years later someone threw away every other component and kept only this one, in a paper titled <i>Attention Is All You Need</i>.</p>
+<p>Meanwhile, at the other end of this hub, the neuroscience page on attention spends a whole subsection on the collision of names. The two are the same thing only at the most abstract level, it says: both weight information by relevance. Below that the mechanisms have nothing in common. The brain has no table of pairwise scores.</p>
+<p>That is the strange part. An analogy that does not survive contact with the mechanism solved a specific problem nobody else could solve. So what passed?</p>
+<div class="source"><b>Source →</b> The full three-step derivation, why a bidirectional encoder is a required companion piece, why "soft" is differentiable and therefore lets alignment and translation be learned jointly end to end, and the crossing gaze in the attention heatmap where English and French word order invert: <a href="/cs-papers-deepread/bahdanau-attention-paper9.html">Paper Deep-Read · Bahdanau Attention (Paper 9)</a></div>
+</section>
+<section class="sec">
+<h2>The gate in your head</h2>
+<p>Start with the side that got borrowed from.</p>
+<p>The popular metaphor is a spotlight: attention is a torch you hold, and whatever you point it at gets brighter. Mechanistically that is backwards. The picture the neuroscience site gives is biased competition — neurons coding different things are already fighting each other over the small amount of downstream processing available, and what attention does is not illuminate one of them but quietly weight the scales so that one is likelier to win a contest that was running anyway.</p>
+<p>Two forces do the weighting. One you deploy: hunting for your red car in a parking lot, every red thing in the lot leaps out. One barges in: motion at the edge of vision, a bang behind you, a red dot in the corner of a screen — your head has turned before you decided anything. They fight, and the barging one usually wins. That fact gets used twice later.</p>
+<p>Why must anything be selected at all? Because downstream is a bottleneck; pitifully little of what arrives can actually be processed deeply and delivered into awareness. The famous demonstration is the pass-counting video: absorbed in counting, roughly half of viewers fail to see a person in a gorilla suit stroll through the center of the frame and thump their chest. The light landed cleanly on their retinas. It simply lost the competition. This is inattentional blindness.</p>
+<p>The gate has an address, too. In the middle of the brain sits the thalamus, the relay through which nearly every sense except smell must change trains before reaching the cortex. Wrapped around it is a thin shell of inhibitory neurons called the thalamic reticular nucleus, which sends nothing to cortex at all and only decides which channels pass and which get cut. Francis Crick, the Nobel laureate, called it the brain's searchlight gate. Turn the same gate finely and you get attention; close it broadly and you get sleep.</p>
+<p>Three words for the biological side: competition, bottleneck, cut. Hold on to the third — the sharpest test in this essay rests on it.</p>
+<div class="source"><b>Source →</b> Why the cocktail party effect demonstrates both forces at once, why multitasking is fast switching rather than parallelism, Broadbent's information-theoretic lineage of treating the brain as a limited-capacity channel, and the case that attention may not be one thing at all: <a href="/neuroscience/attention-topic2.html">Neuroscience · Attention (Topic 2)</a></div>
+</section>
+<section class="sec">
+<h2>The table in the machine</h2>
+<p>Now the side that borrowed. One design choice in Bahdanau's three steps carries the whole essay: it is soft. After scoring, a softmax turns the scores into a set of proportions summing to one, so every source word gets a little weight rather than one being hard-selected. Soft is differentiable everywhere, so the error signal flows back through it, and "where to look" and "how to translate" can be learned in the same loop.</p>
+<p>The 2017 paper pushed that to its conclusion: if attention is what does the work, discard the rest. The result is the Transformer, the skeleton of nearly every large model today. Each token — a word or word-fragment as the model sees it — produces a query, a key and a value; the token's query is scored by dot product against every key in the sentence, softmax turns those into weights, and the values are summed in that proportion.</p>
+<pre><code>Attention(Q, K, V) = softmax(QKᵀ / √d) · V</code></pre>
+<p>That unremarkable √d cannot be dropped: at high dimension the dot products grow large and push the softmax into a near-all-or-nothing saturation zone where the gradient is roughly zero and nothing trains. What it bought was one matrix operation between any two words and a whole sentence computed in parallel — 28.4 BLEU on English to German, a new best at the time, trained on eight GPUs in three and a half days.</p>
+<p>The cost is plain: every pair of positions has to be scored, so compute and memory grow with the square of the length. That bill has concrete numbers. Generating each word means re-reading the keys and values already computed out of GPU memory; for a seventy-billion-parameter model over a sequence of some eight thousand tokens, the most literal multi-head arrangement burns roughly 21.5 GB on that cache, and letting several heads share one copy brings it to about 2.7 GB.</p>
+<p>So the last few years of engineering all do the same thing: stop it from attending to everything. The neuroscience page puts the punchline bluntly — pushed by the cost of compute, artificial systems rediscovered what biological brains were forced into by the cost of energy. Attending to everything is too expensive. You must select.</p>
+<div class="source"><b>Source →</b> Why multiple heads are not just more compute, why many heads turn out redundant after training and can be pruned with almost no loss, the trade-offs of grouped and sliding-window variants, and the full mechanism and code for FlashAttention, which changes the movement of data without changing the math: <a href="/ai-ml/attention-variants-day12.html">AI/ML · Attention Variants (Day 12)</a> · Why shedding recurrence is what made scale possible at all, why positional encoding was a stopgap, and the paper's own admission that its title overstates the case: <a href="/cs-papers-deepread/attention-is-all-you-need-paper1.html">Paper Deep-Read · Attention Is All You Need (Paper 1)</a></div>
+</section>
+<section class="sec">
+<h2>The commodity on the market</h2>
+<p>The word's third stop is where it acquired a price. The economist Herbert Simon took that step in 1971, in a passage the leadership site quotes:</p>
+<blockquote>What information consumes is rather obvious: it consumes the attention of its recipients. Hence a wealth of information creates a poverty of attention and a need to allocate that attention efficiently.<br/>— Herbert A. Simon, <i>Designing Organizations for an Information-Rich World</i> (1971), pp. 40–41</blockquote>
+<p>That sentence converts attention from a mental state into a stock. A stock can be counted, and what can be counted can be mined.</p>
+<p>The psychology site is specific about the mining. Platforms optimize not for your happiness but for your next click, and the strongest lever they pull is what the psychologist B. F. Skinner called variable-ratio reinforcement: when the reward is unpredictable, behavior runs at the highest rate and is hardest to extinguish. A fixed ratio — a reward every N times — is predictable, comes with a natural pause afterwards, and lets people stop. "The next one might be good" has no pause. Infinite scroll, pull-to-refresh and push notifications are all built on the second shape.</p>
+<p>There is also an answer to why it stays compulsive without being pleasant: the neuroscientist Kent Berridge separated <i>wanting</i> from <i>liking</i> into two dissociable systems. And Shoshana Zuboff, in <i>The Age of Surveillance Capitalism</i>, lays the whole production line out: human experience becomes behavioral data, machines turn that into prediction products, and the products are sold to people betting on your next move. You are not even the product. The prediction is.</p>
+<p>Notice what this stop took and what it left. It took scarcity — a quantity with a hard ceiling, countable in person-seconds. It took no selection mechanism whatsoever; there is no thalamus here and no softmax. But it aimed precisely at the barging force from the previous section. A red dot and a buzz trigger <i>wanting</i> directly, with no decision in between.</p>
+<p>One more conclusion has to travel with this stop, because it overturns the explanation people reach for first. The source page is explicit: blaming compulsive use on weak self-control is wrong, since variable-ratio reinforcement is engineered to resist extinction — this is an environment-design problem. Nor does "ego depletion" explain it; that model has failed to replicate across laboratories.</p>
+<div class="source"><b>Source →</b> The three reinforcement schedules compared by behavioral signature, and a graded assessment of digital-detox interventions by evidence and sustainability: <a href="/psychology/digital-age-day56.html">Psychology · The Digital Age (Day 56)</a> · Zuboff's full production line and the charge that she is too pessimistically deterministic, plus Carr's argument about cognitive outsourcing and atrophy and where it overreaches: <a href="/book-recommendations/attention-tech-critique-book35.html">Reading List · Four Books on Technology Critique (Book 35)</a></div>
+</section>
+<section class="sec">
+<h2>And one that isn't about throughput at all</h2>
+<p>The fourth stop sits somewhere else entirely. In 1942 the French philosopher Simone Weil wrote a line to a poet that has been quoted ever since: attention is the rarest and purest form of generosity. She put it harder elsewhere — absolutely unmixed attention is prayer.</p>
+<p>She is not describing bandwidth. She is making a value judgment, and she knows she is. Her essay on school studies makes the claim concrete: a geometry problem you never solve has its value not in the answer but in the stretch of unrewarded attention you held for it, and that capacity transfers to any object, including a suffering person.</p>
+<p>The psychologist Mihaly Csikszentmihalyi arrives nearby by a different road. In <i>Flow</i> he calls attention psychic energy — nothing happens without it, and things happen when it is spent — and from that draws a heavy conclusion: the self is nothing other than the sum of what your attention has been given to over the years.</p>
+<p>This stop should not be read as a softened version of the first three. It is an honest borrowing: it takes the scarcity, then states plainly what it intends to do with it. It does not pretend to be a measurement, so it need not be tested as one.</p>
+<p>Its own two soft spots travel with it. Flow is value-neutral, as Csikszentmihalyi himself concedes: a burglar picking a lock and a gambler placing a bet can both be in flow. The methodology is soft too — experience sampling rests entirely on subjects reporting how they feel right now, which is hard to falsify and hard to line up against any neural mechanism. As for Weil, the critic Susan Sontag put it directly in 1963: one reads an author like her for her seriousness, not because one actually agrees with her. She treated self-consumption as moral proof, refused in 1943 to eat more than the ration of occupied France, and stopped producing anything at thirty-four. The method is worth learning. The life plan is not.</p>
+<div class="source"><b>Source →</b> The full price of the factory year, the refusal of baptism and the wariness of any collective that demands belonging, and the deepest fissure in her reputation — her writings on Jewish identity: <a href="/biographies/weil-day49.html">Biographies · Simone Weil (Day 49)</a> · Why the challenge–skill channel is forced to scroll upward, the eight features of flow, and the argument that the theory is too individual and too Western: <a href="/deep-reading/flow-read15.html">Deep Reading · <i>Flow</i> (Read 15)</a></div>
+</section>
+<section class="sec">
+<h2>What crossed was the constraint, not the mechanism</h2>
+<p>Put the four stops side by side and go back to the opening question.</p>
+<p>What they share is not a mechanism. There is no correspondence of parts between the thalamic reticular nucleus and a QK dot product, and still less between an ad auction and Weil's prayer. What they share is <strong>the shape of a constraint</strong>, assembled from three pieces, none of which can be missing:</p>
+<div class="principle"><b>① A channel with a hard ceiling</b> — physical, and not negotiable in the moment. <b>② A candidate set far larger than the ceiling</b> — far more wants across than the bridge can carry. <b>③ An allocation decision that must be made now</b> — it cannot be deferred, and declining to choose is itself a choice.</div>
+<p>Check them off, stop by stop. <strong>The brain</strong>: the ceiling is downstream processing bandwidth, forced by an energy budget; the candidate set is every sensory signal pouring in; allocation runs on biased competition plus the thalamic gate. <strong>The Transformer</strong>: the ceiling is compute and memory growing with the square of length, and 21.5 GB is what that looks like concretely; the candidate set is every token in context; allocation is a dot product through a softmax. <strong>The market</strong>: the ceiling is the waking hours in a person's day, counted in person-seconds; the candidate set is a nearly unlimited supply of content; allocation runs on bids, and ad auctions price attention daily. <strong>Weil and flow</strong>: the ceiling is the total attention a person can spend in a lifetime; the candidate set is everything worth attending to; and what allocation decides is not throughput but who you become.</p>
+<p>Why does the shape cross when the mechanism cannot? Because a constraint does not ask what the constrained thing is made of. Sensory signals, tokens, ad slots and a suffering person share no material basis, but "the bridge is narrower than what wants across" applies to all four without modification.</p>
+<h3>The load-bearing point</h3>
+<p>Elegance does not count. The test of whether a cross-disciplinary connection is worth anything is whether it has solved a specific problem that was otherwise stuck. On this line, that point is Bahdanau's step.</p>
+<p>Note what he actually borrowed. Not "how the brain does attention" — that was not available to borrow, and nobody could have supplied it. He borrowed the answer to "what does a person do when the channel won't hold it all": don't memorize, spread it out, look at what you're using as you use it. That is an answer at the level of the constraint.</p>
+<p>And it held. The problem was stuck on the single-file bridge of a fixed-length vector, and the consensus response — build bigger networks — was pushing in the wrong direction. With look-back-on-demand, BLEU went from 17.82 to 26.75; on the subset without rare words it reached 36.15, passing the 35.63 of Moses, the statistical system that had ruled machine translation for twenty years. And nobody ever taught it to align. Alignment came out as a by-product of learning to translate.</p>
+<p>The reverse case is more telling still. What the neuroscience page records is not a borrowing but a collision: the Transformer's cost explodes with the square of the sequence, expensive enough that you are forced to pick out a small subset — and going the long way around, machines driven by the cost of compute arrived at the conclusion brains had been driven to by the cost of energy. Neither side copied the other. One constraint forced the same solution twice, independently. That says more about the reality of the shape than any analogy could.</p>
+<p>So the answer is that mechanisms never cross. Constraints do. The analogy being wrong about the mechanism is no obstacle at all, because the mechanism was never what carried the load.</p>
+<div style="overflow-x:auto;margin:26px 0">
+<svg font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" style="min-width:600px;height:auto;display:block" viewbox="0 0 720 452" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ah" markerheight="9" markerunits="userSpaceOnUse" markerwidth="9" orient="auto" refx="7" refy="3"><path d="M0,0 L7,3 L0,6 Z" fill="#6a7080"></path></marker>
+</defs>
+<rect fill="rgba(123,97,255,0.1)" height="54" rx="10" stroke="#7b61ff" stroke-width="1.6" width="672" x="24" y="14"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" text-anchor="middle" x="360" y="38">One constraint: a channel with a hard ceiling + a far larger candidate set + an allocation due now</text>
+<text fill="#a99ee0" font-size="10.5" text-anchor="middle" x="360" y="58">A constraint does not ask what the constrained thing is made of</text>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="192" x2="192" y1="68" y2="86"></line>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="528" x2="528" y1="68" y2="86"></line>
+<rect fill="rgba(255,255,255,0.04)" height="86" rx="9" stroke="#00d4ff" stroke-width="1.3" width="330" x="24" y="90"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="112">The brain</text>
+<text fill="#9aa2b8" font-size="10" x="42" y="131">Ceiling: downstream bandwidth (forced by energy)</text>
+<text fill="#9aa2b8" font-size="10" x="42" y="148">Candidates: every sensory signal pouring in</text>
+<text fill="#7dd8f0" font-size="10" x="42" y="166">Allocation: biased competition + thalamic gate</text>
+<rect fill="rgba(255,255,255,0.04)" height="86" rx="9" stroke="#00d4ff" stroke-width="1.3" width="330" x="366" y="90"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="384" y="112">The Transformer</text>
+<text fill="#9aa2b8" font-size="10" x="384" y="131">Ceiling: quadratic compute and memory (21.5 GB)</text>
+<text fill="#9aa2b8" font-size="10" x="384" y="148">Candidates: every token in context</text>
+<text fill="#7dd8f0" font-size="10" x="384" y="166">Allocation: dot-product scores + softmax</text>
+<rect fill="rgba(255,255,255,0.04)" height="86" rx="9" stroke="#00d4ff" stroke-width="1.3" width="330" x="24" y="186"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="208">The market</text>
+<text fill="#9aa2b8" font-size="10" x="42" y="227">Ceiling: waking hours in a day (person-seconds)</text>
+<text fill="#9aa2b8" font-size="10" x="42" y="244">Candidates: a nearly unlimited supply of content</text>
+<text fill="#7dd8f0" font-size="10" x="42" y="262">Allocation: bids — ad auctions price it daily</text>
+<rect fill="rgba(255,255,255,0.04)" height="86" rx="9" stroke="#00d4ff" stroke-width="1.3" width="330" x="366" y="186"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="384" y="208">Weil and flow</text>
+<text fill="#9aa2b8" font-size="10" x="384" y="227">Ceiling: the attention of one lifetime</text>
+<text fill="#9aa2b8" font-size="10" x="384" y="244">Candidates: everything worth attending to</text>
+<text fill="#7dd8f0" font-size="10" x="384" y="262">Allocation: not throughput — who you become</text>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="360" x2="360" y1="276" y2="294"></line>
+<rect fill="rgba(0,212,255,0.07)" height="76" rx="10" stroke="#00d4ff" stroke-width="1.6" width="672" x="24" y="298"></rect>
+<text fill="#7dd8f0" font-size="12.5" font-weight="700" text-anchor="middle" x="360" y="322">The load-bearing point: what was borrowed is the shape, not the mechanism</text>
+<text fill="#c9cede" font-size="11" text-anchor="middle" x="360" y="343">Bahdanau 2014: tear down the fixed-length bridge — BLEU 17.82 → 26.75</text>
+<text fill="#9aa2b8" font-size="10" text-anchor="middle" x="360" y="363">The length curve goes from "falls past 20 words" to "flat at 50" — and nobody taught it to align</text>
+<text fill="#8f88b8" font-size="10" font-style="italic" text-anchor="middle" x="360" y="404">The collision in reverse: pushed by compute, machines rederived what energy had forced on brains</text>
+<text fill="#8f88b8" font-size="10" font-style="italic" text-anchor="middle" x="360" y="423">Attending to everything is too expensive. You must select.</text>
+<text fill="#6a7080" font-size="10" text-anchor="middle" x="360" y="444">Syn 5 · Attention · BigCat's Learning Hub</text>
+</svg>
+</div>
+</section>
+<section class="sec">
+<h2>What the channel bought</h2>
+<p>With the shape identified, here is what each site was able to collect.</p>
+<div class="principle"><b>Machine learning got a route it did not have to prove.</b>Once you accept that the constraint is "the channel won't hold it," a decade of engineering unfolds along one line and every step knows in advance where to push: sharing key-value heads cuts the cache from 21.5 GB to 2.7 GB, sliding windows look only locally, reordering data movement keeps the math identical while going easy on memory. These are not separate clever ideas. They are different answers to one sentence.</div>
+<div class="principle"><b>Management got a constraint it can actually state.</b>The practical upshot of Simon's line is that attention is a budget problem, not an attitude problem. The leadership site makes that operational: at most three slots for things that require your own judgment, and a fourth can only enter if something leaves. The point is to bill judgment separately from execution. Say "my calendar is full" and your boss hears a scheduling problem; say "my judgment bandwidth is full, and adding people can't think for me" and you have named the real constraint.</div>
+<div class="principle"><b>Psychology got an explanation that puts responsibility in the right place.</b>Once you grant that the barging force wins by default, "I can't stop" turns from a character problem into a design problem, and the intervention point moves with it: what is adjustable is not willpower but the predictability of the reward and the presence of a stopping point. Use a fixed count rather than a fixed duration — ten items, not ten minutes. Put the phone in another room rather than face-down on the desk. Give children content that ends on its own: one episode, one level, one book.</div>
+<p>There is a cheaper win as well. In 2009 the organizational behavior researcher Sophie Leroy had subjects switch to evaluating résumés while a word puzzle was still unfinished; their judgments of the résumés were significantly worse than those of a control group that finished the puzzle first. The unfinished task keeps occupying working-memory bandwidth. She called it attention residue.</p>
+<p>The remedy it suggests is counterintuitive: how you end a task matters more for output quality than how you begin the next one. Spend two minutes before switching writing down progress, open questions and the next concrete action; once the brain has the signal that the task is safely stored, it stops revisiting. The cost of an interruption was never those five minutes. It is that for the next half hour you are only seventy percent there.</p>
+<div class="source"><b>Source →</b> How to use the three slots live in a one-on-one, how to write the three risk-priced options when someone hands you a fourth thing, and why a downgrade must always leave one line in writing: <a href="/leadership/attention-energy-day67.html">Leadership · Attention and Energy (Day 67)</a> · The encapsulation-ritual template for attention residue, plus decision fatigue and the full deep-work method, including the point that the binding constraint on deep work is attention stamina rather than available time: <a href="/mental-models/energy-attention-day27.html">Mental Models · Energy and Attention (Day 27)</a></div>
+</section>
+<section class="sec">
+<h2>Five questions to hold someone's claim against</h2>
+<p>Precisely because what you collected is real, you need to know where it stops travelling. These five questions are not for catching people out. They are for deciding whether a claim about attention can carry a conclusion.</p>
+<h3>1. Is the gate hard or soft?</h3>
+<p>The sharpest of the five, and the easiest to skip past.</p>
+<p>On the biological side the gating is hard. The thalamic reticular nucleus genuinely cuts channels, and information that loses the competition never enters awareness at all. The gorilla walks through the center of the frame and half the room does not see it — not dimly remembered, never arrived. On the Transformer side the weighting is soft. Softmax gives every token in context some weight; nothing is discarded, it is only turned down.</p>
+<p>That difference decides whether a conclusion from one side can move to the other. "Low attention weight means the model didn't see it" is false: it saw it, the weight was small, and residual weight accumulates across dozens of layers. Conversely, "try hard enough and you will notice" is false too; that gate is not yours to operate.</p>
+<p>But the question to ask is which kind <em>this system</em> is using right now, not "machines are soft and people are hard." The moment you switch on a sliding window or sparse attention, the machine really does have hard gating: tokens outside the window take no part in the computation. Ask about the system, not the species.</p>
+<h3>2. Does the number have a unit, and who reports it?</h3>
+<p>Some tiers really do report numbers. The machine tier is hardest: gigabytes of cache, the share of compute spent on attention, all calculable to the decimal. The market tier reports too: person-seconds, daily active minutes, the number of times a day you unlock a phone without being able to say why — that last one reflects cue-driven use better than screen time does. But "deep work capacity" and "a three-slot attention budget" report no scale at all. Three slots is a useful convention, not a measured capacity.</p>
+<p>What can be counted can be put in a controlled trial, and therefore can be overturned. When Allcott and colleagues had nearly three thousand people randomly deactivate a social platform for four weeks in 2020, subjective well-being did rise — by a small fraction of what psychotherapy achieves. The numbers are useful precisely because they can contradict you. Claims that report no number can inform a decision; they should not be offered as evidence.</p>
+<h3>3. Which of the things called "attention" is meant?</h3>
+<p>It is not one thing, on either side.</p>
+<p>Biologically there are at least three semi-independent networks — the psychologist Michael Posner's classic division into alerting, orienting and executive control — and they can be damaged separately and trained separately. So "my attention is bad" is a mush of a sentence. Easily hijacked? Slow to return? Unable to sustain? Only once it is taken apart is there anything to fix.</p>
+<p>The parenting site puts this to the hardest use. On the modern understanding, ADHD is not an absence of attention but a developmental difficulty in regulating attention and inhibiting behavior; the psychologist Russell Barkley locates the core in impaired response inhibition. The classic misjudgment runs exactly against this test: "he can concentrate on video games, so he's faking." Intense interest-driven focus is itself one of the features of ADHD. The same site notes that the prefrontal executive network keeps developing into a person's twenties, so holding a seven-year-old to an adult standard produces conflict, not concentration.</p>
+<p>The machine side is no more singular: different heads learn different kinds of relation — some track adjacent words, some link a pronoun back to its noun — and after training many heads turn out redundant and can be pruned with almost no loss.</p>
+<h3>4. Is it explaining something, or raising the price of something?</h3>
+<p>Weil's line about the rarest and purest form of generosity is not a description of bandwidth. It is a value judgment, stated as one, never pretending to report a number. What to guard against is the inverse: "focus is the brain's highest function, therefore you should…" — the missing step there is a value premise, not data, and borrowed neuroscience vocabulary is exactly what covers the gap.</p>
+<p>The same ruler has to be turned on this tier itself. "It produces flow" is nowhere near "it is worth doing," and flow theory cannot supply that step. Weil's failure is a different one: her intellectual weapon was suspicion of every collective power, and that weapon lost its calibration the moment it was pointed at her own origins. The sharpest framework crashes where it runs most smoothly.</p>
+<h3>5. Is the place with the high weight the place it is looking?</h3>
+<p>This one grew on the machine side, and it is the only test here that remains formally contested.</p>
+<p>Attention heatmaps are genuinely appealing, and they gave neural networks their first easily opened window. But both paper pages carry the same warning: the weights often diverge and do not always land on the "correct" word, so treating them directly as the model's explanation is risky. This is where the later "attention is not explanation" dispute began. As a general test: <strong>a module named "attention" is no guarantee that where its weights are high is where it is actually looking.</strong></p>
+<p>There is an exact human counterpart, sitting in Leroy's experiment: subjects were subjectively certain they had fully shifted to the new task while their cognitive resources were still locked on the old one. A person reporting that they are concentrating is likewise no guarantee that their resources are there. Both sides need external evidence. Self-report will not do.</p>
+<div style="overflow-x:auto;margin:26px 0">
+<svg font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" style="min-width:600px;height:auto;display:block" viewbox="0 0 720 286" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ah2" markerheight="11" markerunits="userSpaceOnUse" markerwidth="11" orient="auto" refx="9" refy="3.7"><path d="M0,0 L9,3.7 L0,7.4 Z" fill="#6a7080"></path></marker>
+<marker id="ahf" markerheight="8" markerunits="userSpaceOnUse" markerwidth="8" orient="auto" refx="6.5" refy="2.6"><path d="M0,0 L6.5,2.6 L0,5.2 Z" fill="#3d4456"></path></marker>
+</defs>
+<text fill="#fff" font-size="12.5" font-weight="700" text-anchor="middle" x="180" y="24">Hard gate: what loses never arrives</text>
+<text fill="#9aa2b8" font-size="10" text-anchor="middle" x="180" y="42">Brain · thalamic reticular nucleus · sliding-window attention</text>
+<text fill="#ffa8dc" font-size="10.5" text-anchor="middle" x="170" y="56">gate</text>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="1.8" x1="40" x2="148" y1="76" y2="76"></line>
+<line marker-end="url(#ahf)" stroke="#3d4456" stroke-dasharray="4 4" stroke-width="1.2" x1="40" x2="150" y1="106" y2="106"></line>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="1.8" x1="40" x2="148" y1="136" y2="136"></line>
+<line marker-end="url(#ahf)" stroke="#3d4456" stroke-dasharray="4 4" stroke-width="1.2" x1="40" x2="150" y1="166" y2="166"></line>
+<rect fill="rgba(255,110,196,0.08)" height="118" rx="8" stroke="#ff6ec4" stroke-width="1.5" width="24" x="158" y="62"></rect>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="1.8" x1="186" x2="292" y1="76" y2="76"></line>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="1.8" x1="186" x2="292" y1="136" y2="136"></line>
+<text fill="#f0d0e4" font-size="10" x="196" y="108">✕ two channels cut: never arrived</text>
+<text fill="#c9cede" font-size="10" text-anchor="middle" x="180" y="206">Half the room misses a gorilla in center frame</text>
+<text fill="#8f88b8" font-size="10" text-anchor="middle" x="180" y="226">Not dimly remembered — never entered awareness</text>
+<line stroke="rgba(255,255,255,0.12)" stroke-width="1" x1="360" x2="360" y1="16" y2="252"></line>
+<text fill="#fff" font-size="12.5" font-weight="700" text-anchor="middle" x="540" y="24">Soft weighting: all arrive, weighted</text>
+<text fill="#9aa2b8" font-size="10" text-anchor="middle" x="540" y="42">Transformer · softmax(QKᵀ/√d)·V</text>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="3.2" x1="400" x2="636" y1="76" y2="76"></line>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="0.9" x1="400" x2="636" y1="106" y2="106"></line>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="2" x1="400" x2="636" y1="136" y2="136"></line>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="0.7" x1="400" x2="636" y1="166" y2="166"></line>
+<text fill="#7dd8f0" font-size="10" x="652" y="80">0.61</text>
+<text fill="#7dd8f0" font-size="10" x="652" y="110">0.04</text>
+<text fill="#7dd8f0" font-size="10" x="652" y="140">0.32</text>
+<text fill="#7dd8f0" font-size="10" x="652" y="170">0.03</text>
+<text fill="#c9cede" font-size="10" text-anchor="middle" x="540" y="206">Weights sum to 1 — not one channel is discarded</text>
+<text fill="#8f88b8" font-size="10" text-anchor="middle" x="540" y="226">Residual weight accumulates across dozens of layers</text>
+<text fill="#a99ee0" font-size="10.5" font-weight="700" text-anchor="middle" x="360" y="262">The test: ask which kind this system is using — not whether it is a machine or a person</text>
+<text fill="#6a7080" font-size="10" text-anchor="middle" x="360" y="280">Syn 5 · Attention · BigCat's Learning Hub</text>
+</svg>
+</div>
+<div class="source"><b>Source →</b> The developmental curve of attention, evidence-based ADHD intervention and the "look at the evidence, not the position" comparison of medication and non-medication, plus the strengths-oriented section: <a href="/parenting/attention-adhd-day17.html">Parenting · Attention and ADHD (Day 17)</a> · Mind-wandering occupying nearly half of waking life, the default mode network as both the source of creativity and the seedbed of rumination, and why mindfulness trains the speed of returning rather than the absence of drifting: <a href="/psychology/curiosity-boredom-day38.html">Psychology · Curiosity and Boredom (Day 38)</a></div>
+</section>
+<section class="sec">
+<h2>Three tiers of use</h2>
+<p>Taking something apart obliges you to say how to use it, or the essay is just more rhetoric. Roughly three tiers.</p>
+<p><strong>When all three pieces can be named and the number reported, treat it as measurement.</strong>Given a candidate set, a ceiling with a unit and a rule for ordering, attention is a quantity you can compute: gigabytes of cache, the share of compute attention consumes, daily active minutes, the effect size from a randomized trial. Claims in this tier can be argued right or wrong, and should be.</p>
+<p><strong>When the three pieces are clear but no scale is available, treat it as a model.</strong>The test is whether it yields a prediction that could be overturned. Attention residue is the exemplar: it predicts that encapsulating a task before switching reduces the residue, and an experiment could refute that. A quick self-check for this tier: the claim can usually be rewritten in sentences containing no word for attention without losing content. If it survives the translation, there is real causal reasoning underneath.</p>
+<p><strong>When neither holds, it is rhetoric — and rhetoric is not an accusation.</strong>Look at what the word is doing in the sentence. If it explains — why this happens, what comes next, where to intervene — it is working. If it only raises the price of something, it is rhetoric. Weil's line is the finest thing quoted in this essay and it is of course rhetoric. What goes wrong is never the rhetoric itself. It is filing it under "and therefore science has shown."</p>
+<p>Back to Montreal, finally. The metaphor Bahdanau borrowed was wrong about the mechanism; the neuroscience site is right that the two are separate things. His invention was right anyway, because the mechanism was never what he borrowed. He borrowed the shape of a constraint.</p>
+<p>What genuinely crosses a disciplinary border tends to sit a layer more abstract than you expect. The mechanism failed the crossing. The constraint passed. Those nine BLEU are the receipt.</p>
+</section>
+<footer>
+<a href="/index.en.html">← BigCat's Learning Hub</a>
+</footer>
+</div>
+<script defer="" src="https://hub.cissychen.com/comments.js"></script>
+<script defer="" src="https://hub.cissychen.com/search.js"></script>
+<script defer="" src="https://hub.cissychen.com/index-button.js"></script>
+<script defer="" src="https://hub.cissychen.com/i18n-tts.js"></script>
+</body></html>

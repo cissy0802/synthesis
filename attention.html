@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>注意力：一个借错的比喻，和它换来的九个 BLEU · 跨站合成 Syn 5</title>
+<meta content="大脑的注意、Transformer 的注意力、被交易的注意力、薇依说的注意力——四处用法共有的不是一套机制，是一个约束的形状：一条有硬上限的通道、一个远大于它的候选集、一条必须当场做的分配决定。这篇讲这个形状为什么能跨过学科边界、它换来了什么，以及它在哪里就不跟着走了。" name="description"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"SF Pro Display","Noto Serif SC","Songti SC",serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0a0e1a 100%);color:#e4e6eb;line-height:1.95;min-height:100vh}
+.container{max-width:780px;margin:0 auto;padding:48px 24px 80px}
+.lang-toggle{position:fixed;top:18px;right:18px;background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:5px;display:flex;z-index:100;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem}
+.lang-toggle a{padding:5px 12px;border-radius:14px;color:#a0a8c0;text-decoration:none;transition:all 0.15s}
+.lang-toggle a.active{background:#7b61ff;color:#fff;font-weight:700}
+.lang-toggle a:not(.active):hover{background:rgba(255,255,255,0.08);color:#fff}
+header{text-align:center;padding:40px 0 8px}
+header .kicker{font-size:0.78rem;color:#7b61ff;letter-spacing:2px;text-transform:uppercase;font-family:"SF Mono",Menlo,monospace;margin-bottom:14px}
+header h1{font-size:1.9rem;font-weight:800;line-height:1.5;background:linear-gradient(135deg,#00d4ff 0%,#7b61ff 50%,#ff6ec4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+header .meta{font-size:0.82rem;color:#6a7080;font-family:"SF Mono",Menlo,monospace}
+.lede{margin:32px 0 8px;padding:18px 22px;background:rgba(123,97,255,0.08);border-left:3px solid #7b61ff;border-radius:0 10px 10px 0;color:#c9cede;font-size:0.98rem}
+h2{font-size:1.35rem;font-weight:700;color:#fff;margin:52px 0 18px;padding-left:14px;border-left:4px solid #7b61ff;line-height:1.5}
+h3{font-size:1.05rem;font-weight:700;color:#c4b8ff;margin:32px 0 10px}
+p{margin:14px 0;color:#c9cede}
+strong{color:#fff}
+a{color:#7b61ff;text-decoration:none}
+a:hover{color:#00d4ff}
+ul,ol{margin:14px 0 14px 1.6em;color:#c9cede}
+li{margin:7px 0}
+code{font-family:"SF Mono",Menlo,monospace;font-size:0.86em;background:rgba(0,212,255,0.1);color:#7dd8f0;padding:1px 6px;border-radius:5px}
+pre{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px;overflow-x:auto;margin:18px 0;font-family:"SF Mono",Menlo,monospace;font-size:0.76rem;line-height:1.6;color:#a8d8e8}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);border-left:3px solid #00d4ff;border-radius:0 10px 10px 0;color:#a8b0c0;font-size:0.92rem}
+.principle{margin:14px 0;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px}
+.principle b{color:#00d4ff}
+.source{margin:16px 0;padding:11px 16px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.14);border-radius:9px;font-size:0.85rem;color:#8fa5b8;font-family:"SF Mono",Menlo,monospace}
+.source b{color:#7dd8f0;font-weight:600}
+.source a{color:#7dd8f0}
+.source a:hover{color:#fff}
+.sec{padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,0.09)}
+.sec:last-of-type{border-bottom:none;padding-bottom:0}
+.sec>h2:first-child{margin-top:44px}
+footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
+footer a{color:#7b61ff}
+@media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<a href="https://cissy0802.github.io/" onmouseout="this.style.opacity=0.55" onmouseover="this.style.opacity=1" style="position:fixed;top:14px;left:14px;font-size:0.82rem;color:inherit;opacity:0.55;text-decoration:none;padding:6px 12px;border:1px solid currentColor;border-radius:20px;z-index:100;backdrop-filter:blur(6px);transition:opacity 0.2s">← Hub</a>
+<div class="lang-toggle">
+<a class="active" href="attention.html">中文</a>
+<a href="attention.en.html">EN</a>
+</div>
+<div class="container">
+<header>
+<div class="kicker">// Synthesis · Syn 5</div>
+<h1>注意力：一个借错的比喻，和它换来的九个 BLEU</h1>
+<div class="meta">BigCat · 2026-08 · 跨站合成</div>
+</header>
+<div class="lede">
+2014 年秋天，蒙特利尔的一个实习生给机器翻译加了一个模块，管它叫「注意力」。他借的是心理学的词，翻译分数涨了将近九分。<br/><br/>
+可这个 Hub 的神经科学站在讲注意的那一期里，把话说得很直白：大脑那套和机器这套，功能上像亲戚，机制上是两回事。<br/><br/>
+类比在机制上是错的，发明却是对的。那么真正跨过学科边界的，到底是什么东西？
+</div>
+<section class="sec">
+<h2>一个学生，一座独木桥</h2>
+<p>2014 年最好的神经网络翻译办法是「先读懂、再重说」：一个网络把整句英文读完，压成一串固定长度的数字，另一个网络照着这串数字把法文写出来。当时衡量翻译好坏用 BLEU，一个自动打分，量机器译文和人工参考译文的重合度，越高越好；句子一超过二十个词，BLEU 就一路下坠，不管你把网络造得多大。</p>
+<p>主流的判断是网络还不够大。德米特里·巴赫达瑙不这么看。他那时还是深度学习学者本吉奥实验室里的一个实习学生，他的判断是：问题出在「固定长度」这个设计本身——六十个词的一段话，只许记成一张同样大小的小纸条，再凭它复述出每个细节，怎么可能。</p>
+<p>他的出路是想了想人怎么干这活。人类译者从不先把整段背下来再动笔，都是翻到哪儿看到哪儿，原文一直摊在桌上。于是他让模型也这么干：每写下一个译文词，就回头把原文每个词扫一遍打个相关度分，分高的多取一点、分低的少取一点，混成这个词专属的一杯参考。这个模块他叫它 attention。</p>
+<p>同样的数据、同样的骨架，加上它，BLEU 从 17.82 涨到 26.75，将近九分；句长曲线拉平，五十词以上几乎不再下坠。三年后有人把这个模块之外的零件全扔掉只留它，那篇论文的标题就叫《注意力就是你的全部所需》。</p>
+<p>而在这个 Hub 的另一头，神经科学站讲注意的那一期专门用一小节处理了这个撞名：两边只在最抽象的一层是同一件事，都在按相关性给信息分配权重；再往下机制毫无关系，大脑没有那张两两打分的表。</p>
+<p>怪就怪在这儿。一个在机制上讲不通的类比，解决了一个当时谁都没解开的具体问题。那到底是什么过了关？</p>
+<div class="source"><b>源页 →</b> 三步公式的完整推导、双向编码器为什么是必要配套、「软」为什么可微分因而能让对齐与翻译端到端一起学、注意力热图上英法语序颠倒处的交叉回跳：<a href="/cs-papers-deepread/bahdanau-attention-paper9.html">论文精读 · Bahdanau Attention（Paper 9）</a></div>
+</section>
+<section class="sec">
+<h2>脑子里那道闸</h2>
+<p>先看被借的这一头。</p>
+<p>最流行的比喻是探照灯：注意像一束你举着的手电，照到哪儿哪儿亮。机制上这是反的。神经科学站给的图景叫偏向竞争：脑内代表不同东西的神经元本来就一直在抢下游那点有限的处理，注意做的不是照亮某一个，是给某一个悄悄加码，让它更容易赢下这场本来就在跑的比赛。</p>
+<p>加码的力量有两股。一股是你派出去的：在停车场找红车，满场的红就都跳出来。另一股是硬闯进来的：余光一动、身后一声响、屏幕角落一个红点，你来不及决定头已经转过去了。两股会打架，常常是硬闯的那股赢。这一条后面要用两次。</p>
+<p>为什么非得选？因为下游是个瓶颈，同一时刻能真被深加工、被送进意识的信息少得可怜。最有名的证明是那个数传球次数的实验：你数得聚精会神，一个人穿着大猩猩服大摇大摆走过画面正中央还捶了捶胸，约一半的人完全没看见——光清清楚楚落在视网膜上，它只是没赢下竞争。这叫非注意盲视。</p>
+<p>闸门装在哪儿也有答案。大脑正中央有个叫丘脑的中继站，除嗅觉外你几乎所有感觉在抵达皮层之前都得先在这儿换一趟车；丘脑外面裹着一层专管踩刹车的神经元，叫丘脑网状核，它自己不往皮层送任何信息，只决定哪路放行、哪路掐掉。诺奖得主克里克当年把它叫作大脑的探照灯闸门。同一道闸往细了拧是注意，往大了关就是睡去。</p>
+<p>生物这边的关键词是三个：竞争、瓶颈、掐断。第三个尤其要记牢，全文最锋利的一条判据压在它上面。</p>
+<div class="source"><b>源页 →</b> 鸡尾酒会效应为什么同时证明了两股力、多任务为什么只是快速切换、布罗德本特把大脑当成有限容量信道的那条信息论血统，以及「注意本身可能根本不是一样东西」：<a href="/neuroscience/attention-topic2.html">神经科学 · 注意（Topic 2）</a></div>
+</section>
+<section class="sec">
+<h2>机器里那张表</h2>
+<p>再看借的这一头。巴赫达瑙那三步里有个设计是全篇的关键：它是软的。打完分过一道 softmax，把一串分数变成一组加起来等于 1 的比例，于是原文每个词都分到一点权重，而不是硬选中某一个。软的处处可导，纠错信号能顺着它流回去，「往哪看」和「怎么翻」就能在同一个循环里一起学。</p>
+<p>2017 年那篇论文把这一步推到终点：既然真正干活的是注意力，其余零件全扔掉。得到的架构叫 Transformer，今天几乎所有大模型的骨架。每个 token（模型眼里的一个词或词片）生成查询、键、值三个向量，拿自己的查询和全句每个词的键做点积打分，softmax 成权重，再对所有词的值加权求和。</p>
+<pre><code>Attention(Q, K, V) = softmax(QKᵀ / √d) · V</code></pre>
+<p>那个不起眼的 √d 不能省：维度一高点积数值就大，会把 softmax 推进几乎全 1 或全 0 的饱和区，那里梯度接近零、训不动。换来的是任意两个词只隔一次矩阵运算、整句一次并行算完——英译德 28.4 BLEU 刷新当时最好成绩，八张显卡训了三天半。</p>
+<p>代价明摆着：每一对位置都要打一次分，计算和显存随长度平方增长，而这笔账有具体数字。生成时每写一个词都要把之前算过的键和值从显存里读一遍；以一个七百亿级模型、八千多词的序列估算，最原始的多头注意力要为此吃掉约 21.5 GB，让几个头共享一份之后降到约 2.7 GB。</p>
+<p>于是这几年的工程全在做同一件事：别让它关注全部。神经科学站那一期讲得很干脆——人工系统被算力逼着，重新发现了大脑一开始就被能量逼出来的结论：关注一切太贵，必须选。</p>
+<div class="source"><b>源页 →</b> 多头为什么不是堆算力、训练后大量冗余头剪掉几乎不掉效果、分组与滑动窗口的取舍、FlashAttention 不改数学只改搬运顺序的完整机制与代码：<a href="/ai-ml/attention-variants-day12.html">AI/ML · Attention 变种（Day 12）</a> · 甩掉循环结构之后为什么才谈得上规模化、位置编码为什么是权宜之计、以及「标题其实夸张」那条自我批评：<a href="/cs-papers-deepread/attention-is-all-you-need-paper1.html">论文精读 · Attention Is All You Need（Paper 1）</a></div>
+</section>
+<section class="sec">
+<h2>市场上那件商品</h2>
+<p>词的第三站是它被明码标价的地方。这一步最早由经济学家赫伯特·西蒙在 1971 年迈出去：</p>
+<blockquote>信息消耗的东西很明显：它消耗接收者的注意力。于是信息的富足制造了注意力的贫困，以及高效分配注意力的必要。<br/>—— Herbert A. Simon,《Designing Organizations for an Information-Rich World》(1971), pp.40–41</blockquote>
+<p>这句话把注意力从一种心理状态改写成了一种存量。存量能被计量，也就能被开采。</p>
+<p>开采的技术细节，心理学站讲得很具体：平台优化的不是你的快乐，是你的下一次点击，它调用的最强机制是心理学家斯金纳的变量比率强化——奖赏不可预测时，行为频率最高、也最难消退。每 N 次给一次的固定奖赏可预测，给完有个停顿，人容易自然停下；「下一条可能是好的」没有停顿。无限滚动、下拉刷新、推送，结构上全是它。</p>
+<p>为什么明明不快乐还停不下来也有答案：神经科学家贝里奇把「想要」和「喜欢」拆成了两套可分离的系统。而《监控资本主义时代》的作者祖博夫把整条流水线拆给你看：人类经验变成行为数据，喂进机器算出预测产品，卖给押注你下一步的人——你甚至不是产品，产品是那份预测。</p>
+<p>注意这一站借走了什么。它借的是稀缺性：一个有硬上限的量，可以按人乘秒来计。它没借走任何选择机制，这里没有丘脑也没有 softmax。但它精确地瞄准了前面两股力里硬闯的那一股——红点和震动直接触发「想要」，不经过决策。</p>
+<p>这一站还带来一个必须一起搬过来的结论，因为它推翻的正是最常见的那个解释。源页说得很明白：把停不下来归因于自控力差是错的，变量比率强化本就是为抗消退而设计的，这是环境设计问题。用「意志力耗竭」解释也不行，那个模型在多实验室复制中未获支持。</p>
+<div class="source"><b>源页 →</b> 三种强化程序表的行为特征对照、数字戒断的证据分级与可维持性：<a href="/psychology/digital-age-day56.html">心理学 · 数字时代心理（Day 56）</a> · 祖博夫的完整流水线与「过于悲观决定论」的批评、卡尔关于认知外包与用进废退的论证及其跳跃之处：<a href="/book-recommendations/attention-tech-critique-book35.html">书单 · 技术批判四书（Book 35）</a></div>
+</section>
+<section class="sec">
+<h2>还有一种注意力，它根本不谈吞吐量</h2>
+<p>第四站在别的地方。法国哲学家西蒙娜·薇依 1942 年给一位诗人写信，说了一句后来被反复引用的话：注意力是慷慨最稀有、最纯粹的形式。她另一句更硬：毫无杂质的注意，本身就是祈祷。</p>
+<p>她不是在描述带宽，她在做价值判断，而且清楚自己在做价值判断。她谈学校功课的那篇文章里有个具体主张：一道最终没解出来的几何题，价值不在答案，而在你为它保持的那段无回报的注意本身——这份能力可以迁移到任何对象，包括一个受苦的人。</p>
+
+<p>心理学家契克森米哈伊走的是另一条路，落点却相近。他在《心流》里把注意力称作精神能量——没有它什么都做不成，有了它投入，事情才会发生——并由此推出一句很重的话：所谓「自我」，就是你历年来注意力投向的总和。</p>
+<p>这一站不该被当成前三站的软化版。它是一次诚实的借用：借稀缺性，借完就明说自己要拿它去干什么；不假装在测量，因此也不需要按测量的标准被检验。</p>
+<p>不过它自己那两处软肋得一并搬过来。心流理论价值中立，契克森米哈伊本人诚实承认：小偷撬锁、赌徒下注都可能在心流里。方法学也软——经验取样法全靠受试者自陈此刻感觉如何，难以证伪，也难和神经机制对上号。至于薇依，批评家苏珊·桑塔格 1963 年说得直接：读她这样的作者是为了她的严肃，而非因为真的同意她的主张。她把自我消耗当成道德证明，1943 年拒绝超过占领区配额进食，34 岁停止输出。方法可学，人生规划不可效仿。</p>
+<div class="source"><b>源页 →</b> 工厂那一年的完整代价、拒绝受洗与那套对集体的警觉、关于犹太身份的文字这道最深的裂口：<a href="/biographies/weil-day49.html">人物传记 · 西蒙娜·薇依（Day 49）</a> · 挑战与技能的那条河道为什么必然向上滚、心流八特征、以及「偏个人、偏西方」的争论：<a href="/deep-reading/flow-read15.html">每日精读 ·《心流》（Read 15）</a></div>
+</section>
+<section class="sec">
+<h2>过关的是约束，不是机制</h2>
+<p>把四站摆在一起，回到开头那个问题。</p>
+<p>四处用法共有的不是一套机制。丘脑网状核和 QK 点积之间没有任何可对应的零件，广告拍卖和薇依的祈祷之间更没有。共有的是<strong>一个约束的形状</strong>，由三个部件拼成，缺一个就不是同一件事：</p>
+<div class="principle"><b>① 一个有硬上限的通道</b>——上限是物理的、当场不可谈判的。<b>② 一个远大于上限的候选集</b>——要过桥的东西比桥能承受的多得多。<b>③ 一条必须当场做出的分配决定</b>——不能推迟，不选也是一种选。</div>
+<p>逐站对一遍，三个部件都能指名道姓。<strong>大脑</strong>：上限是下游深加工的带宽，被能量预算逼出来；候选集是涌进来的全部感官信息；分配靠偏向竞争加丘脑那道闸。<strong>Transformer</strong>：上限是随长度平方增长的算力与显存，那个 21.5 GB 就是它的具体面目；候选集是上下文里的全部 token；分配靠点积再过 softmax。<strong>市场</strong>：上限是一个人一天醒着的时间，单位是人乘秒；候选集是供应量近乎无限的内容；分配靠出价，广告拍卖每天都在给注意力定价。<strong>薇依与心流</strong>：上限是一个人一生能投出去的专注总量；候选集是所有值得被注意的对象；分配决定的不是吞吐量，是你成为谁。</p>
+<p>这个形状为什么能过关，而机制过不了？因为约束不问被约束的东西是什么做的。感官信号、token、广告位、一个受苦的人，四者没有共同的物质基础，但「桥比要过桥的东西窄」这件事对它们一视同仁。</p>
+<h3>承重的那一处</h3>
+<p>光是好看不算数。判断一个跨领域联系值不值钱，标准是它有没有解决过一个具体的、原本无解的问题。这条线上那一处就是巴赫达瑙那一步。</p>
+<p>值得注意的是他借的到底是什么。他没借「大脑怎么做注意」——那套东西他借不到，也没人给得出。他借的是「面对一个装不下的通道，人是怎么办的」：不背，摊着，用到哪儿看到哪儿。这是约束层面的答案。</p>
+<p>而它顶住了。原问题卡在固定长度向量这座独木桥上，主流判断是网络不够大，那是在往错的方向使劲。换成按需回看之后，BLEU 从 17.82 到 26.75；不含生僻词的子集上拿到 36.15，越过了统治机器翻译二十年的统计系统 Moses 的 35.63。而对齐没有任何人教过它，是学翻译时顺带学会的。</p>
+<p>更有意思的是反向的那一次。神经科学站记下的不是借用，是撞见：Transformer 的开销随长度平方暴涨，贵到必须想办法只挑一小撮；绕了一圈，人工系统被算力逼着，重新推出了大脑被能量逼出来的同一条结论。两边谁也没抄谁，同一个约束在两处各自逼出了同一种解法。这比任何类比都更能说明那个形状是真的。</p>
+<p>所以答案是：过关的从来不是机制，是约束。类比在机制上是错的，这一点丝毫不妨碍它管用，因为它本来就不靠机制承重。</p>
+<div style="overflow-x:auto;margin:26px 0">
+<svg font-family="-apple-system,'PingFang SC','Noto Sans SC',sans-serif" style="min-width:600px;height:auto;display:block" viewbox="0 0 720 452" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ah" markerheight="9" markerunits="userSpaceOnUse" markerwidth="9" orient="auto" refx="7" refy="3"><path d="M0,0 L7,3 L0,6 Z" fill="#6a7080"></path></marker>
+</defs>
+<rect fill="rgba(123,97,255,0.1)" height="54" rx="10" stroke="#7b61ff" stroke-width="1.6" width="672" x="24" y="14"></rect>
+<text fill="#fff" font-size="13.5" font-weight="700" text-anchor="middle" x="360" y="38">同一个约束：一条有硬上限的通道 ＋ 一个远大于它的候选集 ＋ 一条必须当场做的分配决定</text>
+<text fill="#a99ee0" font-size="10.5" text-anchor="middle" x="360" y="58">约束不问被约束的东西是什么做的</text>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="192" x2="192" y1="68" y2="86"></line>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="528" x2="528" y1="68" y2="86"></line>
+<rect fill="rgba(255,255,255,0.04)" height="86" rx="9" stroke="#00d4ff" stroke-width="1.3" width="330" x="24" y="90"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="112">大脑</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="131">上限：下游深加工的带宽（能量逼出来的）</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="148">候选集：涌进来的全部感官信息</text>
+<text fill="#7dd8f0" font-size="10.5" x="42" y="166">分配：偏向竞争 ＋ 丘脑那道闸</text>
+<rect fill="rgba(255,255,255,0.04)" height="86" rx="9" stroke="#00d4ff" stroke-width="1.3" width="330" x="366" y="90"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="384" y="112">Transformer</text>
+<text fill="#9aa2b8" font-size="10.5" x="384" y="131">上限：平方级增长的算力与显存（21.5 GB）</text>
+<text fill="#9aa2b8" font-size="10.5" x="384" y="148">候选集：上下文里的全部 token</text>
+<text fill="#7dd8f0" font-size="10.5" x="384" y="166">分配：点积打分 ＋ softmax</text>
+<rect fill="rgba(255,255,255,0.04)" height="86" rx="9" stroke="#00d4ff" stroke-width="1.3" width="330" x="24" y="186"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="208">市场</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="227">上限：一天醒着的时间（单位：人·秒）</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="244">候选集：供应近乎无限的内容</text>
+<text fill="#7dd8f0" font-size="10.5" x="42" y="262">分配：出价——广告拍卖在给它定价</text>
+<rect fill="rgba(255,255,255,0.04)" height="86" rx="9" stroke="#00d4ff" stroke-width="1.3" width="330" x="366" y="186"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="384" y="208">薇依与心流</text>
+<text fill="#9aa2b8" font-size="10.5" x="384" y="227">上限：一生能投出去的专注总量</text>
+<text fill="#9aa2b8" font-size="10.5" x="384" y="244">候选集：所有值得被注意的对象</text>
+<text fill="#7dd8f0" font-size="10.5" x="384" y="262">分配：决定的不是吞吐量，是你成为谁</text>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="360" x2="360" y1="276" y2="294"></line>
+<rect fill="rgba(0,212,255,0.07)" height="76" rx="10" stroke="#00d4ff" stroke-width="1.6" width="672" x="24" y="298"></rect>
+<text fill="#7dd8f0" font-size="12.5" font-weight="700" text-anchor="middle" x="360" y="322">承重的那一处：借来的是约束的形状，不是机制</text>
+<text fill="#c9cede" font-size="11" text-anchor="middle" x="360" y="343">巴赫达瑙 2014：拆掉固定长度向量那座独木桥，BLEU 17.82 → 26.75</text>
+<text fill="#9aa2b8" font-size="10.5" text-anchor="middle" x="360" y="363">句长曲线从「二十词后下坠」变成「五十词几乎不掉」，而对齐没有人教过它</text>
+<text fill="#8f88b8" font-size="10.5" font-style="italic" text-anchor="middle" x="360" y="404">反向的一次撞见：人工系统被算力逼着，重新推出了大脑被能量逼出来的同一条结论</text>
+<text fill="#8f88b8" font-size="10.5" font-style="italic" text-anchor="middle" x="360" y="423">关注一切太贵，必须选</text>
+<text fill="#6a7080" font-size="10" text-anchor="middle" x="360" y="444">Syn 5 · 注意力 · BigCat's Learning Hub</text>
+</svg>
+</div>
+</section>
+<section class="sec">
+<h2>这条通道换来了什么</h2>
+<p>认出这个形状之后，各站分别提到了什么货。</p>
+<div class="principle"><b>机器学习拿到的是一条不必自证的路线。</b>一旦承认约束是「通道装不下」，后面十年的工程就全在同一条线上展开，而且每一步都预先知道该往哪儿使劲：分组共享键值把缓存从 21.5 GB 压到 2.7 GB，滑动窗口只看局部，改搬运顺序让数学结果不变而显存友好。这些不是各自独立的巧思，是同一句话的不同答法。</div>
+<div class="principle"><b>管理拿到了一个能报出约束的说法。</b>西蒙那句话的实用后果是：注意力不是态度问题，是预算问题。领导力站把它做成了可执行的东西——同时最多三个「需要你亲自想清楚」的槽位，第四件进来必须有一件出去。要点是把判断量和执行量分开记账：说「我排满了」，老板听到的是日历问题；说「判断带宽满了，加人不能替我想」，说的才是那个真约束。</div>
+<div class="principle"><b>心理学拿到了一个把责任放对地方的解释。</b>承认硬闯那股力天生占优，「停不下来」就从品格问题变成设计问题，干预点也跟着变：可动的不是意志力，是奖赏的可预测性和停止点在不在。用固定数量代替固定时长（看 10 条，不是看 10 分钟）；手机放另一个房间，而不是翻面搁在桌上；给孩子的内容要自带结束点，一集、一关、一本。</div>
+<p>还有一件更便宜的收益。组织行为学家索菲·勒罗伊 2009 年让受试者在一个文字谜题还没做完时切去评估简历，他们对简历的判断显著差于做完谜题再切的对照组：未完成的任务持续占着工作记忆的带宽。她管这个叫注意力残留。</p>
+<p>它给出的对策是反直觉的：怎么结束一个任务，比怎么开始下一个更影响产出质量。切换前花两分钟写下进度、未决问题、下一步动作，大脑拿到「已被妥善安置」的信号就不再反复回访。中断的成本从来不在那五分钟，在回来后的半小时里你只有七成的自己。</p>
+<div class="source"><b>源页 →</b> 三个槽位怎么在一对一会议里当场用出来、加事时那三个带风险标价的选项怎么写、为什么降级必须留一句书面记录：<a href="/leadership/attention-energy-day67.html">领导力 · 注意力与精力（Day 67）</a> · 注意力残留的封装仪式模板、决策疲劳与深度工作的完整方法，含「深度工作的约束不是时间而是注意力耐力」这条：<a href="/mental-models/energy-attention-day27.html">思维模型 · 精力与注意力管理（Day 27）</a></div>
+</section>
+<section class="sec">
+<h2>五个问题，用来量别人的说法</h2>
+<p>正因为提到手的是真东西，才需要知道它在哪儿就不跟着走了。下面五个问题不是用来抓人的，是用来判断一个关于注意力的说法能不能拿去下结论。</p>
+<h3>一、这道闸是硬的还是软的？</h3>
+<p>最锋利的一条，也最容易被跳过。</p>
+<p>大脑那边是硬门控：丘脑网状核真的把某些通道掐掉，没赢下竞争的信息压根不进意识。大猩猩走过画面正中央，一半的人没看见，不是记不清，是从未抵达。Transformer 那边是软加权：softmax 给上下文里每一个 token 都分到一点权重，没有任何东西被扔掉，只是被压小了。</p>
+<p>这个差别决定了一边的结论能不能搬到另一边。「模型注意力权重低就等于它没看见」是错的，它看见了，只是权重小，而残余权重在几十层里会一层层累积。反过来，「只要够努力就能注意到」也是错的，那道闸不归你管。</p>
+<p>但这条判据要问的是这个系统此刻用的是哪一种，不是「机器一律软、人一律硬」。一旦上了滑动窗口或稀疏注意力，机器那边就真的有了硬门控：窗口外的 token 确实不参与计算。问系统，别问物种。</p>
+<h3>二、这个数有单位吗，谁在报？</h3>
+<p>有些档位真能报数。机器那一档最硬：缓存多少 GB、注意力占多少算力，都能算到小数点。市场那一档也能报：人乘秒、日活时长、一天里想不起目的的解锁次数——最后这个比屏幕时长更能反映你被线索牵着走的程度。而「深度工作能力」「注意力预算三个槽位」报不出刻度：三个槽位是个好用的约定，不是测出来的容量。</p>
+<p>能报数的可以拿去做对照实验，也就可以被推翻。Allcott 等人 2020 年让近三千人随机停用一款社交产品四周：主观幸福感确有小幅提升，但只相当于心理治疗效应的一小部分。数字有用，正是因为它们能反过来打脸。报不出数的说法可以拿去做决定，别拿去当证据。</p>
+<h3>三、「注意力」这三个字，指的是哪一样？</h3>
+<p>它不是一样东西，两边都不是。</p>
+<p>生物这边至少有三张半独立的网络——心理学家波斯纳的经典划分是警觉、定向、执行控制，它们各自能损坏、各自能训练。所以「我注意力不好」是句糊话：是易被抢占，是拉回慢，还是维持不住？拆开才谈得上改哪个。</p>
+<p>育儿站把这条用得最实。按现代研究，ADHD 不是缺乏注意力，而是注意力的调节与行为的抑制出了发育性的困难，研究这一块的心理学家巴克利认为要害在反应抑制受损。典型误判恰好踩反这条判据：「他打游戏能专心，所以是装的。」兴趣驱动下的高度专注本身就是 ADHD 的特征之一。同一站还提醒，前额叶主导的执行功能网络要发育到二十多岁，拿成人标准量小学低年级的孩子，制造的是冲突，不是专注。</p>
+<p>机器这边同样不是单数：多头注意力的每个头学的关系类型不同，有的盯相邻词，有的把代词连回它指代的名词，而训练之后很多头是冗余的，剪掉几乎不掉效果。</p>
+<h3>四、它在解释，还是在给一件事涨价？</h3>
+<p>薇依那句「注意力是慷慨最稀有、最纯粹的形式」不是在描述带宽。它是价值判断，而且她说得清清楚楚，从不假装自己在报一个数。要防的是反过来的用法：「专注是大脑的最高功能，所以你应该……」这句话里缺的那一步是价值前提，不是数据，而借来的神经科学词汇正好把这个缺口盖住了。</p>
+<p>同一把尺子也得对着这一档自己量。「带来心流」远不等于「值得做」，这一步的价值判断心流理论自己给不出。薇依那边是另一种失控：她的思想武器是对一切集体权力的怀疑，这套武器一旦对准自己的出身就失去了校准。最锋利的框架会在它最顺手的地方翻车。</p>
+<h3>五、权重高的地方，就是它在看的地方吗？</h3>
+<p>这一条是机器那边自己长出来的，也是全篇唯一一条至今还有正式争论的。</p>
+<p>注意力热图确实好看，也确实让神经网络第一次有了一扇随手可开的小窗。但两篇论文的源页都写了同一句警告：那些权重常常发散，并不总落在「正确」的词上，把它直接当成模型的解释有风险。这正是后来那场「注意力不是解释」之争的起点。写成一条判据：<strong>一个模块叫「注意力」，不代表它权重高的地方就是它真正在看的地方。</strong></p>
+<p>这条在人这边有个完全对应的版本，勒罗伊的实验里就摆着：受试者主观上确信自己已经全神贯注在新任务上，认知资源却还锁在旧任务上。一个人报告自己在专心，同样不等于他的认知资源真在那儿。两边都得靠外部证据，不能靠自陈。</p>
+<div style="overflow-x:auto;margin:26px 0">
+<svg font-family="-apple-system,'PingFang SC','Noto Sans SC',sans-serif" style="min-width:600px;height:auto;display:block" viewbox="0 0 720 286" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ah2" markerheight="11" markerunits="userSpaceOnUse" markerwidth="11" orient="auto" refx="9" refy="3.7"><path d="M0,0 L9,3.7 L0,7.4 Z" fill="#6a7080"></path></marker>
+<marker id="ahf" markerheight="8" markerunits="userSpaceOnUse" markerwidth="8" orient="auto" refx="6.5" refy="2.6"><path d="M0,0 L6.5,2.6 L0,5.2 Z" fill="#3d4456"></path></marker>
+</defs>
+<text fill="#fff" font-size="13" font-weight="700" text-anchor="middle" x="180" y="24">硬门控：没赢的信息不抵达</text>
+<text fill="#9aa2b8" font-size="10.5" text-anchor="middle" x="180" y="42">大脑 · 丘脑网状核 · 滑动窗口注意力</text>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="1.8" x1="40" x2="148" y1="76" y2="76"></line>
+<line marker-end="url(#ahf)" stroke="#3d4456" stroke-dasharray="4 4" stroke-width="1.2" x1="40" x2="150" y1="106" y2="106"></line>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="1.8" x1="40" x2="148" y1="136" y2="136"></line>
+<line marker-end="url(#ahf)" stroke="#3d4456" stroke-dasharray="4 4" stroke-width="1.2" x1="40" x2="150" y1="166" y2="166"></line>
+<rect fill="rgba(255,110,196,0.08)" height="118" rx="8" stroke="#ff6ec4" stroke-width="1.5" width="24" x="158" y="62"></rect>
+<text fill="#ffa8dc" font-size="10.5" text-anchor="middle" x="170" y="56">闸</text>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="1.8" x1="186" x2="292" y1="76" y2="76"></line>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="1.8" x1="186" x2="292" y1="136" y2="136"></line>
+<text fill="#f0d0e4" font-size="10.5" x="196" y="108">✕ 掐断的两路：从未抵达</text>
+<text fill="#c9cede" font-size="10.5" text-anchor="middle" x="180" y="206">大猩猩走过画面正中央，一半的人没看见</text>
+<text fill="#8f88b8" font-size="10.5" text-anchor="middle" x="180" y="226">不是记不清，是没进意识</text>
+<line stroke="rgba(255,255,255,0.12)" stroke-width="1" x1="360" x2="360" y1="16" y2="252"></line>
+<text fill="#fff" font-size="13" font-weight="700" text-anchor="middle" x="540" y="24">软加权：全都到，只是权重不同</text>
+<text fill="#9aa2b8" font-size="10.5" text-anchor="middle" x="540" y="42">Transformer · softmax(QKᵀ/√d)·V</text>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="3.2" x1="400" x2="636" y1="76" y2="76"></line>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="0.9" x1="400" x2="636" y1="106" y2="106"></line>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="2" x1="400" x2="636" y1="136" y2="136"></line>
+<line marker-end="url(#ah2)" stroke="#6a7080" stroke-width="0.7" x1="400" x2="636" y1="166" y2="166"></line>
+<text fill="#7dd8f0" font-size="10" x="652" y="80">0.61</text>
+<text fill="#7dd8f0" font-size="10" x="652" y="110">0.04</text>
+<text fill="#7dd8f0" font-size="10" x="652" y="140">0.32</text>
+<text fill="#7dd8f0" font-size="10" x="652" y="170">0.03</text>
+<text fill="#c9cede" font-size="10.5" text-anchor="middle" x="540" y="206">权重加起来等于 1，没有任何一路被扔掉</text>
+<text fill="#8f88b8" font-size="10.5" text-anchor="middle" x="540" y="226">残余权重会在几十层里一层层累积</text>
+<text fill="#a99ee0" font-size="11" font-weight="700" text-anchor="middle" x="360" y="262">判据：问这个系统此刻用的是哪一种，别问它是机器还是人</text>
+<text fill="#6a7080" font-size="10" text-anchor="middle" x="360" y="280">Syn 5 · 注意力 · BigCat's Learning Hub</text>
+</svg>
+</div>
+<div class="source"><b>源页 →</b> 注意力的发展曲线、ADHD 的循证干预与「药物 vs 非药物看证据不看立场」、优势取向那一节：<a href="/parenting/attention-adhd-day17.html">育儿 · 注意力与 ADHD（Day 17）</a> · 心智游荡占清醒时间近一半、默认模式网络既是创造力源头也是反刍温床、以及为什么正念练的不是不走神而是回来的速度：<a href="/psychology/curiosity-boredom-day38.html">心理学 · 好奇与无聊（Day 38）</a></div>
+</section>
+<section class="sec">
+<h2>三档用法</h2>
+<p>拆完了要给用法，否则这篇文章也只是另一种修辞。大致三档。</p>
+<p><strong>三个部件都能指名道姓、而且报得出数的，当它是测量。</strong>手上有候选集、有单位的上限、一条排序规则，注意力就是个能算的量：缓存的 GB 数、注意力占的算力比例、日活时长、随机对照实验的效应量。这一档的说法可以争论对错，也应该被争论。</p>
+<p><strong>三个部件说得清、但报不出刻度的，当它是模型。</strong>判断标准是它能不能给出一个可被推翻的预言。注意力残留是范本：它预言「切换前把任务封装好能减轻残留」，这个预言能被实验推翻。有个简单自测：这一档的说法通常可以翻译成不含「注意力」三个字的句子而不损失内容；能翻译掉，说明底下压着一套讲得清的因果。</p>
+<p><strong>都不是的，当它是修辞——而修辞不是罪名。</strong>看这个词在句子里干什么活：如果它在解释，说明为什么会这样、接下来会怎样、干预点在哪，它在做工；如果它只在给一件事涨价，那它是修辞。薇依那句话是全文引的最好的一句，它当然是修辞。出问题的从来不是修辞本身，是把它搬到「所以科学证明了」那一栏。</p>
+<p>最后回到蒙特利尔。巴赫达瑙借的那个比喻在机制上是错的，神经科学站说得没错，两边确实是两回事。可他的发明是对的，因为他借的从来不是机制，是一个约束的形状。</p>
+<p>能真正跨过学科边界的东西，常常比你以为的更抽象一层。机制不过关，约束过关了。那九个 BLEU，就是过关的收据。</p>
+</section>
+<footer>
+<a href="/index.zh.html">← BigCat's Learning Hub</a>
+</footer>
+</div>
+<script defer="" src="https://hub.cissychen.com/comments.js"></script>
+<script defer="" src="https://hub.cissychen.com/search.js"></script>
+<script defer="" src="https://hub.cissychen.com/index-button.js"></script>
+<script defer="" src="https://hub.cissychen.com/i18n-tts.js"></script>
+</body></html>
