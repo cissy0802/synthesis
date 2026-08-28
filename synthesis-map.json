@@ -105,6 +105,32 @@
         "/philosophy/free-will-day3.html",
         "/philosophy/life-death-day6.html"
       ]
+    },
+    {
+      "id": "syn-5",
+      "slug": "attention",
+      "title_zh": "注意力：一个借错的比喻，和它换来的九个 BLEU",
+      "title_en": "Attention: A Borrowed Metaphor That Was Wrong, and the Nine BLEU It Bought",
+      "genre": "A",
+      "published": "2026-08",
+      "pages": {
+        "zh": "/synthesis/attention.html",
+        "en": "/synthesis/attention.en.html"
+      },
+      "sources": [
+        "/cs-papers-deepread/bahdanau-attention-paper9.html",
+        "/neuroscience/attention-topic2.html",
+        "/ai-ml/attention-variants-day12.html",
+        "/cs-papers-deepread/attention-is-all-you-need-paper1.html",
+        "/psychology/digital-age-day56.html",
+        "/book-recommendations/attention-tech-critique-book35.html",
+        "/biographies/weil-day49.html",
+        "/deep-reading/flow-read15.html",
+        "/leadership/attention-energy-day67.html",
+        "/mental-models/energy-attention-day27.html",
+        "/parenting/attention-adhd-day17.html",
+        "/psychology/curiosity-boredom-day38.html"
+      ]
     }
   ]
 }
