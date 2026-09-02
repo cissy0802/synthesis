@@ -95,10 +95,11 @@ syn-3 现在把崩溃条件写成一串定性断言：群体过大、未来阴�
 
 **仍待办**：
 
-1. **syn-3 的 ZH TTS 需重烧**。正文一改，`data-tts` 哈希就对不上了。已用 `--dry-run` 算准范围：
-   9 段里 5 段变了（§2 §3 §4 §5 §7），4 段不变（封面、§1、§6、§8）。旧→新哈希：
+1. **syn-3 的 ZH TTS 已由 CI 自动重烧（2026-09-02 06:34 UTC，commit `8d486e4`），剩 5 个旧 mp3 待从 R2 回收。**
 
-   | 段 | 旧哈希（重烧后成孤儿） | 新哈希 |
+   9 段里 5 段的哈希变了，4 段（封面、§1、§6、§8）不变。新音频已在 R2 上线（逐个 curl 200）。
+
+   | 段 | 旧哈希（已成孤儿） | 新哈希（已上线） |
    |---|---|---|
    | §2 第一本账 | `fce94f6546b02dca` | `b238954825b4e7e9` |
    | §3 第二本账 | `d8be37b0cbf0e235` | `04fbbf75f16ffdd1` |
@@ -106,11 +107,18 @@ syn-3 现在把崩溃条件写成一串定性断言：群体过大、未来阴�
    | §5 共同骨架 | `a193f4dcba05dd59` | `b466949504269e84` |
    | §7 断裂点 | `2cd96f137bc6cbbb` | `39d4e1b3842a5498` |
 
-   本 session 没有 `AZURE_SPEECH_KEY` / `R2_*` 凭据，**未烧、也未删任何 mp3**。
-   顺序不能倒：**先烧新的，再删旧的**——先删会让文章在重烧完成前完全没有音频。
-   本仓 `audio/` 已 gitignore，正典在 R2（bucket `bigcat-audio`，前缀 `synthesis/`），
-   所以要回收的是 `synthesis/zh/<旧哈希>.mp3` 这 5 个对象。EN 两版从来没烧过 TTS
-   （`AZURE_VOICE_ID_EN` 未设），这次不涉及。
+   那 5 个旧对象仍在 R2（`bigcat-audio` / `synthesis/zh/<哈希>.mp3`，合计约 7.4MB），已确认是真孤儿：全仓 `*.html` / `*.json` / `*.js` 里引用数均为 0。
+   **注意没有任何东西会自动清掉它们**——`bake-tts.yml` 只烧不删，本地也没有 TTS GC routine。
+   本 session 无 `R2_*` 凭据、无 wrangler，未删。有凭据时：
+
+   ```
+   for h in fce94f6546b02dca d8be37b0cbf0e235 96283b8cd37cfd6f a193f4dcba05dd59 2cd96f137bc6cbbb; do
+     wrangler r2 object delete "bigcat-audio/synthesis/zh/$h.mp3" --remote
+   done
+   ```
+
+   本地 `audio/zh/` 里那 5 个旧文件保留着（gitignore，未跟踪），删 R2 前它们是最后一份副本。
+   EN 两版从来没烧过 TTS（`AZURE_VOICE_ID_EN` 未设），不涉及。
 
 ---
 
