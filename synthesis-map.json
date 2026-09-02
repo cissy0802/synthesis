@@ -96,7 +96,9 @@
         "/philosophy/individual-society-day15.html",
         "/philosophy/ethics-virtue-day5.html",
         "/psychology/evolutionary-psychology-day32.html",
-        "/sales/trust-currency-day2.html"
+        "/sales/trust-currency-day2.html",
+        "/evolutionary-biology/evolution-of-cooperation-day8.html",
+        "/complexity-science/evolutionary-games-cooperation-topic29.html"
       ],
       "keywords": [
         "囚徒困境",
@@ -108,7 +110,8 @@
       "evaluated_rejected": [
         "/book-recommendations/munger-worldview-book2.html",
         "/sales/influence-principles-day15.html"
-      ]
+      ],
+      "augmented": "2026-09"
     },
     {
       "id": "syn-4",
