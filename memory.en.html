@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Memory: The Recording Nobody Kept, and a Blueprint from 1995 · Synthesis 6</title>
+<meta content="Brains, model weights and vector stores share no materials, yet they fail in the same place: none of them kept the recording, so every read has to be rebuilt on the spot. Rebuilding means filling gaps, and filling gaps means sometimes filling them wrong — false memory on one side, hallucination on the other. The load-bearing evidence is complementary learning systems: a 1995 theory of the brain became, and remains, the strongest engineering fix for catastrophic forgetting. Ends with five questions you can actually tick off." name="description"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"SF Pro Display",Georgia,serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0a0e1a 100%);color:#e4e6eb;line-height:1.85;min-height:100vh}
+.container{max-width:780px;margin:0 auto;padding:48px 24px 80px}
+.lang-toggle{position:fixed;top:18px;right:18px;background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:5px;display:flex;z-index:100;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem}
+.lang-toggle a{padding:5px 12px;border-radius:14px;color:#a0a8c0;text-decoration:none;transition:all 0.15s}
+.lang-toggle a.active{background:#7b61ff;color:#fff;font-weight:700}
+.lang-toggle a:not(.active):hover{background:rgba(255,255,255,0.08);color:#fff}
+header{text-align:center;padding:40px 0 8px}
+header .kicker{font-size:0.78rem;color:#7b61ff;letter-spacing:2px;text-transform:uppercase;font-family:"SF Mono",Menlo,monospace;margin-bottom:14px}
+header h1{font-size:1.9rem;font-weight:800;line-height:1.45;background:linear-gradient(135deg,#00d4ff 0%,#7b61ff 50%,#ff6ec4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+header .meta{font-size:0.82rem;color:#6a7080;font-family:"SF Mono",Menlo,monospace}
+.lede{margin:32px 0 8px;padding:18px 22px;background:rgba(123,97,255,0.08);border-left:3px solid #7b61ff;border-radius:0 10px 10px 0;color:#c9cede;font-size:0.98rem}
+h2{font-size:1.35rem;font-weight:700;color:#fff;margin:52px 0 18px;padding-left:14px;border-left:4px solid #7b61ff;line-height:1.45}
+h3{font-size:1.05rem;font-weight:700;color:#c4b8ff;margin:32px 0 10px}
+p{margin:14px 0;color:#c9cede}
+strong{color:#fff}
+a{color:#7b61ff;text-decoration:none}
+a:hover{color:#00d4ff}
+ul,ol{margin:14px 0 14px 1.6em;color:#c9cede}
+li{margin:7px 0}
+code{font-family:"SF Mono",Menlo,monospace;font-size:0.86em;background:rgba(0,212,255,0.1);color:#7dd8f0;padding:1px 6px;border-radius:5px}
+pre{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px;overflow-x:auto;margin:18px 0;font-family:"SF Mono",Menlo,monospace;font-size:0.76rem;line-height:1.6;color:#a8d8e8}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);border-left:3px solid #00d4ff;border-radius:0 10px 10px 0;color:#a8b0c0;font-size:0.92rem}
+.principle{margin:14px 0;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px}
+.principle b{color:#00d4ff}
+.source{margin:16px 0;padding:11px 16px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.14);border-radius:9px;font-size:0.85rem;color:#8fa5b8;font-family:"SF Mono",Menlo,monospace}
+.source b{color:#7dd8f0;font-weight:600}
+.source a{color:#7dd8f0}
+.source a:hover{color:#fff}
+.sec{padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,0.09)}
+.sec:last-of-type{border-bottom:none;padding-bottom:0}
+.sec>h2:first-child{margin-top:44px}
+footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
+footer a{color:#7b61ff}
+@media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<a href="https://cissy0802.github.io/" onmouseout="this.style.opacity=0.55" onmouseover="this.style.opacity=1" style="position:fixed;top:14px;left:14px;font-size:0.82rem;color:inherit;opacity:0.55;text-decoration:none;padding:6px 12px;border:1px solid currentColor;border-radius:20px;z-index:100;backdrop-filter:blur(6px);transition:opacity 0.2s">← Hub</a>
+<div class="lang-toggle">
+<a href="memory.html">中文</a>
+<a class="active" href="memory.en.html">EN</a>
+</div>
+<div class="container">
+<header>
+<div class="kicker">// Synthesis · Syn 6</div>
+<h1>Memory: The Recording Nobody Kept, and a Blueprint from 1995</h1>
+<div class="meta">BigCat · 2026-09 · Cross-Site Synthesis</div>
+</header>
+<div class="lede">
+You told an AI assistant once that you don't eat meat. Six months later it recommends a steakhouse.<br/><br/>
+That same week you and a family member argue about something one of you said three years ago. You both remember it clearly. You remember two different versions.<br/><br/>
+The first is a software defect. The second is just being human. Look underneath, though, and they break in exactly the same place.
+</div>
+<section class="sec">
+<h2>Two ways of not remembering</h2>
+<p>At least six sites in this hub write about memory, each minding its own business. Neuroscience covers how an experience goes from fleeting to still-there decades later. Psychology covers how half of what you remember was assembled by the person you are now. The AI site covers how a model wipes out old skills while learning new ones. The site on assistant engineering covers how you actually build the "remembers you" part of a product. Meta-knowledge covers how long to wait before you review.</p>
+<p>Put them side by side and the easy question is whether they resemble each other. Of course they do; that question costs nothing.</p>
+<p>The genuinely odd thing is elsewhere. A hundred billion nerve cells, a few hundred billion numbers, and a database full of text chunks share no materials whatsoever. Why do they fail in the same two ways — unable to hold on to what matters, and perfectly willing to narrate, in convincing detail, things that never happened?</p>
+</section>
+<section class="sec">
+<h2>The human side: there is no recording in the warehouse</h2>
+<p>Start by dismantling a deep illusion. Recall feels like playing back a tape. The brain has no tape.</p>
+<p>When something happens it gets pulled apart, and the pieces are parked in whichever region handles them: colour with colour, sound with sound, where-it-happened with space. No single location holds the whole scene. What ties the pieces together is the hippocampus, the pair of structures deep in the brain that act as an index. At the moment of the event it rapidly notes that these particular fragments belong together and staples the same bookmark onto them. When you recall, it follows the bookmark, re-gathers the scattered pieces and assembles them on the spot. Whatever is missing gets filled in from what's similar, and from what you know and expect today.</p>
+<p>So memory is generated, not read out. There are experiments behind that sentence. The psychologist Elizabeth Loftus had families plant the suggestion of a childhood event that never happened; roughly a quarter of adult participants "remembered" getting lost in a shopping mall as a child and being found by a stranger, and volunteered extra detail unprompted.</p>
+<p>There is also an offline shift. A freshly learned thing starts out hanging on the hippocampus — fast, but easily overwritten. To become something still present in forty years it has to migrate slowly into the large, stable warehouse of the cortex. That migration is called consolidation, and it happens mostly while you sleep. In deep sleep the hippocampus replays the route you walked during the day, compressed: a few minutes of walking runs through in a few hundred milliseconds, over and over, teaching the cortex a little at a time. A badly slept week isn't a week that didn't happen. It's a week that never got filed.</p>
+<p>And here is the unsettling part. Every time you pull a memory up, it doesn't just get inspected and put back. It briefly unseals, becomes soft and editable, and is then stored again. This is reconsolidation — the consolidation step, run again on every use. Each act of recall quietly rewrites the memory, mixing in your current mood, someone's offhand remark, your present understanding. The memories you revisit most are probably the ones you have altered most.</p>
+<p>Forgetting isn't a failure of the system either. Precisely because you can't recall what every dog you ever saw looked like, you have the concept "dog" at all.</p>
+<div class="source"><b>Source pages →</b> Which part of the hippocampus keeps look-alikes apart and which part completes a whole scene from a fragment, why the Hopfield network is the mathematical prototype of "partial cue in, whole memory out", and whether a memory can be planted from nothing (it can — it's been done in mice): <a href="/neuroscience/long-term-memory-topic4.html">Neuroscience · Long-Term Memory (Topic 4)</a> · The full lineup-reform checklist behind eyewitness misidentification, flashbulb memories, source-monitoring errors, and the still-contested idea of using the reconsolidation window therapeutically: <a href="/psychology/memory-reconstruction-day44.html">Psychology · Reconstructive Memory (Day 44)</a></div>
+<p>The other side of the house is a much smaller desk. Someone reads out a phone number while you're hunting for a pen; for those few seconds the number is in your head, and one distraction later it's gone. That's working memory. It isn't a scaled-down version of long-term memory — it barely stores anything, it just keeps a few things lit. Capacity is closer to four than to the famous seven plus or minus two, and it counts parcels rather than parts: in 138 0013 8000 you are holding three blocks, not eleven digits.</p>
+<p>What matters more is who runs the desk. The prefrontal cortex, right behind your forehead, doesn't hold much content itself; it directs. It keeps the current goal raised, decides what gets onto the desk, and fends off distraction. Under stress that fragile activity gets scattered outright, which is why your mind goes blank in an exam: the desk has been cleared without warning.</p>
+<div class="source"><b>Source page →</b> How the "magical number seven" was revised down to four, what actually holds a memory through the delay period (persistent firing, or a trace hidden in short-term synaptic weights), and why giving a model a longer stretch of text to look at doesn't make it smarter: <a href="/neuroscience/working-memory-topic3.html">Neuroscience · Working Memory (Topic 3)</a></div>
+</section>
+<section class="sec">
+<h2>The machine side: three different things called memory</h2>
+<p>"The model has memory now" can mean three quite different things: what's in the window, what's in the weights, and what's in the attached store.</p>
+<p><strong>The window.</strong> Each time a model replies, all it can see directly is the text inside its context window. Talk long enough and the earliest turns slide out; at that point it simply doesn't know them. The AI site puts the framing bluntly: the window is a working set, not a database, and the goal is to put the right things in it, not more things. Being in the window doesn't even guarantee being seen. Put the key fact at the start or end of a hundred-thousand-token context and recall runs around eighty percent; put it dead centre and it drops to about half.</p>
+<p><strong>The weights.</strong> Nothing a model read is stored verbatim anywhere. It's kneaded into hundreds of billions of connection weights, and an answer is generated on the spot as the most answer-shaped thing to say. Which is why it occasionally invents, with complete composure, a citation or a figure that doesn't exist. That's hallucination.</p>
+<p>This kind of memory has another notorious flaw: train on new data and the old skills wash out. It's called catastrophic forgetting, and it was identified back in 1989. The AI site gives a twenty-line experiment you can run: learn task A, accuracy around 0.95; then learn task B, go back and test A, and it's down to about 0.55.</p>
+<p>The cause isn't capacity. Heavily over-parameterised networks do it too. There's room for both tasks, but gradient descent has no reason to look for the solution that serves both — it just walks downhill on the current one. In engineering terms: the weights are one globally shared mutable state, learning a new task is an in-place overwrite, and there is no versioning and no transaction.</p>
+<p>Out of this falls a spectrum, the stability-plasticity dilemma: weights too rigid and nothing new gets in, weights too loose and each new thing erases the last. Three families of fix sit at different points along it — attach a spring to each important weight and pull it back towards its old value (elastic weight consolidation), keep a replay buffer and mix old samples in with new ones during training (experience replay), or give each task its own slice of parameters and freeze it when the task is done (parameter isolation).</p>
+<p><strong>The attached store.</strong> This is what most people mean today by giving an AI a memory: turn each passage into a string of numbers so that similar meanings land at nearby coordinates, then at query time pull back the nearest few and drop them into the window. The thing holding those coordinates is a vector store, and what it supplies is the missing "find it again from a cue" step.</p>
+<p>Its ceiling isn't the model, it's the retrieval. The page on retrieval quality says it flatly: hand the model the right document and it will almost always answer correctly; fail to, and all it can do is make something up. A system with <code>recall@5 = 0.71</code> means that for 29% of questions the correct document never entered the model's field of view at all — a number most teams have never measured.</p>
+<div class="source"><b>Source pages →</b> Why context length is a hardware-cost problem, the full numbers behind that U-shaped recall curve, and why prompt caching demands a byte-identical prefix: <a href="/ai-ml/context-engineering-day8.html">AI/ML · Context Engineering (Day 8)</a> · Minimal reproduction code for catastrophic forgetting, the elastic-weight-consolidation formula and its own weakness (constraints pile up and plasticity dries out), and why generative replay is capped by the fidelity of its generator: <a href="/ai-ml/continual-learning-day52.html">AI/ML · Continual Learning and Catastrophic Forgetting (Day 52)</a> · How semantic vectors get trained, approximate-nearest-neighbour indexing, and why embeddings are good at finding similarity and bad at finding difference: <a href="/ai-ml/rag-systems-day4.html">AI/ML · RAG Systems (Day 4)</a></div>
+</section>
+<section class="sec">
+<h2>Some people already build to the rules of memory</h2>
+<p>Worth noting: the people closest to shipping products stopped treating memory as a storage problem some time ago.</p>
+<p>The first claim on the assistant-engineering site is that managing conversation history, task scratchpads, user profile and domain knowledge in one place is the root cause of assistants going incoherent after three turns. These four have completely different lifetimes — a scratchpad should be burned after the task, a profile should outlive everything — and once they share a vector store, the next task gets polluted by the last one's leftovers.</p>
+<p>The long-term layer then splits again by query type: similarity goes to the vector store, exact facts like "what's my name" go to a key-value table, and "what happened last time" goes to an append-only event log ordered by time.</p>
+<p>Two details are worth carrying away. First, when a model maintains the user profile itself, every write must cite a specific message as evidence, and no evidence means no write — otherwise a third of the profile is model inference six months on. Second, the profile needs an eviction policy. Let it grow to five thousand tokens and it eats half the context budget; leave the event log unpruned for half a year and a single retrieval will blow the prompt apart.</p>
+<div class="source"><b>Source pages →</b> Full read/write policies for the four state layers, how to choose between truncate, summarise and hierarchical for short-term memory, and how to implement the evidence field and changelog for a self-maintained profile: <a href="/super-individual/memory-state-day7.html">Super Individual · Memory &amp; State (Day 7)</a> · Why recall must come before precision, why hybrid retrieval needs RRF rather than weighted sums, and how to attribute a failure to retrieval versus generation: <a href="/super-individual/retrieval-quality-day43.html">Super Individual · Retrieval Quality Engineering (Day 43)</a></div>
+</section>
+<section class="sec">
+<h2>The line in between: only effortful recall counts</h2>
+<p>Between people and machines sits a practical line of work: learning science. Its subject is how to make something stick inside a system already known to reconstruct and to forget.</p>
+<p>The finding is mildly counterintuitive. Memory doesn't get stronger the more densely you review; it gets strongest when you review right at the point of nearly forgetting. The forgetting curve described by the psychologist Hermann Ebbinghaus drops fastest in the first day or two, but each reactivation flattens the decay, so the next interval can stretch — a day, then three, then a week, then a month.</p>
+<p>Retrieval practice is the sharper result. Spend the same time rereading versus self-testing and the long-term gap is large: in one classic study the self-testing group could recall about half the material a week later, the rereading group about three-tenths — even though the rereaders felt more fluent and more confident at the time. That feeling has a name, the fluency illusion. The smoother it reads, the easier it is to mistake recognition for mastery.</p>
+<p>The mental-models site draws the line more precisely. Recognition understanding is passive: you see the answer and think, yes, that's it. Generative understanding is active: you can rebuild the thing from a blank page. Whether you can re-explain it with the book shut is the only honest boundary between the two.</p>
+<div class="source"><b>Source pages →</b> The zone of proximal development and scaffolding, why drawing a diagram yourself beats studying a polished one, and why far transfer almost never happens spontaneously: <a href="/meta-knowledge/learning-science-day24.html">Meta-Knowledge · Learning Science (Day 24)</a> · How the Feynman technique forces the holes in your understanding into the open, and why cross-domain edges are the most valuable ones in a knowledge graph: <a href="/mental-models/information-knowledge-day23.html">Mental Models · Information &amp; Knowledge (Day 23)</a></div>
+</section>
+<section class="sec">
+<h2>The same thing</h2>
+<p>Back to the question from the start: why do three systems made of entirely different stuff fail in such similar ways?</p>
+<p>Because they made the same compromise in the same place. <strong>None of them kept the recording. What each keeps is a lossy trace, plus a cue for finding it again.</strong></p>
+<p>People keep fragments and the bookmark the hippocampus stapled on. A model's knowledge is smeared across hundreds of billions of weights, with the source text nowhere. A vector store keeps chunks and their coordinates in semantic space. All three are alike in the consequence: when the thing is needed, it has to be rebuilt on the spot.</p>
+<p>That consequence is hard. Rebuilding means filling gaps, and filling gaps means sometimes filling them wrong. Fill them right and we call it a good memory. Fill them wrong and we call it false memory in people and hallucination in machines. These aren't two similar-looking bugs; they are two exits from one path. The line from the retrieval-quality page joins them neatly: without the right document, all it can do is make something up.</p>
+<p>The second thing in common is a balance. The brain has to do two opposite jobs at once: keep two near-identical experiences separate (today the car is in section B, yesterday it was in A — let those blur and you never find it), and reconstruct the whole from half a cue (three notes, half a face). Neuroscience names these pattern separation and pattern completion, and assigns them to two different parts of the hippocampus. Engineering calls the same balance stability versus plasticity, and has already turned it into an explicit knob: the coefficient in elastic weight consolidation, turned up for stability and down for plasticity. One trade-off, expressed once as anatomy and once as a hyperparameter. The directions are reversed, which is the interesting part — the brain's problem is how to actively forget what should go, and the network's problem is how not to passively lose everything.</p>
+<p>The third is the most immediately useful. <strong>How certain something feels and how accurate it is are nearly independent.</strong> The psychologist Ulric Neisser tracked people's memories of the day the Challenger shuttle exploded, comparing accounts given the next day with accounts given two and a half years later: nearly half the details had been rewritten, some people were flatly wrong about where they had been, and confidence ratings hadn't budged. Among US convictions later overturned by DNA evidence, roughly seventy percent involved eyewitness misidentification. Vivid, fluent and certain is not evidence of accuracy in people. It isn't in models either.</p>
+<div style="overflow-x:auto;margin:26px 0">
+<svg font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" style="min-width:660px;height:auto;display:block" viewBox="0 0 720 322" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ahe" markerHeight="9" markerUnits="userSpaceOnUse" markerWidth="9" orient="auto" refX="7" refY="3"><path d="M0,0 L7,3 L0,6 Z" fill="#6a7080"></path></marker>
+</defs>
+<rect fill="rgba(123,97,255,0.1)" height="36" rx="10" stroke="#7b61ff" stroke-width="1.6" width="672" x="24" y="12"></rect>
+<text fill="#fff" font-size="13" font-weight="700" text-anchor="middle" x="360" y="35">Nobody kept the recording — only a lossy trace, plus a cue for finding it again</text>
+<text fill="#8f96ad" font-size="10.5" x="30" y="70">What is actually stored</text>
+<text fill="#8f96ad" font-size="10.5" x="304" y="70">What happens on use</text>
+<text fill="#8f96ad" font-size="10.5" x="574" y="70">What we call the misses</text>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="248" x="24" y="80"></rect>
+<text fill="#fff" font-size="11.5" font-weight="700" x="38" y="100">Human · fragments + an index</text>
+<text fill="#9aa2b8" font-size="10" x="38" y="117">no single place holds the whole scene</text>
+<line marker-end="url(#ahe)" stroke="#6a7080" stroke-width="1.3" x1="278" x2="298" y1="103" y2="103"></line>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="238" x="304" y="80"></rect>
+<text fill="#c9cede" font-size="11" x="316" y="102">Re-gather the pieces, rebuild live</text>
+<text fill="#7f8699" font-size="9.5" x="316" y="118">gaps filled from what is similar and expected</text>
+<line marker-end="url(#ahe)" stroke="#6a7080" stroke-width="1.3" x1="548" x2="568" y1="103" y2="103"></line>
+<rect fill="rgba(255,110,196,0.07)" height="46" rx="9" stroke="#ff6ec4" stroke-width="1.2" width="122" x="574" y="80"></rect>
+<text fill="#ffa8dc" font-size="11.5" font-weight="700" text-anchor="middle" x="635" y="108">False memory</text>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="248" x="24" y="138"></rect>
+<text fill="#fff" font-size="11.5" font-weight="700" x="38" y="158">Model · knowledge in the weights</text>
+<text fill="#9aa2b8" font-size="10" x="38" y="175">the source text is stored nowhere</text>
+<line marker-end="url(#ahe)" stroke="#6a7080" stroke-width="1.3" x1="278" x2="298" y1="161" y2="161"></line>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="238" x="304" y="138"></rect>
+<text fill="#c9cede" font-size="11" x="316" y="160">Generate the most answer-like text</text>
+<text fill="#7f8699" font-size="9.5" x="316" y="176">it must emit a word even when it has none</text>
+<line marker-end="url(#ahe)" stroke="#6a7080" stroke-width="1.3" x1="548" x2="568" y1="161" y2="161"></line>
+<rect fill="rgba(255,110,196,0.07)" height="46" rx="9" stroke="#ff6ec4" stroke-width="1.2" width="122" x="574" y="138"></rect>
+<text fill="#ffa8dc" font-size="11.5" font-weight="700" text-anchor="middle" x="635" y="166">Hallucination</text>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="248" x="24" y="196"></rect>
+<text fill="#fff" font-size="11.5" font-weight="700" x="38" y="216">Vector store · chunks + coordinates</text>
+<text fill="#9aa2b8" font-size="10" x="38" y="233">what the cue misses may as well not exist</text>
+<line marker-end="url(#ahe)" stroke="#6a7080" stroke-width="1.3" x1="278" x2="298" y1="219" y2="219"></line>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="238" x="304" y="196"></rect>
+<text fill="#c9cede" font-size="11" x="316" y="218">Pull the nearest few; model fills in</text>
+<text fill="#7f8699" font-size="9.5" x="316" y="234">recall@5 = 0.71 → 29% never retrieved at all</text>
+<line marker-end="url(#ahe)" stroke="#6a7080" stroke-width="1.3" x1="548" x2="568" y1="219" y2="219"></line>
+<rect fill="rgba(255,110,196,0.07)" height="46" rx="9" stroke="#ff6ec4" stroke-width="1.2" width="122" x="574" y="196"></rect>
+<text fill="#ffa8dc" font-size="11.5" font-weight="700" text-anchor="middle" x="635" y="224">Makes it up</text>
+<rect fill="rgba(0,212,255,0.07)" height="56" rx="10" stroke="#00d4ff" stroke-width="1.5" width="672" x="24" y="254"></rect>
+<text fill="#7dd8f0" font-size="12" font-weight="700" text-anchor="middle" x="360" y="277">Rebuilding means filling gaps; filling gaps means sometimes filling them wrong</text>
+<text fill="#9aa2b8" font-size="10.5" text-anchor="middle" x="360" y="297">Filled right, we call it a good memory; filled wrong, it only gets a new name · Syn 6 · BigCat's Learning Hub</text>
+</svg>
+</div>
+<h3>The load-bearing evidence</h3>
+<p>To show a connection like this is more than decorative, you have to point at a specific problem it solved that had no good answer before. There is one here, and the dates are clear.</p>
+<p>Catastrophic forgetting was identified in 1989, and what it blocked was elementary: let a network learn tasks one after another and each new one erases the last. Brains do this every day and barely suffer from it.</p>
+<p>The complementary learning systems theory, proposed in 1995, named the correspondence. The brain isn't one memory system but two: one fast and easily overwritten, one slow and stable. New experience lands on the fast one, and nightly compressed replay teaches it, bit by bit, to the slow one. Splitting the job by speed is what pulls "learn quickly" and "don't overwrite the old" apart from each other.</p>
+<p>Later engineering mostly just built that blueprint. Experience replay — keep a buffer, sample old examples at random and train them alongside the new — is still very nearly the strongest baseline in continual learning. Generative replay, in 2017, went further: store no old data at all, and instead train a generator to synthesise things that look like the old task, saving storage and sidestepping privacy. That line's stated inspiration is the hippocampus replaying experience during sleep.</p>
+<p>It has a bill of its own to pay. The generator is also learning continually, so it degrades across generations; its "old samples" drift further from the real thing, error compounds along the chain of tasks, and over a long sequence the early tasks collapse anyway. What was collected from next door is a real architecture, not a universal charm.</p>
+<p>But the test is met: a six-year-old engineering impasse was answered by the anatomy of another field, and three decades later that answer is still the best one available.</p>
+</section>
+<section class="sec">
+<h2>What the connection buys</h2>
+<p>Step up a level from memory and you can see what cross-disciplinary borrowing actually saves. If only the word travels, you have gained nothing. If the reasoning underneath travels with it, you inherit everything that reasoning has already earned.</p>
+<div class="principle"><b>Engineering inherits a default practice.</b> When large models are trained further, the industry mixes old and new data in proportion rather than feeding new data alone — and replay is the reason. The same holds at personal scale: to have a local model absorb new knowledge without losing the old, the easy answer isn't elaborate regularisation, it's keeping a representative sample of the old data in the mix. That's a recipe, not an aphorism.</div>
+<div class="principle"><b>AI products can collect a whole procedure from the courtroom.</b> An eyewitness pointing across a courtroom is the most persuasive and least reliable evidence there is, and fifty years of research produced a full anti-contamination protocol: show the lineup one at a time rather than all at once; run it double-blind, so even the administrator doesn't know who the suspect is; record the witness's initial confidence on the spot; never give feedback like "you picked the right one" afterwards. Notice that none of these measures makes memory more accurate. Every one of them protects the reconstruction from contamination and stops confidence from being inflated.</div>
+<p>The translation is almost line by line. Don't ask leading questions — "did he swing first?" and writing your conclusion into the prompt are the same gesture. Store content separately from its source: people routinely keep the content and lose the source, mistaking something heard, imagined or dreamt for something witnessed, and requiring an evidence message ID on every profile write is the same defence. Record at the time instead of recalling afterwards: a team reviewing an incident shouldn't rely on memory, because hindsight reshapes it, and every entry in an event log needs a timestamp or the model will read yesterday's decision as today's.</p>
+<div class="principle"><b>Learning gets numbers you can substitute in.</b> The forgetting curve isn't a figure of speech; spaced-repetition tools schedule directly against it, reviewing near the point of forgetting so the decay flattens and the next gap can stretch from a day to three to a week to a month. Retrieval practice is comparable in the same way: about half recalled a week later with self-testing, about three-tenths with rereading. And the traffic runs both ways — an assistant's profile and event log with no eviction policy will eventually choke on themselves. "Knowing how to forget" is a literal engineering constraint here, not an inspirational line.</div>
+</section>
+<section class="sec">
+<h2>Where the reasoning stops</h2>
+<p>Now for the sentence you hear most: "the model has memory now."</p>
+<p>Nine times out of ten, "memory" in that sentence means storage plus retrieval. But the most valuable part of human memory isn't in the storing or the retrieving. It's in the night shift — in weaving new experience into old knowledge and grinding detail down into regularity. The neuroscience site says so without hedging: bolted-on memory has the shape but not the substance, and the hard part was never storing and fetching.</p>
+<p>The five questions below aren't a trap. They're for deciding whether a claim can carry a design decision.</p>
+<p><strong>1. Is writing selective?</strong> A system that keeps everything is a log, not a memory.</p>
+<p><strong>2. Is reading retrieval or reconstruction?</strong> Something that never errs and never fills gaps is a database. Only something that fills in, and bleeds between entries, is on the reconstruction path — which is also why it will inevitably make things up.</p>
+<p><strong>3. Does reading rewrite what was read?</strong> In people it does; that's reconsolidation. Query a vector store ten thousand times and not one character changes.</p>
+<p><strong>4. Is there offline reprocessing?</strong> Weaving the new into the old, wearing detail down into rules. In people this happens in sleep.</p>
+<p><strong>5. Does it forget on purpose?</strong> Is there an eviction policy, or does it just run until it bursts?</p>
+<div style="overflow-x:auto;margin:26px 0">
+<svg font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" style="min-width:680px;height:auto;display:block" viewBox="0 0 720 392" width="100%" xmlns="http://www.w3.org/2000/svg">
+<rect fill="rgba(123,97,255,0.1)" height="32" rx="9" stroke="#7b61ff" stroke-width="1.5" width="672" x="24" y="10"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" text-anchor="middle" x="360" y="31">Four things called memory, ticked off one row at a time</text>
+<text fill="#8f96ad" font-size="10.5" x="30" y="63">Five questions</text>
+<text fill="#c4b8ff" font-size="10.5" font-weight="700" text-anchor="middle" x="325" y="63">Human long-term</text>
+<text fill="#c4b8ff" font-size="10.5" font-weight="700" text-anchor="middle" x="429" y="63">Context window</text>
+<text fill="#c4b8ff" font-size="10.5" font-weight="700" text-anchor="middle" x="533" y="63">Vector retrieval</text>
+<text fill="#c4b8ff" font-size="10.5" font-weight="700" text-anchor="middle" x="637" y="63">Agent memory</text>
+<line stroke="rgba(255,255,255,0.16)" stroke-width="1" x1="24" x2="696" y1="72" y2="72"></line>
+<text fill="#c9cede" font-size="11" x="30" y="96">1  Writing is selective</text>
+<text fill="#9fe0bd" font-size="12" text-anchor="middle" x="325" y="96">Yes</text>
+<text fill="#ffa8dc" font-size="12" text-anchor="middle" x="429" y="96">No</text>
+<text fill="#ffd479" font-size="10.5" text-anchor="middle" x="533" y="96">Only at chunking</text>
+<text fill="#9fe0bd" font-size="12" text-anchor="middle" x="637" y="96">Yes</text>
+<line stroke="rgba(255,255,255,0.08)" stroke-width="1" x1="24" x2="696" y1="108" y2="108"></line>
+<text fill="#c9cede" font-size="11" x="30" y="132">2  Reading rebuilds</text>
+<text fill="#9fe0bd" font-size="12" text-anchor="middle" x="325" y="132">Yes</text>
+<text fill="#ffa8dc" font-size="10.5" text-anchor="middle" x="429" y="132">No, it is verbatim</text>
+<text fill="#9fe0bd" font-size="12" text-anchor="middle" x="533" y="132">Yes</text>
+<text fill="#9fe0bd" font-size="12" text-anchor="middle" x="637" y="132">Yes</text>
+<line stroke="rgba(255,255,255,0.08)" stroke-width="1" x1="24" x2="696" y1="144" y2="144"></line>
+<text fill="#c9cede" font-size="11" x="30" y="168">3  Reading rewrites it</text>
+<text fill="#9fe0bd" font-size="10.5" text-anchor="middle" x="325" y="168">Yes — reconsolidation</text>
+<text fill="#ffa8dc" font-size="12" text-anchor="middle" x="429" y="168">No</text>
+<text fill="#ffa8dc" font-size="12" text-anchor="middle" x="533" y="168">No</text>
+<text fill="#ffd479" font-size="10.5" text-anchor="middle" x="637" y="168">The profile, yes</text>
+<line stroke="rgba(255,255,255,0.08)" stroke-width="1" x1="24" x2="696" y1="180" y2="180"></line>
+<text fill="#c9cede" font-size="11" x="30" y="204">4  Offline reprocessing</text>
+<text fill="#9fe0bd" font-size="10.5" text-anchor="middle" x="325" y="204">Yes, during sleep</text>
+<text fill="#ffa8dc" font-size="12" text-anchor="middle" x="429" y="204">No</text>
+<text fill="#ffa8dc" font-size="12" text-anchor="middle" x="533" y="204">No</text>
+<text fill="#ffd479" font-size="10.5" text-anchor="middle" x="637" y="204">Summaries, reflection</text>
+<line stroke="rgba(255,255,255,0.08)" stroke-width="1" x1="24" x2="696" y1="216" y2="216"></line>
+<text fill="#c9cede" font-size="11" x="30" y="240">5  Forgets on purpose</text>
+<text fill="#9fe0bd" font-size="12" text-anchor="middle" x="325" y="240">Yes</text>
+<text fill="#ffd479" font-size="10.5" text-anchor="middle" x="429" y="240">Only slides out</text>
+<text fill="#ffa8dc" font-size="10.5" text-anchor="middle" x="533" y="240">You must code it</text>
+<text fill="#ffd479" font-size="10.5" text-anchor="middle" x="637" y="240">You must code it</text>
+<line stroke="rgba(255,255,255,0.16)" stroke-width="1" x1="24" x2="696" y1="252" y2="252"></line>
+<rect fill="rgba(255,110,196,0.05)" height="62" rx="10" stroke="#ff6ec4" stroke-dasharray="6 5" stroke-width="1.3" width="672" x="24" y="264"></rect>
+<text fill="#ffa8dc" font-size="11" font-weight="700" x="42" y="286">The context window maps onto working memory, not long-term memory — minus the controller that guards the desk</text>
+<text fill="#f0d0e4" font-size="10" x="42" y="307">What vector retrieval lacks is row 4: nothing gets replayed at night or abstracted, so in six months the same raw text is still lying there</text>
+<text fill="#8f88b8" font-size="10" font-style="italic" text-anchor="middle" x="360" y="347">All five → design to the rules of memory   ·   About half → it is storage; don't expect digestion</text>
+<text fill="#8f88b8" font-size="10" font-style="italic" text-anchor="middle" x="360" y="366">None → it is rhetoric; keep it out of the decision</text>
+<text fill="#6a7080" font-size="10" text-anchor="middle" x="360" y="385">Syn 6 · Memory · BigCat's Learning Hub</text>
+</svg>
+</div>
+<p>The context window fails essentially all five. What it corresponds to isn't long-term memory at all, it's working memory — and it's missing the more important half of that. A human desk has a controller deciding what gets on and keeping the irrelevant off; the window has no such role, it looks at whatever you put there, and it carries that sagging middle of the recall curve besides. Which makes "a longer window means a better memory" the most expensive misunderstanding in this area. Desk size was never the bottleneck. The problem isn't holding enough, it's choosing.</p>
+<p>Vector retrieval passes question two and fails three and four outright. Four is the damaging one: nothing that goes in gets replayed at night or abstracted into a concept, so six months later the store still holds the same raw passages. It is an excellent way to find things by cue. It does not digest.</p>
+<p>Knowledge in the weights is a different case. Training itself is a huge offline reprocessing pass, and it really does render vast material down into regularities, so it passes question four far better than a vector store does. What it lacks is episodes: it cannot remember what you said yesterday. The three families of continual-learning fixes are attempts at question five.</p>
+<p>Agent memory engineering comes closest of the four, which is no accident — the people doing it were deliberately building towards the full meaning of the word. Layer separation, write routing, a self-maintained profile, eviction policies, an auditable event log: four of the five questions answered explicitly.</p>
+<p>One more case deserves its own mention, because it is an honest borrowing: spaced-repetition software. It doesn't gesture at the curve, it computes it and schedules against it. What it took wasn't the shape of a word, it was a relation you can put numbers into. That is what collecting on a connection actually looks like.</p>
+<p>And the drifting case is easy to spot. "Organisational memory", "the memory of a city" — these can be lovely, but when you try to make a design decision with one, all five questions come back blank. Push on it and you find that what it wanted has another name: the best thing a team can do after an incident isn't to improve its "organisational memory", it's to write things down as they happen, because hindsight reshapes recall. That's a logging problem, and the prescription is entirely different.</p>
+</section>
+<section class="sec">
+<h2>How to use it</h2>
+<p>Having taken it apart, it's only fair to say how to use it. Roughly three tiers.</p>
+<p><strong>When it's countable, count.</strong> Review schedules from the forgetting curve, working-memory capacity in chunks, recall@k for retrieval, the knob along the stability-plasticity spectrum — these carry numbers, and numbers can be measured and tuned. The plainest test of all: that important thing you learned last week, with every document shut, can you still state its mechanism? If not, the understanding is still sitting at the recognition layer.</p>
+<p><strong>When the mechanism is clear, use it as a model.</strong> "Reconstruction must fill gaps, and filling gaps can fill them wrong" yields no number, but it does make predictions, and the predictions can be checked. A direct one: once you accept that false memory and hallucination are two exits from one mechanism, "just make the model more careful and hallucination goes away" is clearly the wrong direction. What can be improved is not contaminating the input, not inflating confidence, and keeping source separate from content — not hoping that reconstruction turns into playback. That's exactly what the retrieval page is saying: without the right document, no amount of caution helps.</p>
+<p><strong>The rest is rhetoric.</strong> Nothing wrong with rhetoric; plenty of good sentences come from it. Just don't build on it.</p>
+<p>Keeping the word straight is worth the trouble, and not in order to correct anyone's usage. It's that both of these systems have paid dearly for what they know: it took decades for people to accept that forgetting is part of the design and that certainty isn't accuracy. The machine side is walking the same road again, and a few stretches of it no longer have to be walked.</p>
+</section>
+<footer>
+<a href="/index.en.html">← BigCat's Learning Hub</a>
+</footer>
+</div>
+<script defer="" src="https://hub.cissychen.com/comments.js"></script>
+<script defer="" src="https://hub.cissychen.com/search.js"></script>
+<script defer="" src="https://hub.cissychen.com/index-button.js"></script>
+<script defer="" src="https://hub.cissychen.com/i18n-tts.js"></script>
+</body></html>

@@ -196,6 +196,45 @@
         "/psychology/willpower-day29.html",
         "/deep-reading/amusing-ourselves-read25.html"
       ]
+    },
+    {
+      "id": "syn-6",
+      "slug": "memory",
+      "title_zh": "记忆：一份没人存下的录像，和一张 1995 年的架构图",
+      "title_en": "Memory: The Recording Nobody Kept, and a Blueprint from 1995",
+      "genre": "A/B",
+      "published": "2026-09",
+      "pages": {
+        "zh": "/synthesis/memory.html",
+        "en": "/synthesis/memory.en.html"
+      },
+      "sources": [
+        "/neuroscience/long-term-memory-topic4.html",
+        "/psychology/memory-reconstruction-day44.html",
+        "/neuroscience/working-memory-topic3.html",
+        "/ai-ml/context-engineering-day8.html",
+        "/ai-ml/continual-learning-day52.html",
+        "/ai-ml/rag-systems-day4.html",
+        "/super-individual/memory-state-day7.html",
+        "/super-individual/retrieval-quality-day43.html",
+        "/meta-knowledge/learning-science-day24.html",
+        "/mental-models/information-knowledge-day23.html"
+      ],
+      "keywords": [
+        "记忆",
+        "遗忘",
+        "巩固",
+        "检索"
+      ],
+      "evaluated_rejected": [
+        "/ai-ml/semantic-search-day22.html",
+        "/ai-ml/knowledge-editing-day49.html",
+        "/super-individual/graphrag-day48.html",
+        "/super-individual/rag-eng-day10.html",
+        "/neuroscience/ref-hippocampus.html",
+        "/book-recommendations/education-learning-book48.html",
+        "/deep-reading/in-search-of-lost-time-read61.html"
+      ]
     }
   ]
 }

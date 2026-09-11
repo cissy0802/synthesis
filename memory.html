@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>记忆：一份没人存下的录像，和一张 1995 年的架构图 · 跨站合成 Syn 6</title>
+<meta content="大脑、模型权重、向量库，三样东西没有共同的材料，却在同一个地方出故障：谁都没存下那份录像，读出来的都得当场重建。重建就必须填补，填错了在人这边叫错误记忆，在机器那边叫幻觉。承重的证据是互补学习系统：1995 年一套解释大脑的理论，成了灾难性遗忘至今最强的工程解法。最后给出五个可以逐条勾的问题。" name="description"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"SF Pro Display","Noto Serif SC","Songti SC",serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0a0e1a 100%);color:#e4e6eb;line-height:1.95;min-height:100vh}
+.container{max-width:780px;margin:0 auto;padding:48px 24px 80px}
+.lang-toggle{position:fixed;top:18px;right:18px;background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:5px;display:flex;z-index:100;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem}
+.lang-toggle a{padding:5px 12px;border-radius:14px;color:#a0a8c0;text-decoration:none;transition:all 0.15s}
+.lang-toggle a.active{background:#7b61ff;color:#fff;font-weight:700}
+.lang-toggle a:not(.active):hover{background:rgba(255,255,255,0.08);color:#fff}
+header{text-align:center;padding:40px 0 8px}
+header .kicker{font-size:0.78rem;color:#7b61ff;letter-spacing:2px;text-transform:uppercase;font-family:"SF Mono",Menlo,monospace;margin-bottom:14px}
+header h1{font-size:1.9rem;font-weight:800;line-height:1.5;background:linear-gradient(135deg,#00d4ff 0%,#7b61ff 50%,#ff6ec4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+header .meta{font-size:0.82rem;color:#6a7080;font-family:"SF Mono",Menlo,monospace}
+.lede{margin:32px 0 8px;padding:18px 22px;background:rgba(123,97,255,0.08);border-left:3px solid #7b61ff;border-radius:0 10px 10px 0;color:#c9cede;font-size:0.98rem}
+h2{font-size:1.35rem;font-weight:700;color:#fff;margin:52px 0 18px;padding-left:14px;border-left:4px solid #7b61ff;line-height:1.5}
+h3{font-size:1.05rem;font-weight:700;color:#c4b8ff;margin:32px 0 10px}
+p{margin:14px 0;color:#c9cede}
+strong{color:#fff}
+a{color:#7b61ff;text-decoration:none}
+a:hover{color:#00d4ff}
+ul,ol{margin:14px 0 14px 1.6em;color:#c9cede}
+li{margin:7px 0}
+code{font-family:"SF Mono",Menlo,monospace;font-size:0.86em;background:rgba(0,212,255,0.1);color:#7dd8f0;padding:1px 6px;border-radius:5px}
+pre{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px;overflow-x:auto;margin:18px 0;font-family:"SF Mono",Menlo,monospace;font-size:0.76rem;line-height:1.6;color:#a8d8e8}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);border-left:3px solid #00d4ff;border-radius:0 10px 10px 0;color:#a8b0c0;font-size:0.92rem}
+.principle{margin:14px 0;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px}
+.principle b{color:#00d4ff}
+.source{margin:16px 0;padding:11px 16px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.14);border-radius:9px;font-size:0.85rem;color:#8fa5b8;font-family:"SF Mono",Menlo,monospace}
+.source b{color:#7dd8f0;font-weight:600}
+.source a{color:#7dd8f0}
+.source a:hover{color:#fff}
+.sec{padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,0.09)}
+.sec:last-of-type{border-bottom:none;padding-bottom:0}
+.sec>h2:first-child{margin-top:44px}
+footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
+footer a{color:#7b61ff}
+@media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<a href="https://cissy0802.github.io/" onmouseout="this.style.opacity=0.55" onmouseover="this.style.opacity=1" style="position:fixed;top:14px;left:14px;font-size:0.82rem;color:inherit;opacity:0.55;text-decoration:none;padding:6px 12px;border:1px solid currentColor;border-radius:20px;z-index:100;backdrop-filter:blur(6px);transition:opacity 0.2s">← Hub</a>
+<div class="lang-toggle">
+<a class="active" href="memory.html">中文</a>
+<a href="memory.en.html">EN</a>
+</div>
+<div class="container">
+<header>
+<div class="kicker">// Synthesis · Syn 6</div>
+<h1>记忆：一份没人存下的录像，和一张 1995 年的架构图</h1>
+<div class="meta">BigCat · 2026-09 · 跨站合成</div>
+</header>
+<div class="lede">
+你跟一个 AI 助手说过一次「我不吃肉」。半年后它给你推荐了一家烤肉店。<br/><br/>
+同一个星期，你和家人为三年前的一句话争起来。两个人都记得清清楚楚，记得的是两个版本。<br/><br/>
+第一件事你会说是软件没做好，第二件事你会说是人之常情。可要是掀开看底下那层，两边坏掉的是同一个地方。
+</div>
+<section class="sec">
+<h2>两种「记不住」</h2>
+<p>这个 Hub 里至少有六个站在写记忆，各写各的。神经科学站讲一段经历怎么从转瞬即逝变成几十年后还在；心理学站讲你记得的东西有一半是现在的你拼出来的；AI 站讲模型学了新东西之后怎么把旧本事抹掉；做 AI 助手工程的那个站讲怎么给一个程序装上「记住你」这件事；元知识站讲隔多久复习一次最划算。</p>
+<p>把这些摆在一起，最容易问出口的是「它们像不像」。这个问题问得太浅，谁都看得出来像。</p>
+<p>真正奇怪的地方在别处：几百亿个神经细胞、几千亿个数字、一个装满文本片段的数据库，这三样东西没有任何共同的材料，为什么它们坏掉的方式如此雷同——都是既记不住该记的，又能把没发生过的事说得有鼻子有眼？</p>
+</section>
+<section class="sec">
+<h2>人这边：仓库里根本没有那份录像</h2>
+<p>先拆掉一个很深的错觉。你以为回忆是打开一段录像重放，可大脑手里没有那段录像。</p>
+<p>一件事发生时，它被拆开、各部分分别扔进不同的脑区去管：颜色扔给管颜色的，声音扔给管声音的，「在哪儿」扔给管空间的。没有任何一处存着完整的那一幕。把碎片串起来的是海马——大脑深处那对负责索引的结构。事情发生的当下，它飞快记下「这几块碎片是一伙的」，给它们别上同一个书签。等你日后回忆，它顺着书签把散落各处的碎片重新召集、当场拼装。碎片缺了，就拿相似的、拿你现在的知识和期待去补。</p>
+<p>所以记忆是生成出来的，不是读出来的。这句话有实验撑着。心理学家洛夫特斯让家人配合暗示一件从没发生过的童年往事，约四分之一的成年被试「记起」自己小时候在商场走丢、被陌生人找回，还主动补出细节。</p>
+<p>这套系统还有一个离线的班次。刚学会的东西一开始挂在海马上，快，但容易被覆盖；要变成几十年后还在的东西，得慢慢挪进大脑皮层那个又大又稳的仓库，这个搬家过程叫巩固，主要发生在你睡着的时候。深睡里海马会把白天走过的那条路压缩着重放——白天走了几分钟，夜里几百毫秒就跑完，反复很多遍，一点点把它教给皮层。睡不好的那几天不是没经历，是经历没被好好归档。</p>
+<p>还有更颠覆的一条。每次你把一段记忆调出来，它并不是原样看一眼再放回去——它会短暂地解封、变软、可改，然后重新封存。这叫再巩固：巩固的那一步，在每次取用时又重来一遍。每一次回忆都在悄悄重写那段记忆，掺进此刻的情绪、别人随口的一句提醒、你现在的理解。你最常回忆的那些往事，很可能也是被你改得最多的。</p>
+<p>遗忘同样不是这套系统的失败。正因为记不清见过的每一只狗长什么样，你才形成了「狗」这个概念。</p>
+<div class="source"><b>源页 →</b> 把极像的经历掰开存、和用残缺线索把整段勾回来，这两块相反的本事分别由海马哪个部位承担、Hopfield 网络为什么是「残缺线索补全整体」的数学原型、记忆能不能被凭空种进去（能，小鼠脑里已经做到）：<a href="/neuroscience/long-term-memory-topic4.html">神经科学 · 长时记忆（Topic 4）</a> · 目击者误认与列队指认改革的完整清单、闪光灯记忆、来源监控错误、以及再巩固窗口用于创伤治疗这条仍在争议中的路：<a href="/psychology/memory-reconstruction-day44.html">心理学 · 记忆的重构（Day 44）</a></div>
+<p>另一头是一张小得多的桌子。别人报一串电话号码，你嘴里默念着手忙着找笔，那几秒里号码就在脑子里，一分神就没了——这是工作记忆。它不是长时记忆的缩小版，几乎不存东西，只是把几样暂时点亮。容量接近四，而不是流传的七加减二；而且它数的不是零件是包裹，手机号 138 0013 8000，你攥着的是三个块而不是十一个数字。</p>
+<p>更要紧的是谁在管这张桌子。额头正后方那片皮层，前额叶，不太存具体内容，它当指挥：举着当前目标、决定放什么进桌面、顶住分心不让别的东西挤进来。一紧张，那点脆弱的活动当场被打散，考试时脑子一片空白就是桌面被临时清了场。</p>
+<div class="source"><b>源页 →</b> 「神奇的数字七」如何被修正到四、延迟期里那份记忆到底靠什么撑住（持续放电还是藏进突触的临时权重）、以及把模型一次能看见的那段文字拉得再长为什么不等于更聪明：<a href="/neuroscience/working-memory-topic3.html">神经科学 · 工作记忆（Topic 3）</a></div>
+</section>
+<section class="sec">
+<h2>机器这边：三样东西都被叫做记忆</h2>
+<p>说「模型有记忆」的时候，指的可能是三样很不一样的东西：窗口里的、权重里的、外挂库里的。</p>
+<p><strong>窗口。</strong>模型每次回话，能当场看见的只有上下文窗口里那段文字；聊得太长，最早的话滑出窗口，它当场就不知道了。AI 站把定位说得很硬：窗口是工作集不是数据库，优化目标是放对的东西，不是放更多。而且「在窗口里」不等于「被看见」——把关键信息放在十万词上下文的开头或结尾，召回率约八成；放在正中间，掉到接近一半。</p>
+<p><strong>权重。</strong>模型读过的资料没有一字不差地存在任何地方，它揉进了千亿个连接权重里，回答时顺着你的问题当场生成一段最像答案的话。所以它偶尔会一本正经地编出一个不存在的引文或数字，这就是幻觉。</p>
+<p>这份「记忆」还有一个出了名的毛病：拿新数据接着训，旧本事会被一冲而散。这叫灾难性遗忘，1989 年就被发现了。AI 站给了一个二十行能跑起来的最小实验：先学任务 A，准确率约 0.95；接着学任务 B，回头再测 A，掉到约 0.55。</p>
+<p>根子不在容量——严重过参数化的大网络照样会这样。容量足够同时装下两个任务，但梯度下降没有理由去找那个兼顾的解，它只沿着当前任务的方向走。用工程的话说：权重是一份全局共享的可变状态，学新任务做的是原地覆写，没有版本隔离，也没有事务。</p>
+<p>由此逼出一条谱系，叫稳定性—可塑性困境：权重太稳学不进新东西，太松一学新的就忘旧的。三派对策各占谱系上的一段——给重要的权重挂一根弹簧把它往旧取值拉（弹性权重固化）、留一个回放池让新旧样本混着喂（经验重放）、给每个任务划一块专属参数学完冻结（参数隔离）。</p>
+<p><strong>外挂库。</strong>这是今天最常被叫做「给 AI 装记忆」的那件事：把每段文字变成一串数字，让意思相近的句子落在相近的坐标上，查询时找坐标最近的几条捞回来塞进窗口。装这些坐标的地方叫向量库，它补上的是「按线索找回来」这一环。</p>
+<p>它的天花板不在模型，在检索。做检索质量的那一期把话说死了：模型拿到对的文档几乎都能答对，拿不到就只能编。一个系统的 <code>recall@5 = 0.71</code>，意思是有 29% 的问题正确文档根本没进模型的视野——这个数大多数人从来没测过。</p>
+<div class="source"><b>源页 →</b> 上下文窗口为什么是硬件成本问题、注意力那条 U 形召回曲线的完整数字、以及提示缓存为什么要求前缀逐字不变：<a href="/ai-ml/context-engineering-day8.html">AI/ML · Context 工程（Day 8）</a> · 灾难性遗忘的最小复现代码、弹性权重固化的公式与它自己的软肋（任务一多约束累积、可塑性枯竭）、生成重放为什么受生成器保真度封顶：<a href="/ai-ml/continual-learning-day52.html">AI/ML · 持续学习与灾难性遗忘（Day 52）</a> · 语义向量怎么训出来、向量库的近似最近邻索引、以及 embedding 为什么擅长找相似却不擅长找区别：<a href="/ai-ml/rag-systems-day4.html">AI/ML · RAG 体系（Day 4）</a></div>
+</section>
+<section class="sec">
+<h2>已经有人在照着记忆的规律做工程</h2>
+<p>值得单独提一句的是，最靠近产品那一端的人，早就不把「记忆」当成一个存储问题了。</p>
+<p>做 AI 助手工程的那个站给的第一条论断是：把对话历史、任务中间结果、用户画像、领域知识混在同一个地方管，是大多数助手聊三轮就开始胡言乱语的根本原因。这四类东西的生命周期完全不同——中间结果用完即焚，画像要一路跟着用户走；塞进同一个向量库，下一次任务就会被上次的残渣污染。</p>
+<p>长期记忆那一层还要按查询类型再分三套：找相似走向量库，「我叫什么」这种精确事实走键值表，「上次发生了什么」走一条按时间排的事件日志。</p>
+<p>还有两条细节特别值得记住。其一，让模型自己维护用户画像时，每一条写入必须能引用具体某条消息作为证据，无证据不写——否则半年后画像里三成是模型自己推断出来的。其二，画像必须有淘汰机制：长到五千词就吃掉一半的上下文预算；事件日志半年不清理，一次检索足以把整个提示撑爆。</p>
+<div class="source"><b>源页 →</b> 四层 state 的完整读写策略、短期记忆 truncate/summarize/hierarchical 三档怎么选、自维护画像的证据字段与变更日志怎么落地：<a href="/super-individual/memory-state-day7.html">超级个体 · Memory &amp; State 管理（Day 7）</a> · 召回为什么必须优先于精度、混合检索为什么要用 RRF 而不是加权求和、怎么把检索失败和生成失败拆开归因：<a href="/super-individual/retrieval-quality-day43.html">超级个体 · 检索质量工程（Day 43）</a></div>
+</section>
+<section class="sec">
+<h2>中间那条线：费力想起来的才算数</h2>
+<p>在人和机器中间还有一条实践线：学习科学。它研究的是怎么让一件事在一个已知会重建、会遗忘的系统里留下来。</p>
+<p>结论有点反直觉：记忆不是复习得越密越牢，而是在快要忘掉的临界点上复习最有效。心理学家艾宾浩斯那条遗忘曲线显示，新学的东西头一两天掉得最快；但每激活一次衰减就慢一截，下一次的间隔便能拉长——从一天，到三天，到一周，到一个月。</p>
+<p>更狠的一条是提取练习。花同样的时间，反复阅读和反复自测，长期效果差得很远：一项经典研究里，自测组一周后能回忆约一半内容，重复阅读组只剩约三成，尽管阅读组当下自我感觉更熟练、更有把握。这个感觉叫流畅性错觉——看得越顺，越容易误以为自己已经会了。</p>
+<p>思维模型站把这个差别说得更清楚：识别性理解是被动的，看到答案觉得「对，就是这样」；生成性理解是主动的，能从空白开始重新搭一遍。合上书能不能重讲一遍，是这两者之间唯一诚实的分界线。</p>
+<div class="source"><b>源页 →</b> 最近发展区与脚手架、双重编码为什么「自己动手画」胜过看现成图示、远迁移为什么极难自发发生：<a href="/meta-knowledge/learning-science-day24.html">元知识 · 学习科学（Day 24）</a> · 费曼技巧怎么用来逼出理解的缺口、以及把知识当成一张图来经营时「跨域边」为什么最值钱：<a href="/mental-models/information-knowledge-day23.html">思维模型 · 信息与知识管理（Day 23）</a></div>
+</section>
+<section class="sec">
+<h2>同一件事</h2>
+<p>现在回到开头那个问题：三样材料完全不同的东西，为什么坏掉的方式这么像。</p>
+<p>因为它们在同一个地方做了同一个妥协。<strong>谁都没有存下那份录像，存下的都是有损的痕迹，加一条能把它找回来的线索。</strong></p>
+<p>人存的是碎片加海马别上的书签；模型的知识摊在千亿个权重里，没有一处存着原文；向量库存的是文本片段和它在语义空间里的坐标。三边都一样：要用的时候，那个完整的东西必须当场重建出来。</p>
+<p>后果因此是硬的。重建就得填补空白，填补就一定可能填错。填对了叫记性好，填错了在人这边叫错误记忆，在机器那边叫幻觉。这不是两种毛病长得像，是同一条路径的两个出口。检索工程那句话正好把两边接上：拿不到对的文档，就只能编。</p>
+<p>第二条共通点是一个天平。大脑要同时干两件相反的事：把极像的两段经历掰开存（今天车停在 B 区、昨天停在 A 区，糊成一团你就天天找不到车），又要能凭半个线索把整段勾出来（三个音、半张侧脸）。神经科学给这两件事起了名字，模式分离和模式补全，由海马里两块不同的地方分别负责。工程那边这个天平叫稳定性—可塑性，而且已经被做成了一个显式的旋钮：弹性权重固化里那个系数，调大偏稳定，调小偏可塑。同一个权衡，一边是解剖学，一边是一行超参数。有意思的是两边方向相反——大脑的难题是怎么主动忘掉该忘的，人工网络的难题是怎么别被动全忘。</p>
+<p>第三条更实用：<strong>说得有多确定，和有多准，几乎是两件事。</strong>心理学家奈瑟追踪过挑战者号航天飞机爆炸那天的记忆，同一批人，事发次日与两年半后对照：近半数细节被改写，有人完全记错了自己当时身在何处，信心评分却纹丝不动。美国已被 DNA 平反的冤案里，约七成涉及目击者的错误指认。鲜活、流畅、笃定，在人这边不是准确的证据；在模型那边也一样。</p>
+<div style="overflow-x:auto;margin:26px 0">
+<svg font-family="-apple-system,'PingFang SC','Noto Sans SC',sans-serif" style="min-width:640px;height:auto;display:block" viewBox="0 0 720 322" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ah" markerHeight="9" markerUnits="userSpaceOnUse" markerWidth="9" orient="auto" refX="7" refY="3"><path d="M0,0 L7,3 L0,6 Z" fill="#6a7080"></path></marker>
+</defs>
+<rect fill="rgba(123,97,255,0.1)" height="36" rx="10" stroke="#7b61ff" stroke-width="1.6" width="672" x="24" y="12"></rect>
+<text fill="#fff" font-size="13.5" font-weight="700" text-anchor="middle" x="360" y="35">没有一处存着那份录像——存下的是有损的痕迹，加一条找回它的线索</text>
+<text fill="#8f96ad" font-size="10.5" x="30" y="70">存下来的是什么</text>
+<text fill="#8f96ad" font-size="10.5" x="300" y="70">取用时发生什么</text>
+<text fill="#8f96ad" font-size="10.5" x="556" y="70">填错了叫什么</text>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="248" x="24" y="80"></rect>
+<text fill="#fff" font-size="12" font-weight="700" x="38" y="100">人　碎片 + 海马的书签</text>
+<text fill="#9aa2b8" font-size="10.5" x="38" y="117">没有任何一处存着完整的那一幕</text>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="278" x2="298" y1="103" y2="103"></line>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="238" x="304" y="80"></rect>
+<text fill="#c9cede" font-size="11.5" x="316" y="103">顺着书签召集碎片，当场拼装</text>
+<text fill="#7f8699" font-size="10" x="316" y="118">缺的部分拿相似的和当下的期待补</text>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="548" x2="568" y1="103" y2="103"></line>
+<rect fill="rgba(255,110,196,0.07)" height="46" rx="9" stroke="#ff6ec4" stroke-width="1.2" width="122" x="574" y="80"></rect>
+<text fill="#ffa8dc" font-size="12" font-weight="700" text-anchor="middle" x="635" y="108">错误记忆</text>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="248" x="24" y="138"></rect>
+<text fill="#fff" font-size="12" font-weight="700" x="38" y="158">模型　摊在权重里的知识</text>
+<text fill="#9aa2b8" font-size="10.5" x="38" y="175">没有一处存着读过的原文</text>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="278" x2="298" y1="161" y2="161"></line>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="238" x="304" y="138"></rect>
+<text fill="#c9cede" font-size="11.5" x="316" y="161">顺着问题当场生成最像答案的话</text>
+<text fill="#7f8699" font-size="10" x="316" y="176">不知道的地方照样要给出一个词</text>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="548" x2="568" y1="161" y2="161"></line>
+<rect fill="rgba(255,110,196,0.07)" height="46" rx="9" stroke="#ff6ec4" stroke-width="1.2" width="122" x="574" y="138"></rect>
+<text fill="#ffa8dc" font-size="12" font-weight="700" text-anchor="middle" x="635" y="166">幻觉</text>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="248" x="24" y="196"></rect>
+<text fill="#fff" font-size="12" font-weight="700" x="38" y="216">向量库　文本片段 + 坐标</text>
+<text fill="#9aa2b8" font-size="10.5" x="38" y="233">线索对不上的那部分等于不存在</text>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="278" x2="298" y1="219" y2="219"></line>
+<rect fill="rgba(255,255,255,0.04)" height="46" rx="9" stroke="#00d4ff" stroke-width="1.2" width="238" x="304" y="196"></rect>
+<text fill="#c9cede" font-size="11.5" x="316" y="219">捞回最近的几条，其余交给模型补</text>
+<text fill="#7f8699" font-size="10" x="316" y="234">recall@5 = 0.71：29% 的问题没捞到</text>
+<line marker-end="url(#ah)" stroke="#6a7080" stroke-width="1.3" x1="548" x2="568" y1="219" y2="219"></line>
+<rect fill="rgba(255,110,196,0.07)" height="46" rx="9" stroke="#ff6ec4" stroke-width="1.2" width="122" x="574" y="196"></rect>
+<text fill="#ffa8dc" font-size="12" font-weight="700" text-anchor="middle" x="635" y="224">拿不到就编</text>
+<rect fill="rgba(0,212,255,0.07)" height="56" rx="10" stroke="#00d4ff" stroke-width="1.5" width="672" x="24" y="254"></rect>
+<text fill="#7dd8f0" font-size="12.5" font-weight="700" text-anchor="middle" x="360" y="277">重建就必须填补，填补就一定可能填错——三条路是同一条</text>
+<text fill="#9aa2b8" font-size="10.5" text-anchor="middle" x="360" y="297">填对了叫记性好，填错了才换了个名字　·　Syn 6 · BigCat's Learning Hub</text>
+</svg>
+</div>
+<h3>承重的证据</h3>
+<p>要说明这个联系不只是好看，得看它有没有解决过一个具体的、原本无解的问题。这里有一个，而且日期很清楚。</p>
+<p>灾难性遗忘 1989 年就被发现，它卡住的是一件很基本的事：让一个网络一个接一个地学任务，学后面的就抹掉前面的。可大脑天天在做这件事，几乎不犯这个毛病。</p>
+<p>1995 年提出的互补学习系统理论点破了这层对应。大脑不是一套记忆系统，是两套：一套快、容易被覆盖，一套慢而稳。新经历先落在快的那套上，再靠夜里一遍遍压缩重放，慢慢教会慢的那套。快慢分工，就把「学得快」和「不覆盖旧的」这对矛盾拆开了。</p>
+<p>后来的工程只是把这张架构图做成了产品。经验重放——留一个回放池，训练时把旧样本随机捞出来和新数据混着练——至今几乎是持续学习里最强的基线。2017 年的生成重放更进一步：不存旧数据，训一个生成器去合成「像旧任务的数据」，既省存储又避开隐私，而这条路线的灵感明说了就是海马在睡眠中重放经历。</p>
+<p>它也有自己要认的账。生成器本身也在持续学习，会逐代退化，合成出来的「旧样本」越来越不像真的，误差沿任务链累积，长序列之后旧任务照样崩。提货提来的是一个真架构，不是一张万能符。</p>
+<p>但判据已经满足了：一个悬了六年的工程难题，答案是从隔壁学科的解剖结构里取来的，而且三十年后它仍然是最强的那一个。</p>
+</section>
+<section class="sec">
+<h2>这个联系换来了什么</h2>
+<p>从记忆这个例子往上走一层，能看见跨学科互联到底在省什么成本。词旅行过去，你什么也没得到；底下那套推理跟着过去，你顺带接手的是它已经挣到的全部结论。</p>
+<div class="principle"><b>工程拿到的是一条默认做法。</b>大模型持续训练时，业界普遍把新旧数据按比例混合，而不是只喂新数据——这个做法背后就是重放。对个人也一样：想让本地模型吸收新知识又不忘旧的，最省心的不是上复杂的正则，是留一份有代表性的旧数据混进新一轮训练。这不是一句启发，是一条可以照着做的配方。</div>
+<div class="principle"><b>AI 产品可以从法庭那边整套提货。</b>目击者当庭指认是最有说服力也最不可靠的证据，五十年下来，那个领域攒出了一整套反污染程序：列队指认逐一呈现而不是一排人一起看；主持人双盲，连他自己都不知道谁是嫌疑人；当场记录目击者的初始信心；事后绝不给「你选对了」这类反馈。注意这些措施没有一条是在提高记忆的准确度，它们全都在防止重建被污染、防止信心被人为拔高。</div>
+<p>这一套翻译过去几乎是逐条对应的。别用诱导式提问——「是不是他先动的手」和把结论先写进提示，是同一个动作。把内容和它的来源分开存——人会记住内容却记错来源，把听说的、想象的、梦见的误当成亲历；助手写用户画像时必须带上证据消息的编号，就是同一条防线。当场记录而不是事后回忆——团队复盘事故别只靠记忆，因为事后回忆会被已知结果重塑，而事件日志的每条记录必须带时间戳，否则捞回来的时候模型会把昨天的决定当成今天的。</p>
+<div class="principle"><b>学习这边拿到的是能代入数字的东西。</b>遗忘曲线不是修辞，间隔重复工具直接照着它排期：在快要忘掉的临界点上复习一次，衰减变慢，下次间隔就能从一天拉到三天、一周、一个月。提取练习也是可比的：自测一周后约一半，重读约三成。而且这条能反过来走——助手的用户画像和事件日志如果不设淘汰策略，半年后就是自己把自己撑爆。「会忘是本事」在这里是字面意义上的工程约束。</div>
+</section>
+<section class="sec">
+<h2>推理在哪里停下</h2>
+<p>现在说那句最常听见的话：「这个模型有记忆了。」</p>
+<p>这句话里的「记忆」，九成时候指的是存储加检索。而人的记忆里最值钱的那一段，恰恰不在存和取上——它在夜里那个班次，在把新经历织进旧知识、把细节磨成规律的那个过程里。神经科学站自己把这一点讲得很干脆：外挂记忆形似而神不全，真正难的从来不是存和取。</p>
+<p>下面五个问题不是用来抓人的，是用来判断一个说法能不能拿去做设计决策。</p>
+<p><strong>一、写入有没有取舍？</strong>全都留下来的那是日志，不是记忆。</p>
+<p><strong>二、读出是取回还是重建？</strong>永不出错、永不填补的那是数据库。会填补、会串味，才说明它走的是重建那条路——也才必然会编。</p>
+<p><strong>三、读这个动作会不会改写被读的东西？</strong>人这边会，这叫再巩固。向量库检索一万次，库里那段文字一个字都不会变。</p>
+<p><strong>四、有没有离线的再加工？</strong>把新经历织进旧知识、把细节磨成规律，这件事在人这边发生在睡眠里。</p>
+<p><strong>五、会不会主动遗忘？</strong>有没有淘汰策略，还是只能靠撑爆。</p>
+<div style="overflow-x:auto;margin:26px 0">
+<svg font-family="-apple-system,'PingFang SC','Noto Sans SC',sans-serif" style="min-width:660px;height:auto;display:block" viewBox="0 0 720 388" width="100%" xmlns="http://www.w3.org/2000/svg">
+<rect fill="rgba(123,97,255,0.1)" height="32" rx="9" stroke="#7b61ff" stroke-width="1.5" width="672" x="24" y="10"></rect>
+<text fill="#fff" font-size="13" font-weight="700" text-anchor="middle" x="360" y="31">被叫做「记忆」的四样东西，逐条勾一遍</text>
+<text fill="#8f96ad" font-size="10.5" x="30" y="63">五个问题</text>
+<text fill="#c4b8ff" font-size="11" font-weight="700" text-anchor="middle" x="315" y="63">人的长时记忆</text>
+<text fill="#c4b8ff" font-size="11" font-weight="700" text-anchor="middle" x="425" y="63">上下文窗口</text>
+<text fill="#c4b8ff" font-size="11" font-weight="700" text-anchor="middle" x="535" y="63">向量库检索</text>
+<text fill="#c4b8ff" font-size="11" font-weight="700" text-anchor="middle" x="645" y="63">助手的记忆工程</text>
+<line stroke="rgba(255,255,255,0.16)" stroke-width="1" x1="24" x2="696" y1="72" y2="72"></line>
+<text fill="#c9cede" font-size="11.5" x="30" y="96">1　写入有取舍</text>
+<text fill="#9fe0bd" font-size="13" text-anchor="middle" x="315" y="96">有</text>
+<text fill="#ffa8dc" font-size="13" text-anchor="middle" x="425" y="96">无</text>
+<text fill="#ffd479" font-size="11.5" text-anchor="middle" x="535" y="96">切块时才有</text>
+<text fill="#9fe0bd" font-size="13" text-anchor="middle" x="645" y="96">有</text>
+<line stroke="rgba(255,255,255,0.08)" stroke-width="1" x1="24" x2="696" y1="108" y2="108"></line>
+<text fill="#c9cede" font-size="11.5" x="30" y="132">2　读出是重建</text>
+<text fill="#9fe0bd" font-size="13" text-anchor="middle" x="315" y="132">是</text>
+<text fill="#ffa8dc" font-size="11.5" text-anchor="middle" x="425" y="132">窗口里是原文</text>
+<text fill="#9fe0bd" font-size="13" text-anchor="middle" x="535" y="132">是</text>
+<text fill="#9fe0bd" font-size="13" text-anchor="middle" x="645" y="132">是</text>
+<line stroke="rgba(255,255,255,0.08)" stroke-width="1" x1="24" x2="696" y1="144" y2="144"></line>
+<text fill="#c9cede" font-size="11.5" x="30" y="168">3　读一次会改写</text>
+<text fill="#9fe0bd" font-size="11.5" text-anchor="middle" x="315" y="168">会，叫再巩固</text>
+<text fill="#ffa8dc" font-size="13" text-anchor="middle" x="425" y="168">不会</text>
+<text fill="#ffa8dc" font-size="13" text-anchor="middle" x="535" y="168">不会</text>
+<text fill="#ffd479" font-size="11.5" text-anchor="middle" x="645" y="168">画像会被改写</text>
+<line stroke="rgba(255,255,255,0.08)" stroke-width="1" x1="24" x2="696" y1="180" y2="180"></line>
+<text fill="#c9cede" font-size="11.5" x="30" y="204">4　离线会再加工</text>
+<text fill="#9fe0bd" font-size="11.5" text-anchor="middle" x="315" y="204">会，在睡眠里</text>
+<text fill="#ffa8dc" font-size="13" text-anchor="middle" x="425" y="204">不会</text>
+<text fill="#ffa8dc" font-size="13" text-anchor="middle" x="535" y="204">不会</text>
+<text fill="#ffd479" font-size="11.5" text-anchor="middle" x="645" y="204">增量摘要与反思</text>
+<line stroke="rgba(255,255,255,0.08)" stroke-width="1" x1="24" x2="696" y1="216" y2="216"></line>
+<text fill="#c9cede" font-size="11.5" x="30" y="240">5　会主动遗忘</text>
+<text fill="#9fe0bd" font-size="13" text-anchor="middle" x="315" y="240">会</text>
+<text fill="#ffd479" font-size="11.5" text-anchor="middle" x="425" y="240">只会滑出去</text>
+<text fill="#ffa8dc" font-size="11.5" text-anchor="middle" x="535" y="240">得自己写</text>
+<text fill="#ffd479" font-size="11.5" text-anchor="middle" x="645" y="240">得自己写</text>
+<line stroke="rgba(255,255,255,0.16)" stroke-width="1" x1="24" x2="696" y1="252" y2="252"></line>
+<rect fill="rgba(255,110,196,0.05)" height="60" rx="10" stroke="#ff6ec4" stroke-dasharray="6 5" stroke-width="1.3" width="672" x="24" y="264"></rect>
+<text fill="#ffa8dc" font-size="11.5" font-weight="700" x="42" y="286">上下文窗口对应的不是长时记忆，是工作记忆——还缺了那个决定什么能上桌的指挥官</text>
+<text fill="#f0d0e4" font-size="10.5" x="42" y="306">向量库缺的是第四条：存进去的东西不会在夜里被重放、被抽象成概念，半年后躺着的还是原文</text>
+<text fill="#8f88b8" font-size="10.5" font-style="italic" text-anchor="middle" x="360" y="345">五条都过 → 可以按记忆的规律去设计　　过一半 → 它是个存储系统，别指望它消化</text>
+<text fill="#8f88b8" font-size="10.5" font-style="italic" text-anchor="middle" x="360" y="364">一条不过 → 那是修辞，别拿它做决策</text>
+<text fill="#6a7080" font-size="10" text-anchor="middle" x="360" y="382">Syn 6 · 记忆 · BigCat's Learning Hub</text>
+</svg>
+</div>
+<p>上下文窗口五条基本全不满足。它对应的根本不是长时记忆，是工作记忆——而且连工作记忆最关键的那一半都没有。人的桌面上有个指挥官，决定什么能上桌、顶住不相关的东西挤进来；窗口没有这个角色，你塞什么它就看什么，还带着那条中间塌下去的召回曲线。所以「把窗口拉长就等于记性变好」是这一片里最贵的一个误解：台面大小从来不是瓶颈，不是记不下，是不会挑。</p>
+<p>向量库检索满足第二条，第三、第四条一条都不满足。第四条最要命：存进去的东西不会在夜里被重放、被抽象成概念，半年后库里躺着的还是当初那些原文。它是一套很好的「按线索找回来」，但它不消化。</p>
+<p>权重里的知识是另一种情况。训练本身就是一次大规模的离线再加工，它确实把海量材料熬成了规律，第四条满足得比向量库好得多。它缺的是事件：它记不住你昨天说过什么。持续学习那三派对策，补的正是第五条。</p>
+<p>助手的记忆工程是这几样里最接近的，这不是巧合：做这件事的人本来就是照着「记忆」这个词的全部含义在补。四层分工、写入路由、自维护的画像、淘汰策略、可回溯的事件日志，五个问题里它显式地回答了四个。</p>
+<p>还有一档要单独说，因为它是诚实的借用：间隔重复工具。它不打比方，它直接算那条曲线并照着排期。它借走的不是词的形状，是一条可以代入数字的关系——这一档才叫真提货。</p>
+<p>跑偏的一档也不难认。「组织的记忆」「城市的记忆」这类说法可以很动人，但拿去做设计决策时五个问题一个也答不上来。一旦真去追问，会发现它想要的东西其实另有名字：一个团队复盘事故时最该做的不是改善「组织记忆」，是当场记录，因为事后回忆一定会被已知结果重塑。那是日志问题，处方完全不同。</p>
+</section>
+<section class="sec">
+<h2>怎么用它</h2>
+<p>拆完得给出用法，否则这篇文章也只是另一种修辞。大致三档。</p>
+<p><strong>能算数的，就真的去算。</strong>遗忘曲线给出的复习排期、工作记忆按块计的容量、检索的 recall@k、稳定性—可塑性那条谱系上的旋钮，这些都有数字，能测能调。最朴素的一条是：你上周学到的那个最重要的概念，现在合上所有资料，能不能完整复述它的机制。答不上来，那份「懂」就还停在识别那一层。</p>
+<p><strong>机制说得清的，当模型用。</strong>「重建必然填补，填补必然可能填错」这条算不出数，但它能给出预言，而且预言能被检验。举个直接的：如果你接受错误记忆和幻觉是同一个机制的两个出口，那么「让模型再谨慎一点就能消除幻觉」这个方向就是错的。能改善的是不污染输入、不夸大信心、把来源和内容分开存，而不是指望重建变成回放。检索工程那句话说的就是这件事：拿不到对的文档，再谨慎也只能编。</p>
+<p><strong>剩下的是修辞。</strong>当修辞用完全没问题，很多好句子就是这么来的。别拿它当设计依据就行。</p>
+<p>值得把这个词分清楚，倒不是为了纠正谁的用法。是因为这几套系统各自吃过的亏都不便宜：人这边花了几十年才承认遗忘是设计的一部分、确信不等于准确；机器那边正在把同样的路再走一遍，而且有些段落已经不必再走了。</p>
+</section>
+<footer>
+<a href="/index.zh.html">← BigCat's Learning Hub</a>
+</footer>
+</div>
+<script defer="" src="https://hub.cissychen.com/comments.js"></script>
+<script defer="" src="https://hub.cissychen.com/search.js"></script>
+<script defer="" src="https://hub.cissychen.com/index-button.js"></script>
+<script defer="" src="https://hub.cissychen.com/i18n-tts.js"></script>
+</body></html>
