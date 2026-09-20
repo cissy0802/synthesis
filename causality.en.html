@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Causality: A Table That Is Always Half Empty · Synthesis 7</title>
+<meta content="Epidemiologists, economic historians and ML engineers are all solving the same fill-in-the-blank problem: one cell can never be observed, and every discipline's craft is a way of putting something else in its place. Why the problem is identical, why the substitutes differ in credibility by orders of magnitude, and how one graph-theoretic test overturned a rule of thumb every field was quietly using. Ends with six questions you can tick off." name="description"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"SF Pro Display","Noto Serif SC","Songti SC",serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0a0e1a 100%);color:#e4e6eb;line-height:1.85;min-height:100vh}
+.container{max-width:780px;margin:0 auto;padding:48px 24px 80px}
+.lang-toggle{position:fixed;top:18px;right:18px;background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:5px;display:flex;z-index:100;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem}
+.lang-toggle a{padding:5px 12px;border-radius:14px;color:#a0a8c0;text-decoration:none;transition:all 0.15s}
+.lang-toggle a.active{background:#7b61ff;color:#fff;font-weight:700}
+.lang-toggle a:not(.active):hover{background:rgba(255,255,255,0.08);color:#fff}
+header{text-align:center;padding:40px 0 8px}
+header .kicker{font-size:0.78rem;color:#7b61ff;letter-spacing:2px;text-transform:uppercase;font-family:"SF Mono",Menlo,monospace;margin-bottom:14px}
+header h1{font-size:1.9rem;font-weight:800;line-height:1.4;background:linear-gradient(135deg,#00d4ff 0%,#7b61ff 50%,#ff6ec4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+header .meta{font-size:0.82rem;color:#6a7080;font-family:"SF Mono",Menlo,monospace}
+.lede{margin:32px 0 8px;padding:18px 22px;background:rgba(123,97,255,0.08);border-left:3px solid #7b61ff;border-radius:0 10px 10px 0;color:#c9cede;font-size:0.98rem}
+h2{font-size:1.35rem;font-weight:700;color:#fff;margin:52px 0 18px;padding-left:14px;border-left:4px solid #7b61ff;line-height:1.4}
+h3{font-size:1.05rem;font-weight:700;color:#c4b8ff;margin:32px 0 10px}
+p{margin:14px 0;color:#c9cede}
+strong{color:#fff}
+a{color:#7b61ff;text-decoration:none}
+a:hover{color:#00d4ff}
+ul,ol{margin:14px 0 14px 1.6em;color:#c9cede}
+li{margin:7px 0}
+code{font-family:"SF Mono",Menlo,monospace;font-size:0.86em;background:rgba(0,212,255,0.1);color:#7dd8f0;padding:1px 6px;border-radius:5px}
+pre{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px;overflow-x:auto;margin:18px 0;font-family:"SF Mono",Menlo,monospace;font-size:0.76rem;line-height:1.6;color:#a8d8e8}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);border-left:3px solid #00d4ff;border-radius:0 10px 10px 0;color:#a8b0c0;font-size:0.92rem}
+.principle{margin:14px 0;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px}
+.principle b{color:#00d4ff}
+.source{margin:16px 0;padding:11px 16px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.14);border-radius:9px;font-size:0.85rem;color:#8fa5b8;font-family:"SF Mono",Menlo,monospace;line-height:1.7}
+.source b{color:#7dd8f0;font-weight:600}
+.source a{color:#7dd8f0}
+.source a:hover{color:#fff}
+.sec{padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,0.09)}
+.sec:last-of-type{border-bottom:none;padding-bottom:0}
+.sec>h2:first-child{margin-top:44px}
+footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
+footer a{color:#7b61ff}
+@media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<a href="https://cissy0802.github.io/" onmouseout="this.style.opacity=0.55" onmouseover="this.style.opacity=1" style="position:fixed;top:14px;left:14px;font-size:0.82rem;color:inherit;opacity:0.55;text-decoration:none;padding:6px 12px;border:1px solid currentColor;border-radius:20px;z-index:100;backdrop-filter:blur(6px);transition:opacity 0.2s">← Hub</a>
+<div class="lang-toggle">
+<a href="causality.html">中文</a>
+<a class="active" href="causality.en.html">EN</a>
+</div>
+<div class="container">
+<header>
+<div class="kicker">// Synthesis · Syn 7</div>
+<h1>Causality: A Table That Is Always Half Empty</h1>
+<div class="meta">BigCat · 2026-09 · Cross-site Synthesis</div>
+</header>
+<div class="lede">
+"Cause" shows up on at least five unrelated sites in this Hub. Meta-knowledge draws causal diagrams. AI/ML runs quasi-experiments. Health grades evidence. Every single history post ends with a box labelled "counterfactual." And mathematics proves that a test which only asks whether a path through a diagram is open is equivalent to a family of high-dimensional integrals being identical.<br/><br/>
+What makes this interesting is that these five are not five borrowings of one word. They are solving the same fill-in-the-blank problem, and the problem is worded identically in all five places: there is a cell whose value you can never observe. Everything each discipline knows how to do is a way of putting something else in that cell. This essay is about why the problem comes out the same, why the substitutes differ so wildly in how much they are worth, and where the reasoning stops travelling.
+</div>
+<section class="sec">
+<h2>Two reversals</h2>
+<p>Start with two episodes that look unrelated.</p>
+<p>The first is medical. Through the late twentieth century, a large body of observational research followed women through menopause and found that those taking hormone replacement therapy had noticeably less heart disease. The medical field recommended it widely. Then in 2002 a large randomised controlled trial — the kind where people are assigned to treatment or no treatment by the equivalent of a coin flip, and nothing else is managed — reached the opposite conclusion: the therapy raised cardiovascular risk. Same question, observation and experiment, and the sign flipped.</p>
+<p>The second is economic history. In 1964 the economic historian Robert Fogel worked out a number: if nineteenth-century America had never laid a mile of railroad and had made do with canals and wagons, national income would have been lower by only a few percent. What he was attacking was the belief that railroads were indispensable. Critics answered that he had badly undercounted what happens after isolated local markets are welded into one national market. Whoever is right, the thing both sides are arguing about — an America without railroads — never existed.</p>
+<p>One case has tens of thousands of subjects who can actually be split into groups and followed for years. The other has one run of history, no rewind, and no second America to serve as a control. Intuitively these belong to different worlds.</p>
+<p>The strange part is that the vocabulary you need to say what is solid and what is shaky in the first case is exactly the vocabulary you need for the second. Point the same vocabulary at an engineer's post-launch evaluation, or at a health headline promising to "cut your risk by 50%," and it measures the same thing again. Why?</p>
+</section>
+<section class="sec">
+<h2>A table that is always half empty</h2>
+<p>The statistician Rubin laid this out as a table.</p>
+<p>For each person, imagine two numbers: the outcome if they receive the treatment, and the outcome if they do not. The difference between those two numbers is the causal effect of the treatment on that person. As a definition it is completely unambiguous.</p>
+<p>The trouble is observational. They either got the treatment or they didn't, so you only ever see one of the two numbers. The other cell is blank — and not blank in the sense of not measured yet. Blank in principle. You cannot have the same person both take and not take the drug at the same moment, and you cannot have the same server both deploy and not deploy. Every row of the table is missing half of itself.</p>
+<p>This is the fundamental problem of causal inference, and its shape is humble: <strong>it is a missing-data problem.</strong> Since the individual cell is unfillable, you retreat to the group average — but the average among the treated minus the average among the untreated is not the average effect, because people who end up treated were already different.</p>
+<p>Randomisation is what breaks the deadlock here. Flip a coin to decide who goes where, and whether someone is treated becomes unrelated to everything else about them; the two groups are statistically indistinguishable before treatment. The control group's average can then legitimately stand in for what the treated group would have looked like untreated. The blank was never actually filled. A batch of comparable strangers was seated in its place. Every method that follows does the same thing, and the only differences are <strong>what gets seated in that cell, and on what grounds it is entitled to sit there</strong>.</p>
+<div class="source"><b>Source →</b> The potential-outcomes framework written out in full, runnable code for estimating the average effect, and why selection bias makes a naive group-mean comparison worthless: <a href="/ai-ml/causal-inference-day36.en.html">AI/ML · Causal Inference (Day 36)</a> — that page also has the table with the missing cells marked in red, and a recipe for a one-person trial (flip a coin each morning to decide whether to use the Pomodoro timer).</div>
+</section>
+<section class="sec">
+<h2>Five substitutes, on a very steep slope</h2>
+<p>Lined up next to each other, the practices across these sites form a slope running from "manufacture the randomness yourself" down to "make an argument."</p>
+<p><strong>One: randomise it yourself.</strong> The randomised controlled trial, plus its engineering cousins — A/B tests, staged rollouts, canary releases. What sits in the cell is the people randomly assigned to control, and the warrant is the coin flip itself. The hormone therapy reversal was this tier overturning the fourth tier below it: women who were willing and able to take hormones tended to be wealthier, more health-conscious, more likely to exercise, and a healthy lifestyle was pushing up both the taking of the drug and the state of the heart. The apparent protection was manufactured by that. Randomise, and the passage running from lifestyle to both ends is cut; the causal sign reverses outright.</p>
+<p><strong>Two: borrow randomness from the world.</strong> When an experiment is out of reach — you cannot randomly assign people to smoke, or randomly raise the minimum wage in a few states — go looking for a force in the world that happened to sort people almost as cleanly as a coin flip. The Vietnam draft lottery ordered call-ups by date of birth, and birthdays are random; leveraging that lottery, researchers cleanly estimated what military service did to later earnings without running a single day of experiment. The economists Angrist and Krueger did the same trick with quarter of birth to estimate the return to years of schooling: compulsory-schooling rules meant children born in different quarters passively got slightly more or less education, and the quarter has nothing to do with a person's ability. Such a lever is called an instrument, and it costs you one assumption: the lever must affect earnings only through schooling, with no other route. That assumption is called exclusion, and <strong>no amount of data can check it</strong>. It survives on subject-matter argument alone.</p>
+<p><strong>Three: borrow a control group's trend.</strong> With two time points bracketing the intervention and a group that was never treated, you can difference twice: take the treated group's own before-after change, then subtract the control group's before-after change, stripping out whatever trend both groups rode through. That is what the economists Card and Krueger did to the minimum wage in 1994 — New Jersey raised it, neighbouring Pennsylvania did not, and differencing fast-food employment twice showed that employment did not fall the way standard theory predicted. What sits in the cell is the control group's change, translated onto the treated group's starting point, and the warrant is an assumption called parallel trends: absent the intervention, the two groups would have moved along parallel paths. That one is also unprovable. The most you can do is plot several pre-periods and check that the two lines have been parallel all along.</p>
+<p><strong>Four: block the back door.</strong> When no randomness can be borrowed at all, you are left hunting for the third variables that push both ends, stratifying on them, and comparing only people who share the same value. The weakness is written on its face: you can only adjust for what you measured, and about what you didn't measure you can do nothing whatsoever. What makes it worse is that it feels like diligence, and that feeling is the dangerous part — the larger your sample, the narrower the confidence interval around the spurious association, and the more confident you become in a wrong conclusion. Big data does not fix bias. It estimates the bias more precisely.</p>
+<p><strong>Five: argue an alternative trajectory.</strong> Every post on the history site ends with a box headed "Counterfactual + historiographical debate." The Rome post: had the Roman emperor Valens waited for reinforcements at Adrianople, or settled the Gothic refugees competently, the empire need not have collapsed. The Ottoman post: had the empire stayed neutral in 1914, it might have limped along like Spain and reformed gradually, and the ruler-straight borders drawn across the modern Middle East might not exist at all. These sentences are doing precisely what the four tiers above do — filling the blank — except that what sits in the cell is neither a group of people nor a trend, but a trajectory arrived at by argument.</p>
+<p>The ordering isn't mine. The AI/ML page writes it out as an explicit ladder: randomised trials &gt; natural experiments, instrumental variables, difference-in-differences, regression discontinuity &gt; regression and matching that adjust for confounders &gt; bare correlation. Each step down leans harder on assumptions that data cannot test, and the whole structure gets more brittle. That page also leaves behind a line worth keeping: the strength of a causal claim does not come from how sophisticated the model is, but from how credible the identifying assumption is. A plain difference-in-differences with an airtight control group beats an ornate regression stuffed with controls that still leaves the back door open.</p>
+<div style="overflow-x:auto;margin:24px 0">
+<svg font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" style="min-width:660px;height:auto;display:block" viewBox="0 0 720 486" width="100%" xmlns="http://www.w3.org/2000/svg">
+<rect fill="rgba(123,97,255,0.1)" height="50" rx="10" stroke="#7b61ff" stroke-width="1.6" width="672" x="24" y="14"></rect>
+<text fill="#fff" font-size="13" font-weight="700" text-anchor="middle" x="360" y="37">The same blank cell: what would have happened to this person untreated?</text>
+<text fill="#a99ee0" font-size="10.5" text-anchor="middle" x="360" y="55">Top to bottom: the substitute looks more and more like an argument, the bet less and less checkable</text>
+<rect fill="rgba(0,212,255,0.07)" height="62" rx="9" stroke="#00d4ff" stroke-width="1.4" width="672" x="24" y="76"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="98">① Randomise it yourself — RCT · A/B test</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="117">In the cell: the people randomly assigned to control</text>
+<text fill="#7dd8f0" font-size="10.5" x="42" y="133">The bet: the coin flip is genuinely random — checkable from pre-assignment data</text>
+<rect fill="rgba(0,212,255,0.05)" height="62" rx="9" stroke="#3fb8d8" stroke-width="1.3" width="672" x="24" y="148"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="170">② Borrow the world's randomness — instruments · natural experiments</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="189">In the cell: people sorted the other way by a quasi-random shock (draft lottery, quarter of birth)</text>
+<text fill="#e8c26a" font-size="10.5" x="42" y="205">The bet: exclusion — no data can test it, only argument</text>
+<rect fill="rgba(0,212,255,0.04)" height="62" rx="9" stroke="#6f9fc8" stroke-width="1.3" width="672" x="24" y="220"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="242">③ Borrow a control group's trend — difference-in-differences</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="261">In the cell: the control group's change, translated onto the treated group's start</text>
+<text fill="#e8c26a" font-size="10.5" x="42" y="277">The bet: parallel trends — unprovable, only corroborated by pre-period data</text>
+<rect fill="rgba(255,255,255,0.04)" height="62" rx="9" stroke="#8a86b0" stroke-width="1.3" width="672" x="24" y="292"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="314">④ Block the back door — stratification · regression · matching</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="333">In the cell: people who share the same value of the third variable</text>
+<text fill="#e8956a" font-size="10.5" x="42" y="349">The bet: you measured every back door — usually false, and undetectable</text>
+<rect fill="rgba(255,110,196,0.06)" height="62" rx="9" stroke="#ff6ec4" stroke-dasharray="6 5" stroke-width="1.3" width="672" x="24" y="364"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="386">⑤ Argue a trajectory — the historical counterfactual</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="405">In the cell: an argued alternative history (an America without railroads, a neutral Ottoman Empire)</text>
+<text fill="#ffa8dc" font-size="10.5" x="42" y="421">The bet: the trajectory itself — no control group, and no second run</text>
+<text fill="#8f88b8" font-size="10.5" font-style="italic" text-anchor="middle" x="360" y="452">Causal strength comes not from the model's sophistication but from the credibility of that row's bet</text>
+<text fill="#6a7080" font-size="10" text-anchor="middle" x="360" y="472">Syn 7 · Causality · BigCat's Learning Hub</text>
+</svg>
+</div>
+<div class="source"><b>Source →</b> The draft lottery and natural experiments, the barometer-and-storm example that makes the ladder click, what the do-calculus actually is: <a href="/meta-knowledge/causal-inference-day67.en.html">Meta-knowledge · Causal Inference (Day 67)</a> · The three conditions an instrument must meet, two-stage least squares, the F-statistic threshold for weak instruments, runnable difference-in-differences code and the pre-trends test: <a href="/ai-ml/causal-inference-day36.en.html">AI/ML · Causal Inference (Day 36)</a> · The hormone therapy reversal in full, healthy-user bias, and how to tell confounders from mediators from colliders: <a href="/meta-knowledge/epidemiology-day36.en.html">Meta-knowledge · Epidemiology (Day 36)</a> · The "counterfactual + historiographical debate" box in its native habitat, the railroad dispute, and why the Great Divergence has no single cause: <a href="/history/industrial-revolution-day16.en.html">History · The Industrial Revolution (Day 16)</a></div>
+</section>
+<section class="sec">
+<h2>One test, on one diagram</h2>
+<p>That the five substitutes can be ranked on a slope shows they are comparable. Comparable is not the same as identical, and what actually makes them one thing lives on the mathematics page.</p>
+<p>Draw the variables as nodes and the direct causal influences as arrows, and you have a directed acyclic graph. The mathematics site puts the key point sharply: <strong>the information in such a diagram is not in the edges you drew, it is in the edges you left out</strong> — every missing edge asserts a conditional independence, and the joint distribution collapses from exponential size into a product of small tables.</p>
+<p>The same page explains a phenomenon called explaining away. Wet grass could be rain, or it could be the sprinkler, and the two have nothing to do with each other. But once you see that the grass is wet and then learn that it rained last night, your belief that the sprinkler ran drops immediately: the rain has already accounted for the wetness. <strong>Observing a shared effect makes its two causes correlated out of nothing.</strong></p>
+<p>That sentence is the hinge of this essay, because it collapses three very different-looking mistakes into one. On a diagram, a third variable can only occupy three positions.</p>
+<p>It can be a <strong>common cause</strong>, with arrows into both the treatment and the outcome. This is the passage described earlier, formally a back-door path, also called a confounder. Block it.</p>
+<p>It can be a <strong>common effect</strong>, with arrows coming into it from both. This is a collider. The moment you stratify on it — look only at the subset where it takes some fixed value — two causes that had nothing to do with each other are wrenched into correlation. Never touch it.</p>
+<p>It can be a <strong>mediator</strong>, sitting on the causal path itself, the channel through which the treatment reaches the outcome. Control for it and you erase the real effect along with it. Also do not touch.</p>
+<div style="overflow-x:auto;margin:24px 0">
+<svg font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" style="min-width:660px;height:auto;display:block" viewBox="0 0 720 316" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ah7e" markerHeight="9" markerUnits="userSpaceOnUse" markerWidth="9" orient="auto" refX="7" refY="3"><path d="M0,0 L7,3 L0,6 Z" fill="#6a7080"></path></marker>
+</defs>
+<text fill="#fff" font-size="13" font-weight="700" text-anchor="middle" x="360" y="24">The same third variable, three positions, three opposite instructions</text>
+<rect fill="rgba(0,212,255,0.05)" height="238" rx="10" stroke="#00d4ff" stroke-width="1.3" width="208" x="24" y="42"></rect>
+<text fill="#7dd8f0" font-size="12" font-weight="700" text-anchor="middle" x="128" y="66">Common cause · confounder</text>
+<text fill="#9aa2b8" font-size="10" text-anchor="middle" x="128" y="84">a healthy lifestyle</text>
+<circle cx="128" cy="106" fill="rgba(0,212,255,0.16)" r="17" stroke="#00d4ff" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="128" y="111">Z</text>
+<line marker-end="url(#ah7e)" stroke="#6a7080" stroke-width="1.3" x1="116" x2="78" y1="120" y2="158"></line>
+<line marker-end="url(#ah7e)" stroke="#6a7080" stroke-width="1.3" x1="140" x2="178" y1="120" y2="158"></line>
+<circle cx="70" cy="172" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="70" y="177">X</text>
+<circle cx="186" cy="172" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="186" y="177">Y</text>
+<text fill="#9fe0bd" font-size="11.5" font-weight="700" text-anchor="middle" x="128" y="220">Control Z ✓ door blocked</text>
+<text fill="#8fa5b8" font-size="10" text-anchor="middle" x="128" y="240">Leave it open and what you</text>
+<text fill="#8fa5b8" font-size="10" text-anchor="middle" x="128" y="256">see is entirely its doing</text>
+<rect fill="rgba(255,110,196,0.06)" height="238" rx="10" stroke="#ff6ec4" stroke-width="1.3" width="208" x="256" y="42"></rect>
+<text fill="#ffa8dc" font-size="12" font-weight="700" text-anchor="middle" x="360" y="66">Common effect · collider</text>
+<text fill="#9aa2b8" font-size="10" text-anchor="middle" x="360" y="84">admitted / made it home</text>
+<circle cx="302" cy="106" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="302" y="111">X</text>
+<circle cx="418" cy="106" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="418" y="111">Y</text>
+<line marker-end="url(#ah7e)" stroke="#6a7080" stroke-width="1.3" x1="314" x2="348" y1="120" y2="156"></line>
+<line marker-end="url(#ah7e)" stroke="#6a7080" stroke-width="1.3" x1="406" x2="372" y1="120" y2="156"></line>
+<circle cx="360" cy="172" fill="rgba(255,110,196,0.16)" r="17" stroke="#ff6ec4" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="360" y="177">C</text>
+<text fill="#ff9ecf" font-size="11.5" font-weight="700" text-anchor="middle" x="360" y="220">Control C ✗ invents one</text>
+<text fill="#8fa5b8" font-size="10" text-anchor="middle" x="360" y="240">Looking only at survivors is</text>
+<text fill="#8fa5b8" font-size="10" text-anchor="middle" x="360" y="256">stratifying on a common effect</text>
+<rect fill="rgba(232,194,106,0.06)" height="238" rx="10" stroke="#e8c26a" stroke-width="1.3" width="208" x="488" y="42"></rect>
+<text fill="#f0d79a" font-size="12" font-weight="700" text-anchor="middle" x="592" y="66">Mediator</text>
+<text fill="#9aa2b8" font-size="10" text-anchor="middle" x="592" y="84">the link the effect runs through</text>
+<circle cx="518" cy="140" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="518" y="145">X</text>
+<circle cx="592" cy="140" fill="rgba(232,194,106,0.16)" r="17" stroke="#e8c26a" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="592" y="145">M</text>
+<circle cx="666" cy="140" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="666" y="145">Y</text>
+<line marker-end="url(#ah7e)" stroke="#6a7080" stroke-width="1.3" x1="536" x2="566" y1="140" y2="140"></line>
+<line marker-end="url(#ah7e)" stroke="#6a7080" stroke-width="1.3" x1="610" x2="640" y1="140" y2="140"></line>
+<text fill="#f0c97a" font-size="11.5" font-weight="700" text-anchor="middle" x="592" y="220">Control M ✗ erases it</text>
+<text fill="#8fa5b8" font-size="10" text-anchor="middle" x="592" y="240">It isn't noise; it is the road</text>
+<text fill="#8fa5b8" font-size="10" text-anchor="middle" x="592" y="256">the effect travels on</text>
+<text fill="#8f88b8" font-size="10.5" font-style="italic" text-anchor="middle" x="360" y="300">"More controls is always safer" is correct in exactly one of these three boxes</text>
+</svg>
+</div>
+<p>The three instructions contradict each other, and what decides between them is not the data, it is the diagram. That is exactly why a test is possible at all: <strong>whether a causal effect can be computed from observational data is a question about how paths run through a graph.</strong> Mathematics calls this test d-separation and points out what is lovely about it — it is purely combinatorial, asking only whether a path is open and which nodes have been observed, never touching an integral. What it delivers, though, is a statement about a distribution. A question you answer by tracing arrows with a finger turns out to be equivalent to whether a family of high-dimensional integrals are identical.</p>
+<p>The computer scientist Judea Pearl walked the last step. He promoted the arrows from dependence to causation, added an operator standing for reaching in and intervening, and thereby turned "can this causal effect be identified from purely observational data?" into a computable question about a given diagram. As the mathematics page puts it, "correlation is not causation" stopped being a warning and became decidable.</p>
+<h3>Where this connection carries weight</h3>
+<p>The test of whether a cross-domain connection is worth anything is not whether it feels elegant. It is whether it has settled a specific problem that had no solution before. This one has.</p>
+<p>Before Pearl, deciding which variables to control for was each discipline's private craft. Epidemiology had its rules of thumb, economics had its own, neither could settle an argument with the other, and everyone shared one plain intuition: <strong>the more you control for, the safer you are.</strong> That intuition is wrong, and wrong in a way that hides well. Controlling for a common effect is not a shortfall of diligence; it manufactures a correlation that was never there.</p>
+<p>What really makes the point is that this same error was committed independently in field after field, wearing a different face each time, with nobody recognising it as one error. In the Second World War, tallying bullet holes on returning aircraft to decide where to add armour was stratifying on "made it home" — the place most in need of armour is the place with the fewest holes in the returning sample, because the planes hit there never came back. Suppose a university admits on grades and on talent, either one high enough getting you in: across all high schoolers the two are unrelated, yet look only at the admitted and a negative correlation appears, the strongest students apparently the least talented. The impression that two diseases are negatively related among hospital patients, and the folk conviction that the better-looking someone is the worse they treat you, run on the same machinery. So does training a model only on the clicks and the successes.</p>
+<p>Laid onto one diagram, all of them collapse into a single line: stratifying on a common effect. One test explains four unrelated-looking muddles in four fields, and issues a prohibition that none of those fields' own intuitions would ever have produced. That is the kind of evidence worth asking for.</p>
+<div class="source"><b>Source →</b> How a Bayesian network encodes independence in its missing edges, explaining away worked through, why d-separation is the model case of "demoting a semantic question to a syntactic one," and how message passing unifies the earlier models: <a href="/mathematics/graphical-models-day41.en.html">Mathematics · Probabilistic Graphical Models (Day 41)</a> · The college-admissions and armoured-bomber colliders, and the side-by-side diagram of what to control and what to leave alone: <a href="/meta-knowledge/causal-inference-day67.en.html">Meta-knowledge · Causal Inference (Day 67)</a> · Why Simpson's paradox is one of confounding's faces, plus regression code for the back door: <a href="/ai-ml/causal-inference-day36.en.html">AI/ML · Causal Inference (Day 36)</a></div>
+</section>
+<section class="sec">
+<h2>What the connection bought</h2>
+<p>When a concept moves between fields and only the word travels, the receiving field gains nothing. When the reasoning behind it travels too, what arrives is everything that reasoning has already proved — theorems, lower bounds, impossibility results, none of which have to be re-established. Causality turns out to have shipped a lot of freight.</p>
+<div class="principle"><b>Engineers walked off with the economists' quasi-experimental toolkit.</b> When an A/B test is impossible, there is no need to squeeze correlations out of historical dashboards. Go find a nearly random break instead: a config change that took effect in one region only, a release that reached a fraction of users, an outage in one data centre. Things previously swept up as noise become free experiments in this language. Read the other way, staged rollouts and canary releases were always randomisation built by hand — nobody had been calling them that.</div>
+<div class="principle"><b>Machine learning got a diagnosis for a recurring category of failure.</b> A model that predicts historical data beautifully falls apart the moment you act on it to change recommendations or prices. The reason is positional: it learned "how likely is Y when X is observed," and what you wanted was "what happens to Y if I change X," a full rung apart. An extreme case: a model finds that asthmatic pneumonia patients in hospital have lower mortality. At the level of prediction this is perfectly correct — asthmatics get monitored more intensively — but concluding that asthma protects against pneumonia and triaging patients accordingly would kill people. Hence a very practical corollary: a high feature-importance score says the feature helps predict, never that changing it changes the outcome.</div>
+<div class="principle"><b>History gained the fact that counterfactuals can be computed at all.</b> The most valuable thing about Fogel's number is not whether it is right. It is that it converted "railroads were indispensable" from a heroic story you could only agree or disagree with into a claim with figures in it, and therefore a claim that could be challenged in detail. The rebuttal — that he undercounted network effects and the compounding of urbanisation — has force precisely because the original claim had been written in an arguable form.</div>
+<div class="principle"><b>Anyone reading health news got two rulers.</b> One is the evidence pyramid: systematic reviews, randomised trials, prospective cohorts, case-control, cross-sectional, animal and mechanistic work, expert opinion — the higher the tier, the better it controls hidden passages. When you see "studies show," ask which tier. The other ruler applies after causality is granted. "Cuts your risk by 50%" carries almost no information, since 2% down to 1% is also 50%. A statin taking five-year heart-attack risk from 2.0% to 1.5% is a relative reduction of 25%, which sounds impressive; the absolute reduction is 0.5%, which in the number-needed-to-treat is this: treat 200 people for five years to prevent one heart attack.</div>
+<p>Not one of these four is new knowledge. Each was won expensively in one field and then lifted wholesale by another. That is the entire value of cross-disciplinary wiring — it saves the cost of reinventing. And because what gets lifted is real, it matters to know where it stops travelling.</p>
+<div class="source"><b>Source →</b> The evidence pyramid tier by tier, what each design can answer and its characteristic trap, the three ways of stating the same risk, the epidemiologist Bradford Hill's nine criteria, and how under-recruiting women systematically drains power from female subgroups: <a href="/health-longevity/evidence-literacy-day61.en.html">Health &amp; Longevity · Evidence Literacy (Day 61)</a> · Natural experiments in engineering practice, and the barometer example where one dataset yields opposite action at two rungs: <a href="/meta-knowledge/causal-inference-day67.en.html">Meta-knowledge · Causal Inference (Day 67)</a> · Prediction versus causation worked out in full, and the live argument about which rung large language models sit on: <a href="/ai-ml/causal-inference-day36.en.html">AI/ML · Causal Inference (Day 36)</a></div>
+</section>
+<section class="sec">
+<h2>Where the reasoning stops</h2>
+<p>Walking down the slope, something changes in kind at a certain point. It isn't that credibility drops another notch. The machinery itself stops applying.</p>
+<p><strong>The historical tier is the real break.</strong> All four tiers above it presuppose a population — many individuals, who can be split, sampled, averaged over. History has none. Rome collapsed once. The Ottomans entered one war. The Industrial Revolution happened in Britain once. The sample size is one, and it is not "one is too small"; there is simply nothing there to randomise. The whole slope gives way.</p>
+<p>That does not make historical counterfactuals bad causal inference. They are a different activity with their own standard, and the standard is tougher than it looks: <strong>how much has to be moved to make the counterfactual work?</strong> Moving a decision is more credible than moving a structure. The history site's paragraph on Suez is a good specimen — had the United States backed the operation, Britain might have sustained the imperial illusion a few years longer, but the overdrawn financial foundation would not have changed, and the reckoning would have been postponed rather than cancelled. That sentence is doing stratification: which layer can be nudged, which cannot. The Industrial Revolution post does the same when it asks why Britain, and answers that there is no single cause but a rare resonance of energy endowment, factor prices, knowledge culture and institutional incentive — remove any one and the breakthrough might still have happened, at a different time, in a different place. "A different time and place" is itself a substantive causal judgement, and it refuses monocausal explanation. This isn't inference. It is something plainer and more honest: taking an untestable proposition and writing it in a form someone else can specifically attack.</p>
+<p><strong>The second stopping point is ethics and time.</strong> Nutrition science has almost no lifetime randomised diet trials, because keeping a group of people on an assigned diet for decades is neither feasible nor humane, and adherence collapses anyway. So nutrition leans on cohorts plus mechanism, and starts a full tier lower — which is the real source of its endlessly reversing headlines. The health site's posture seems right to me: demanding cardiovascular-drug-grade evidence from nutrition is unrealistic, and the mature move is to learn to live with the best currently available evidence rather than wait for a perfect trial that will never arrive.</p>
+<p><strong>The third is the seduction of mechanism.</strong> The confidence that comes from a story about why something should work is hard to tell apart from the confidence that comes from evidence, and they are not the same substance. The CAST trial is the textbook counterexample: a class of antiarrhythmic drugs successfully suppressed premature ventricular beats — a surrogate endpoint, an intermediate marker — and doubled mortality. Every link in the mechanistic chain was reasonable and the conclusion was lethal. This transfers directly to product and engineering work: however fluently you can explain why a change ought to help, the explanation does not get to sit in that cell.</p>
+<h3>Six questions you can tick off</h3>
+<p>This list is not for catching other people out. It is a way to weigh a causal claim, including your own.</p>
+<p><strong>1. What is your counterfactual?</strong> Can you say in one sentence what the comparison is against? If not, this isn't a causal claim, it's an appraisal.</p>
+<p><strong>2. Who is sitting in the cell?</strong> A randomised control group, a quasi-random shock, a control group's trend, a pile of covariates, or an argument. Each step down the slope costs a notch of credibility, and that discount has to be applied on the spot, not smuggled into the conclusion.</p>
+<p><strong>3. What is the name of the assumption you're betting on?</strong> Exclusion, parallel trends, no unmeasured confounding, the plausibility of that alternative trajectory. Not being able to name it usually doesn't mean there's no bet. It means the bet went unnoticed.</p>
+<p><strong>4. Where does the variable you controlled for sit on the diagram?</strong> Block a common cause, never touch a common effect, and controlling a mediator erases the very effect you're after. The three instructions contradict each other, and the diagram decides — which means you have to be willing to draw it.</p>
+<p><strong>5. Is your data the whole population, or the survivors of some gate?</strong> Logs keep only the requests that completed, analysis covers only the users who stayed, journals publish mostly the positive results. Every filter is a quiet stratification on a common effect, and it can manufacture correlations as easily as it erases them.</p>
+<p><strong>6. Granting the cause, how big is it?</strong> Relative or absolute? What's the number needed to treat? Statistically significant and clinically significant are two different things — with a large enough sample, losing 0.3 kg clears the bar.</p>
+<p>The first five ask whether this is causal at all. The sixth asks whether, granting it, it is worth changing your behaviour for. Both need asking, and the second gets skipped about as often as the first.</p>
+<div class="source"><b>Source →</b> All four worked counterfactual cases (Rome, the Ottomans, Britain, the USSR) and how historians separate the decision layer that can be nudged from the structural layer that cannot: <a href="/history/empire-collapse-day15.en.html">History · The Collapse of Empires (Day 15)</a> · Fogel's railroad counterfactual and the rebuttal, plus the four-way dispute over the Great Divergence: <a href="/history/industrial-revolution-day16.en.html">History · The Industrial Revolution (Day 16)</a> · The CAST trial, the five fingerprints of pseudoscience, the triple trap of p-values and publication bias, and why nutrition has no lifetime trials: <a href="/health-longevity/evidence-literacy-day61.en.html">Health &amp; Longevity · Evidence Literacy (Day 61)</a></div>
+</section>
+<section class="sec">
+<h2>How to use it</h2>
+<p>Taking something apart obliges you to say how it is used, or the essay is just another kind of rhetoric. Roughly three tiers.</p>
+<p><strong>If you can randomise, randomise, however absurdly small the scale.</strong> The bar here is lower than most people assume. To find out whether the Pomodoro timer does anything, stop using it only on bad days; flip a coin each morning and compare the two groups after a fortnight. Randomisation flattens the hidden passage running from "how I felt that day" across both groups, and saves you from building a pile of covariates. Engineering is the same: a staged rollout is an experiment, so don't waste it. Conclusions from this tier can be acted on directly.</p>
+<p><strong>If you can't randomise, say the bet out loud.</strong> Difference-in-differences, instruments and confounder adjustment all live here. Their conclusion is not "A caused B" but "given parallel trends, A caused B" — a conditional, and the condition has to travel with the claim. The AI/ML page draws a good parallel with engineering: you can never test that a system is linearizable under every possible network partition, so you argue from protocol design and pile up indirect evidence. The treatment for untestable assumptions is the same. Write the assumption down explicitly, shore it up with indirect evidence, run a sensitivity analysis asking how badly the assumption has to fail before the conclusion flips, and label the remaining uncertainty honestly. Maturity is not pretending there was no bet; it is knowing which bets you made and how much you staked.</p>
+<p><strong>If you can't even name the assumption, it's narrative.</strong> That isn't an insult. The historical counterfactual is high-quality narrative: it forces someone to think through what would have happened otherwise and write it in a form that can be contested, which has value on its own terms. The damage comes from mislabelling — a narrative staked on as though it were a measurement, or, in the other direction, a clean trial dismissed as "just another story" because its result was unwelcome. Both errors cost real money.</p>
+<p>Back to the two episodes at the start. The hormone therapy reversal and Fogel's number look like citizens of different worlds, but the cell they are missing is the same one: what would have happened to these women untreated, what would have happened to this country unrailroaded. The first can seat a batch of comparable strangers in that cell by coin flip. The second can only argue, and the quality of the argument depends on how much it has to move. The two ends of the slope are orders of magnitude apart in credibility. The question is identical.</p>
+<p>Worth keeping this question close, not in order to catch anyone out. It's that "A caused B" is a sentence we say many times a day, and for the overwhelming majority of them, nobody ever asked who was sitting in that cell.</p>
+</section>
+<footer>
+<a href="/index.en.html">← BigCat's Learning Hub</a>
+</footer>
+</div>
+<script defer="" src="https://hub.cissychen.com/comments.js"></script>
+<script defer="" src="https://hub.cissychen.com/search.js"></script>
+<script defer="" src="https://hub.cissychen.com/index-button.js"></script>
+<script defer="" src="https://hub.cissychen.com/i18n-tts.js"></script>
+</body></html>

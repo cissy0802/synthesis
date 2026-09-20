@@ -235,6 +235,41 @@
         "/book-recommendations/education-learning-book48.html",
         "/deep-reading/in-search-of-lost-time-read61.html"
       ]
+    },
+    {
+      "id": "syn-7",
+      "slug": "causality",
+      "title_zh": "因果：一张永远缺一半的表",
+      "title_en": "Causality: A Table That Is Always Half Empty",
+      "genre": "C",
+      "published": "2026-09",
+      "pages": {
+        "zh": "/synthesis/causality.html",
+        "en": "/synthesis/causality.en.html"
+      },
+      "sources": [
+        "/ai-ml/causal-inference-day36.html",
+        "/meta-knowledge/causal-inference-day67.html",
+        "/meta-knowledge/epidemiology-day36.html",
+        "/mathematics/graphical-models-day41.html",
+        "/health-longevity/evidence-literacy-day61.html",
+        "/history/industrial-revolution-day16.html",
+        "/history/empire-collapse-day15.html"
+      ],
+      "keywords": [
+        "因果",
+        "反事实",
+        "混杂",
+        "对撞因子",
+        "识别假设"
+      ],
+      "evaluated_rejected": [
+        "/mathematics/probability-paradoxes-day27.html",
+        "/meta-knowledge/zombie-statistics-day66.html",
+        "/meta-knowledge/inside-the-paper-day73.html",
+        "/ai-ml/fairness-bias-day51.html",
+        "/history/climate-day20.html"
+      ]
     }
   ]
 }

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>因果：一张永远缺一半的表 · 跨站合成 Syn 7</title>
+<meta content="流行病学家、经济史学家、AI 工程师说「因果」时，在解同一道填空题：有一个格子永远观测不到，全部技艺是用别的东西把它补上。这篇讲这道题为什么长得一样、补法的可信度为什么差三个数量级，以及一条图论判定如何推翻了每个领域原本都在用的一条错误经验法则。最后给出六个可以逐条勾的问题。" name="description"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"SF Pro Display","Noto Serif SC","Songti SC",serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0a0e1a 100%);color:#e4e6eb;line-height:1.95;min-height:100vh}
+.container{max-width:780px;margin:0 auto;padding:48px 24px 80px}
+.lang-toggle{position:fixed;top:18px;right:18px;background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:5px;display:flex;z-index:100;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem}
+.lang-toggle a{padding:5px 12px;border-radius:14px;color:#a0a8c0;text-decoration:none;transition:all 0.15s}
+.lang-toggle a.active{background:#7b61ff;color:#fff;font-weight:700}
+.lang-toggle a:not(.active):hover{background:rgba(255,255,255,0.08);color:#fff}
+header{text-align:center;padding:40px 0 8px}
+header .kicker{font-size:0.78rem;color:#7b61ff;letter-spacing:2px;text-transform:uppercase;font-family:"SF Mono",Menlo,monospace;margin-bottom:14px}
+header h1{font-size:1.9rem;font-weight:800;line-height:1.5;background:linear-gradient(135deg,#00d4ff 0%,#7b61ff 50%,#ff6ec4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+header .meta{font-size:0.82rem;color:#6a7080;font-family:"SF Mono",Menlo,monospace}
+.lede{margin:32px 0 8px;padding:18px 22px;background:rgba(123,97,255,0.08);border-left:3px solid #7b61ff;border-radius:0 10px 10px 0;color:#c9cede;font-size:0.98rem}
+h2{font-size:1.35rem;font-weight:700;color:#fff;margin:52px 0 18px;padding-left:14px;border-left:4px solid #7b61ff;line-height:1.5}
+h3{font-size:1.05rem;font-weight:700;color:#c4b8ff;margin:32px 0 10px}
+p{margin:14px 0;color:#c9cede}
+strong{color:#fff}
+a{color:#7b61ff;text-decoration:none}
+a:hover{color:#00d4ff}
+ul,ol{margin:14px 0 14px 1.6em;color:#c9cede}
+li{margin:7px 0}
+code{font-family:"SF Mono",Menlo,monospace;font-size:0.86em;background:rgba(0,212,255,0.1);color:#7dd8f0;padding:1px 6px;border-radius:5px}
+pre{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px;overflow-x:auto;margin:18px 0;font-family:"SF Mono",Menlo,monospace;font-size:0.76rem;line-height:1.6;color:#a8d8e8}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);border-left:3px solid #00d4ff;border-radius:0 10px 10px 0;color:#a8b0c0;font-size:0.92rem}
+.principle{margin:14px 0;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px}
+.principle b{color:#00d4ff}
+.source{margin:16px 0;padding:11px 16px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.14);border-radius:9px;font-size:0.85rem;color:#8fa5b8;font-family:"SF Mono",Menlo,monospace}
+.source b{color:#7dd8f0;font-weight:600}
+.source a{color:#7dd8f0}
+.source a:hover{color:#fff}
+.sec{padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,0.09)}
+.sec:last-of-type{border-bottom:none;padding-bottom:0}
+.sec>h2:first-child{margin-top:44px}
+footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
+footer a{color:#7b61ff}
+@media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<a href="https://cissy0802.github.io/" onmouseout="this.style.opacity=0.55" onmouseover="this.style.opacity=1" style="position:fixed;top:14px;left:14px;font-size:0.82rem;color:inherit;opacity:0.55;text-decoration:none;padding:6px 12px;border:1px solid currentColor;border-radius:20px;z-index:100;backdrop-filter:blur(6px);transition:opacity 0.2s">← Hub</a>
+<div class="lang-toggle">
+<a class="active" href="causality.html">中文</a>
+<a href="causality.en.html">EN</a>
+</div>
+<div class="container">
+<header>
+<div class="kicker">// Synthesis · Syn 7</div>
+<h1>因果：一张永远缺一半的表</h1>
+<div class="meta">BigCat · 2026-09 · 跨站合成</div>
+</header>
+<div class="lede">
+在这个 Hub 里，「因果」出现在至少五个互不相干的站上。元知识站在画因果图，AI 站在跑准实验，健康站在给证据分级，历史站的每一篇文章末尾都固定留着一栏「反事实」，数学站则证明了一条只看图上路径通不通的判定，等价于一族高维积分恒等。<br/><br/>
+有意思的地方在于，这五个地方不是各自借了同一个词去用。它们在解同一道填空题，而且题面一字不差：有一个格子，你永远观测不到它里面的数。各领域的全部技艺，是想办法用别的东西把它补上。这篇想讲清楚这道题为什么会长得一样、补法的可信度为什么差得那么远，以及这套推理走到哪里就不再跟着走了。
+</div>
+<section class="sec">
+<h2>两次反转</h2>
+<p>先看两件事，它们看上去毫无关系。</p>
+<p>第一件在医学里。上世纪有大量研究追踪过更年期女性，发现服用激素替代疗法的那批人心脏病明显更少，医学界一度普遍推荐。到 2002 年，一项大型随机对照试验——把人随机分成用药和不用药两组、其余一概不管的那种试验——做出了相反的结论：这种疗法反而升高心血管风险。同一件事，观察得来的结论和试验得来的结论，方向是反的。</p>
+<p>第二件在经济史里。1964 年，经济史学家福格尔算了一笔账：如果十九世纪的美国从来没有铺过铁路，靠运河和马车，国民收入大约只少几个百分点。他要动摇的是「铁路不可或缺」这个说法。批评者反驳他低估了铁路把孤立市场焊成全国统一市场之后的长期效应。而无论谁对，双方争的那个「没有铁路的美国」，从来不曾存在过。</p>
+<p>一边有几万名受试者，可以真的分组、真的跟踪几年；另一边只有一次历史，不能重来，也没有第二个美国拿来做对照。照直觉，这两件事该分属两个世界。</p>
+<p>但真正奇怪的地方在于：说清楚第一件事哪里靠得住的那套话，和说清楚第二件事哪里靠得住的那套话，是同一套。拿它去量 AI 工程师的一次上线评估、量一条健康新闻里的「降低 50% 风险」，量出来的东西也还是同一种。为什么？</p>
+</section>
+<section class="sec">
+<h2>一张永远缺一半的表</h2>
+<p>统计学家鲁宾把这件事摊成了一张表。</p>
+<p>对每一个人，设想两个数：他接受了干预时的结果，和他没接受干预时的结果。这两个数之差，就是这个干预对他本人的因果效应。定义干净得没有任何歧义。</p>
+<p>问题出在观测上。他要么被干预了，要么没有，你永远只能看到这两个数里的一个，另一个那一格是空的——而且不是「还没测」的那种空，是原则上测不到：你没法让同一个人在同一时刻既吃药又不吃药，也没法让同一台服务器在同一时刻既部署又不部署。表上每一行都缺一半。</p>
+<p>这就是因果推断的根本难题，而它的形状很朴素：<strong>这本质上是一个缺失数据问题。</strong>个体那一格既然填不上，只好退一步估群体的平均——但「被干预的人的平均」减去「没被干预的人的平均」并不等于平均效应，因为选择接受干预的人本来就和别人不一样。</p>
+<p>随机分组正是在这里破局的。掷硬币决定谁进哪一组，「是否被干预」就和这个人本身的一切都无关了，两组在干预之前统计上没有差别，于是对照组的平均值可以合法地被当成处理组「如果没被干预会怎样」的那个数。空格并没有真的被填上，是被一批可比的陌生人顶上了。所有后面要讲的方法做的都是同一件事，区别只在于<strong>让什么东西来顶这一格，以及凭什么它有资格顶</strong>。</p>
+<div class="source"><b>源页 →</b> 潜在结果框架的完整写法、平均效应的估计代码、选择偏差为何让「直接比两组均值」失效：<a href="/ai-ml/causal-inference-day36.html">AI/ML · 因果推断（Day 36）</a>——那页还给了一张把缺失格标红的表，以及微型随机试验的做法（抛硬币决定今天用不用番茄钟）。</div>
+</section>
+<section class="sec">
+<h2>五种填法，一条很陡的斜坡</h2>
+<p>把各站的做法排在一起，会看到一条从「亲手制造随机」一路滑到「靠论证」的斜坡。</p>
+<p><strong>一、自己动手随机。</strong>随机对照试验，以及它在工程里的同胞——A/B 测试、灰度发布、金丝雀发布。顶替那一格的是随机分进对照组的那批人，凭据是掷硬币这个动作本身。激素替代疗法那次反转，就是这一档掀翻了第四档的结论：愿意也有条件用激素的女性往往更富裕、更注重健康、更常锻炼，健康的生活方式同时抬高了「用药」和「心脏好」两端，观察数据里那份「护心」是它制造的假象。随机分组一做，这条同时推着两端走的暗道被切断，因果直接反了号。</p>
+<p><strong>二、借老天的随机。</strong>做不了试验的时候——不能随机让人吸烟，不能随机给某几个州涨最低工资——就去找现实里一个近乎随机的外力，它恰好像掷硬币一样把人分了组。越战征兵按出生日期抽签决定征召顺序，而生日是随机的；靠这个抽签当杠杆，人们干净地估出了服兵役对日后收入的影响，一天试验都没做。经济学家安格里斯特与克鲁格用出生季度估上学年限对收入的效应也是这一路：入学年龄政策让不同季度出生的孩子被动多读或少读一点书，而季度与个人能力无关。这类外部推力叫工具变量，它要成立得押一条假设：推力只能经由「读了多少书」影响收入，不能有别的通路。这条假设叫排他性，而它<strong>无法从数据里检验</strong>，只能靠领域论证。</p>
+<p><strong>三、借一个对照组的时间趋势。</strong>手上有干预前后两个时间点，还有一个没被干预的对照组，就可以减两次：先算处理组自己前后的差，再减掉对照组前后的差，把两组共同经历的大盘趋势剥掉。经济学家卡德与克鲁格 1994 年研究最低工资就是这么做的——新泽西涨了，隔壁宾州没涨，用快餐店就业做双重差分，发现就业并未如传统理论预测的那样下降。顶替那一格的是「对照组的变化量平移到处理组起点」，凭据是一条叫平行趋势的假设：要是没有干预，两组本会沿着平行的轨迹走。这条同样证明不了，只能拿干预前的多期数据画图，看两条线一直是不是平行。</p>
+<p><strong>四、把暗道堵上。</strong>什么随机都借不到，就只能找出那些同时推动两端的第三变量，按它分层，只在它取值相同的人之间比较。这一档的软肋写在脸上：你只能调整测量到的东西，没测到的那些一点办法也没有。而它给人一种做了功课的踏实感，这份踏实感恰恰最危险——样本越大，虚假相关的置信区间越窄，你会越发确信一个错误结论。大数据修不了偏差，它只是把偏差估计得更精确。</p>
+<p><strong>五、论证一条另外的轨迹。</strong>历史站每篇文章末尾都有一栏，标题就叫「反事实 + 历史学争论」。罗马那篇写：若罗马皇帝瓦伦斯在阿德里安堡等来了援军、或把哥特难民妥善安置，帝国未必崩溃。奥斯曼那篇写：若 1914 年保持中立，它或许能像西班牙那样苟延、渐进改革，今日中东那条用尺子划出的边界或许根本不会存在。这些句子在做的事和前面四档一模一样——补上那个空格——只是顶替它的既不是一批人，也不是一条趋势，而是一段论证出来的轨迹。</p>
+<p>这五档的排序不是我编的，AI 站那页把它写成了一条明确的阶梯：随机对照试验 &gt; 自然实验与工具变量、双重差分、断点回归 &gt; 控制混杂的回归与匹配 &gt; 纯相关。越往下走，越依赖那些无法用数据检验的假设，可信度越脆。那页还留了一句要紧的话：因果的强度不取决于模型多复杂，而取决于识别假设有多可信。一个简单的双重差分配一个无懈可击的对照组，胜过一个塞满控制变量、却堵不住暗道的花哨回归。</p>
+<div style="overflow-x:auto;margin:24px 0">
+<svg font-family="-apple-system,'PingFang SC','Noto Sans SC',sans-serif" style="min-width:640px;height:auto;display:block" viewBox="0 0 720 486" width="100%" xmlns="http://www.w3.org/2000/svg">
+<rect fill="rgba(123,97,255,0.1)" height="50" rx="10" stroke="#7b61ff" stroke-width="1.6" width="672" x="24" y="14"></rect>
+<text fill="#fff" font-size="13.5" font-weight="700" text-anchor="middle" x="360" y="37">同一个空格：这个人如果没被干预，会怎样？</text>
+<text fill="#a99ee0" font-size="10.5" text-anchor="middle" x="360" y="55">自上而下：顶替它的东西越来越像是论证出来的，押的假设越来越检验不了</text>
+<rect fill="rgba(0,212,255,0.07)" height="62" rx="9" stroke="#00d4ff" stroke-width="1.4" width="672" x="24" y="76"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="98">① 自己动手随机　随机对照试验 · A/B 测试</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="117">顶替它的：随机分进对照组的那批人</text>
+<text fill="#7dd8f0" font-size="10.5" x="42" y="133">押的假设：掷硬币是真随机 —— 可以用分组前的数据查</text>
+<rect fill="rgba(0,212,255,0.05)" height="62" rx="9" stroke="#3fb8d8" stroke-width="1.3" width="672" x="24" y="148"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="170">② 借老天的随机　工具变量 · 自然实验</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="189">顶替它的：被一次准随机外力分到另一边的人（征兵抽签、出生季度）</text>
+<text fill="#e8c26a" font-size="10.5" x="42" y="205">押的假设：排他性 —— 数据查不了，只能论证</text>
+<rect fill="rgba(0,212,255,0.04)" height="62" rx="9" stroke="#6f9fc8" stroke-width="1.3" width="672" x="24" y="220"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="242">③ 借对照组的趋势　双重差分</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="261">顶替它的：对照组的变化量，平移到处理组起点</text>
+<text fill="#e8c26a" font-size="10.5" x="42" y="277">押的假设：平行趋势 —— 证不了，只能用干预前多期数据旁证</text>
+<rect fill="rgba(255,255,255,0.04)" height="62" rx="9" stroke="#8a86b0" stroke-width="1.3" width="672" x="24" y="292"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="314">④ 把暗道堵上　分层 · 回归 · 匹配</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="333">顶替它的：第三变量取值相同的那些人</text>
+<text fill="#e8956a" font-size="10.5" x="42" y="349">押的假设：暗道全被你测到了 —— 通常没有，而且查不出来</text>
+<rect fill="rgba(255,110,196,0.06)" height="62" rx="9" stroke="#ff6ec4" stroke-dasharray="6 5" stroke-width="1.3" width="672" x="24" y="364"></rect>
+<text fill="#fff" font-size="12.5" font-weight="700" x="42" y="386">⑤ 论证一条轨迹　史学反事实</text>
+<text fill="#9aa2b8" font-size="10.5" x="42" y="405">顶替它的：一段被论证出来的另类历史（没有铁路的美国、中立的奥斯曼）</text>
+<text fill="#ffa8dc" font-size="10.5" x="42" y="421">押的假设：这条轨迹本身 —— 没有对照组，也没有第二次</text>
+<text fill="#8f88b8" font-size="10.5" font-style="italic" text-anchor="middle" x="360" y="452">因果的强度不取决于模型多复杂，而取决于这一行的假设有多可信</text>
+<text fill="#6a7080" font-size="10" text-anchor="middle" x="360" y="472">Syn 7 · 因果 · BigCat's Learning Hub</text>
+</svg>
+</div>
+<div class="source"><b>源页 →</b> 征兵抽签与自然实验、气压计与暴风雨那个把阶梯讲透的例子、do-演算是什么：<a href="/meta-knowledge/causal-inference-day67.html">元知识 · 因果推断（Day 67）</a> · 工具变量的三条件与两阶段最小二乘、弱工具的 F 统计量阈值、双重差分的可运行代码与事前趋势检验：<a href="/ai-ml/causal-inference-day36.html">AI/ML · 因果推断（Day 36）</a> · 激素替代疗法反转的完整经过、健康使用者偏倚、混杂/中介/对撞三种角色的区分：<a href="/meta-knowledge/epidemiology-day36.html">元知识 · 流行病学（Day 36）</a> · 「反事实 + 历史学争论」这一栏的原样：铁路之争、大分流为何没有单一原因：<a href="/history/industrial-revolution-day16.html">历史 · 工业革命（Day 16）</a></div>
+</section>
+<section class="sec">
+<h2>同一张图上的同一个判定</h2>
+<p>五种填法排成一条斜坡，说明它们可比。但可比不等于是同一件事——真正让它们变成同一件事的，是数学站那一页上的东西。</p>
+<p>把变量画成点，把直接的因果影响画成箭头，得到一张有向无环图。数学站讲这类图时说了一句很准的话：<strong>图的信息量不在画出的边里，而在没画出的边里</strong>——每一条缺边都断言一组条件独立，联合分布因此从指数规模塌成一堆小表的乘积。</p>
+<p>同一页还讲了一个叫「解释消解」的现象。草地湿可能因为下雨，也可能因为洒水器开过，两者本来毫无关系；可你一旦看到草地湿了，再得知昨夜下过雨，对「洒水器开过」的信念立刻下降——雨已经把湿解释掉了。<strong>观测一个共同结果，会让它的两个原因凭空相关。</strong></p>
+<p>这句话是本文的枢纽，因为它把三种看起来很不一样的错误归成了一种。一张图上，第三个变量只可能待在三个位置：</p>
+<p>它可能是<strong>共因</strong>：同时指向处理和结果。这就是前面说的暗道，学名叫后门路径，也叫混杂。要堵它。</p>
+<p>它可能是<strong>共果</strong>：被处理和结果共同指向。这叫对撞因子。一旦你按它分层——也就是只看它取某个定值的那部分样本——两个本来无关的原因就被强行拽出一段相关。绝不能碰。</p>
+<p>它可能是<strong>中介</strong>：站在因果路径的中间，处理经由它影响结果。控制它，你会把真实效应连同它一起抹掉。也不能碰。</p>
+<div style="overflow-x:auto;margin:24px 0">
+<svg font-family="-apple-system,'PingFang SC','Noto Sans SC',sans-serif" style="min-width:640px;height:auto;display:block" viewBox="0 0 720 306" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ah7" markerHeight="9" markerUnits="userSpaceOnUse" markerWidth="9" orient="auto" refX="7" refY="3"><path d="M0,0 L7,3 L0,6 Z" fill="#6a7080"></path></marker>
+</defs>
+<text fill="#fff" font-size="13" font-weight="700" text-anchor="middle" x="360" y="24">同一个第三变量，三个位置，三条完全不同的指令</text>
+<rect fill="rgba(0,212,255,0.05)" height="230" rx="10" stroke="#00d4ff" stroke-width="1.3" width="208" x="24" y="42"></rect>
+<text fill="#7dd8f0" font-size="12" font-weight="700" text-anchor="middle" x="128" y="66">共因 · 混杂</text>
+<text fill="#9aa2b8" font-size="10" text-anchor="middle" x="128" y="84">健康的生活方式</text>
+<circle cx="128" cy="106" fill="rgba(0,212,255,0.16)" r="17" stroke="#00d4ff" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="128" y="111">Z</text>
+<line marker-end="url(#ah7)" stroke="#6a7080" stroke-width="1.3" x1="116" x2="78" y1="120" y2="158"></line>
+<line marker-end="url(#ah7)" stroke="#6a7080" stroke-width="1.3" x1="140" x2="178" y1="120" y2="158"></line>
+<circle cx="70" cy="172" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="70" y="177">X</text>
+<circle cx="186" cy="172" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="186" y="177">Y</text>
+<text fill="#9fe0bd" font-size="11.5" font-weight="700" text-anchor="middle" x="128" y="220">控制 Z ✓ 堵住后门</text>
+<text fill="#8fa5b8" font-size="10" text-anchor="middle" x="128" y="243">不堵，看到的相关全是它的功劳</text>
+<rect fill="rgba(255,110,196,0.06)" height="230" rx="10" stroke="#ff6ec4" stroke-width="1.3" width="208" x="256" y="42"></rect>
+<text fill="#ffa8dc" font-size="12" font-weight="700" text-anchor="middle" x="360" y="66">共果 · 对撞</text>
+<text fill="#9aa2b8" font-size="10" text-anchor="middle" x="360" y="84">被录取 / 能返航</text>
+<circle cx="302" cy="106" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="302" y="111">X</text>
+<circle cx="418" cy="106" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="418" y="111">Y</text>
+<line marker-end="url(#ah7)" stroke="#6a7080" stroke-width="1.3" x1="314" x2="348" y1="120" y2="156"></line>
+<line marker-end="url(#ah7)" stroke="#6a7080" stroke-width="1.3" x1="406" x2="372" y1="120" y2="156"></line>
+<circle cx="360" cy="172" fill="rgba(255,110,196,0.16)" r="17" stroke="#ff6ec4" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="360" y="177">C</text>
+<text fill="#ff9ecf" font-size="11.5" font-weight="700" text-anchor="middle" x="360" y="220">控制 C ✗ 凭空造假</text>
+<text fill="#8fa5b8" font-size="10" text-anchor="middle" x="360" y="243">只看幸存者，就是在按共果分层</text>
+<rect fill="rgba(232,194,106,0.06)" height="230" rx="10" stroke="#e8c26a" stroke-width="1.3" width="208" x="488" y="42"></rect>
+<text fill="#f0d79a" font-size="12" font-weight="700" text-anchor="middle" x="592" y="66">中介</text>
+<text fill="#9aa2b8" font-size="10" text-anchor="middle" x="592" y="84">效应途经的那一环</text>
+<circle cx="518" cy="140" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="518" y="145">X</text>
+<circle cx="592" cy="140" fill="rgba(232,194,106,0.16)" r="17" stroke="#e8c26a" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="592" y="145">M</text>
+<circle cx="666" cy="140" fill="rgba(255,255,255,0.06)" r="17" stroke="#8a86b0" stroke-width="1.3"></circle>
+<text fill="#fff" font-size="12" text-anchor="middle" x="666" y="145">Y</text>
+<line marker-end="url(#ah7)" stroke="#6a7080" stroke-width="1.3" x1="536" x2="566" y1="140" y2="140"></line>
+<line marker-end="url(#ah7)" stroke="#6a7080" stroke-width="1.3" x1="610" x2="640" y1="140" y2="140"></line>
+<text fill="#f0c97a" font-size="11.5" font-weight="700" text-anchor="middle" x="592" y="220">控制 M ✗ 抹掉真效应</text>
+<text fill="#8fa5b8" font-size="10" text-anchor="middle" x="592" y="243">不是干扰，是效应走的那条路</text>
+<text fill="#8f88b8" font-size="10.5" font-style="italic" text-anchor="middle" x="360" y="292">「控制的变量越多越好」在这三格里只有一格是对的</text>
+</svg>
+</div>
+<p>三条指令彼此矛盾，而决定该用哪一条的不是数据，是那张图。这正是判定能成立的原因：<strong>能不能从观测数据算出因果，是一个只看图上路径怎么走的问题。</strong>数学站把这个判定叫 d-分离，并点出了它漂亮在哪——它是纯组合的，只看路径通不通、哪些节点被观测过，全程不碰任何积分；得出的结论却是关于分布的。用手指沿箭头描一遍就能回答的问题，等价于一族高维积分是否恒等。</p>
+<p>计算机科学家朱迪亚·珀尔把最后一步走完了：他把箭头从「依赖」升级为「因果」，加上一个表示动手干预的算子，于是给定一张图，某个因果效应能否从纯观测数据识别出来，第一次成了一个可计算的命题。数学站那句话说得很干脆——「相关不等于因果」从此是可判定的，而不只是一句告诫。</p>
+<h3>这个联系承重在哪</h3>
+<p>判断一个跨领域联系值不值钱，标准不是它让人觉得优雅，而是它有没有解决过一个原本无解的具体问题。这里有一个。</p>
+<p>在珀尔之前，「该控制哪些变量」是各学科各自的手艺：流行病学有自己的经验规则，经济学有自己的，谁也说服不了谁，而且大家共享一条朴素的直觉——<strong>控制得越多越保险。</strong>这条直觉是错的，而且错得很隐蔽：控制一个共果，不是少做了点功课，是亲手制造出一段本不存在的相关。</p>
+<p>更说明问题的是，这个错误在各个领域被独立地犯过，每次都换一副面孔，而当事人都没认出它是同一件事。二战时统计返航飞机的弹孔分布来决定给哪里加装甲，是在「能返航」这个共果上分层——最该加固的恰恰是返航样本里弹孔最少的地方，因为中在那儿的飞机根本没回来。假设一所大学录取只看成绩和特长、任一项够高就能进，在全体高中生里这两项毫不相关，可一旦只看录取者，就会冒出「成绩越高特长越差」的负相关。医院里两种病看起来负相关、「越好看的人往往越渣」这种挥之不去的错觉，是同一个机制；机器学习里只拿被点击、被成功处理的样本去训练，也是。</p>
+<p>把这些摆在一张图上，它们塌成同一行字：按共果分层。一条判定同时说清了四个领域里四桩看起来毫不相干的糊涂账，并且给出了一条各自的直觉永远得不到的禁令。这是我要的那种证据。</p>
+<div class="source"><b>源页 →</b> 贝叶斯网络如何用缺失的边编码独立性、解释消解的完整例子、d-分离为何是「把语义问题降格成语法」的典范，以及消息传递如何统一前面几个模型：<a href="/mathematics/graphical-models-day41.html">数学 · 概率图模型（Day 41）</a> · 对撞因子的大学录取与装甲飞机例子、共因与共果该控制谁的对照图：<a href="/meta-knowledge/causal-inference-day67.html">元知识 · 因果推断（Day 67）</a> · 辛普森悖论为何是混杂的一张脸、后门路径的回归代码：<a href="/ai-ml/causal-inference-day36.html">AI/ML · 因果推断（Day 36）</a></div>
+</section>
+<section class="sec">
+<h2>这个联系换来了什么</h2>
+<p>一套推理从一个领域走到另一个领域时，如果只有词过去了，接收方什么也没得到。如果背后那套推理跟着一起过去，接手的是它已经证明过的全部结论——定理、下界、不可能性结论，不必重证。因果这一套搬家时，跟过去的东西相当多。</p>
+<div class="principle"><b>工程师直接提走了经济学家的准实验工具箱。</b>做不了 A/B 测试的时候，不必从历史数据里硬凑相关，而是去找一个近乎随机的断点：一次只在某个区域生效的配置变更、一次只影响一部分用户的发布、一次机房故障。这些原本是要被当成噪音清理掉的东西，在这套语言下成了免费的实验。反过来，功能灰度和金丝雀发布本来就是工程师亲手造的随机化，只是过去没人这么叫它。</div>
+<div class="principle"><b>机器学习拿到了一个诊断，解释了一类反复上演的翻车。</b>一个在历史数据上预测极准的模型，一旦依它去改推荐、改定价，效果就崩。原因在阶梯上：它学的是「看见 X 时 Y 有多可能」，你要的是「我改了 X，Y 会怎样」，中间隔着整整一级。有个极端的例子：模型发现住院病人里哮喘患者的肺炎死亡率更低，这在预测层面完全正确——哮喘病人被更密集地监护了——但若据此认为哮喘对肺炎有保护作用并拿去分流病人，会死人。由此还推出一条很实用的提醒：特征重要性高只说明这个特征对预测有用，不说明改它能改结果。</div>
+<div class="principle"><b>历史学拿到的是「反事实可以被算」这件事本身。</b>福格尔那笔账最值钱的地方不在于结论对不对，而在于它把「铁路不可或缺」从一个只能表态的英雄叙事，变成了一个有具体数字、因而可以被具体挑战的命题。批评者说他低估了网络效应和城市化的长期复利——这个反驳之所以有力，正是因为前面那个命题已经被写成了可争论的形式。</div>
+<div class="principle"><b>读健康新闻的人拿到了两把尺子。</b>一把是证据金字塔：系统综述、随机对照试验、前瞻队列、病例对照、横断面、动物与机制研究、专家意见，越往上控制暗道的能力越强。看到「研究显示」先问是哪一层。另一把在因果成立之后用：「降低 50% 风险」几乎没有信息量，因为从 2% 降到 1% 也叫降 50%。某他汀把五年心梗风险从 2.0% 降到 1.5%，相对降幅 25% 听着漂亮，绝对降幅是 0.5%，换算成需治疗人数就是：治 200 人五年，防住 1 次心梗。</div>
+<p>这四样东西没有一样是新知识。它们都是某个领域辛苦挣来、然后被另一个领域整包提走的结论。跨学科互联的全部价值就在这里：省掉重新发明的成本。也正因为提到手的是真东西，才需要知道它在哪里就不跟着走了。</p>
+<div class="source"><b>源页 →</b> 证据金字塔的逐层说明、每一层能回答什么问题与典型陷阱、相对风险与绝对风险的三种说法对照、流行病学家布拉德福德·希尔的九条准则、女性样本不足如何系统性压低亚组检验力：<a href="/health-longevity/evidence-literacy-day61.html">健康长寿 · 循证素养（Day 61）</a> · 自然实验在工程里的具体用法、气压计那个「同一批数据在两级给出相反行动结论」的例子：<a href="/meta-knowledge/causal-inference-day67.html">元知识 · 因果推断（Day 67）</a> · 预测与因果为何不是一回事的完整展开、大语言模型停在哪一级的争论：<a href="/ai-ml/causal-inference-day36.html">AI/ML · 因果推断（Day 36）</a></div>
+</section>
+<section class="sec">
+<h2>推理在哪里停下</h2>
+<p>斜坡从上往下走，到某一级会发生一件质变的事：不是可信度低了一档，是那套推理本身不再适用了。</p>
+<p><strong>历史那一级是真正的断裂。</strong>前面四档都预设了一个总体——有很多个个体，可以分组、可以抽样、可以谈平均效应。历史没有。罗马帝国只崩过一次，奥斯曼只参战过一次，工业革命只在英国发生过一次。样本量是一，而且这个一不是「样本太小」，是根本没有可供随机化的对象。整条斜坡到这里塌掉了。</p>
+<p>但这不意味着史学反事实是劣质的因果推断。它是另一种东西，有它自己的一套评判标准，而这套标准挺硬的：<strong>看这个反事实需要改动多少东西。</strong>改一个决策比改一个结构可信。历史站写苏伊士危机那段是个很好的样本——若当年美国选择支持行动，英国或许能多撑几年帝国幻象，但透支的财政地基不会改变，清算只会推迟而非取消。这句话在做的正是分层：哪一层可以拨动，哪一层拨不动。工业革命那篇也一样，问为什么是英国，答复是没有单一原因，而是能量禀赋、要素价格、知识文化与制度激励的一次罕见共振，缺任一条，突破未必不发生，但会换时间、换地点。「换时间换地点」本身就是一个有内容的因果判断，而且它拒绝了单因论。这不是在做推断，是在做一件更朴素也更诚实的事：把一个不可检验的命题，写成能被别人具体反驳的形式。</p>
+<p><strong>第二个停下的地方是伦理与时间。</strong>营养学几乎没有终身随访的饮食随机试验，因为让一群人几十年严格吃某种指定饮食既不现实也不人道，依从性也撑不住。所以营养学天然更依赖队列研究加机制推测，证据等级本就矮一档——这也是营养结论反复翻烧饼的根源。健康站给的态度我觉得是对的：用心血管药物那个级别的证据去要求营养学并不现实，成熟的做法是学会与「当前最佳可得证据」共处，而不是等一个永不到来的完美试验。</p>
+<p><strong>第三个是机制的诱惑。</strong>「机制说得通」给人的确信感，和证据给的确信感很难区分，但它们不是一回事。健康站举的 CAST 试验是教科书级的反例：一类抗心律失常药成功压住了室性早搏——这是替代终点，一个中间指标——却让死亡率翻了倍。机制链条每一环都合理，结论是致命的。这条对工程和产品同样适用：你关于「为什么这个改动会有用」的那套解释，讲得再顺，也不能顶替那个空格。</p>
+<h3>六个可以逐条勾的问题</h3>
+<p>下面这组不是用来抓人的。它是拿来量一个因果说法能不能靠得住，包括自己的。</p>
+<p><strong>一、你的反事实是什么？</strong>能不能一句话说清「和什么比」。说不清楚，这就不是一个因果主张，是一句评价。</p>
+<p><strong>二、那一格是谁顶上的？</strong>随机分组的对照组、一次准随机的外力、一个对照组的时间趋势、一堆控制变量，还是一段论证。在斜坡上往下一级，可信度掉一档，这个折扣要当场打掉，不能留到结论里。</p>
+<p><strong>三、你押的那条假设叫什么名字？</strong>排他性、平行趋势、暗道全被测到、那条另类轨迹成立。说不出名字，通常不是没押注，是没意识到自己在押注。</p>
+<p><strong>四、你控制的那个变量在图上待在哪？</strong>共因要堵，共果碰不得，中介一控就把真效应抹掉。这三条指令互相矛盾，而决定用哪条的是图不是数据——所以你得先敢把那张图画出来。</p>
+<p><strong>五、你手上的数据是全体，还是过了某道关卡的幸存者？</strong>日志只记下跑通的请求，分析只覆盖留存的用户，论文只发表出阳性的结果。每一道筛子都是一次隐蔽的按共果分层，它能凭空造出相关，也能抹掉真的。</p>
+<p><strong>六、就算因果成立，它有多大？</strong>报的是相对还是绝对？需治疗人数是多少？统计显著和临床显著是两件事：样本足够大时，减重 0.3 公斤也能做到统计显著。</p>
+<p>前五条问的是「这是不是因果」，第六条问的是「就算是，值不值得为它改变行为」。两个问题都得问，而第二个问题被漏掉的次数，一点不比第一个少。</p>
+<div class="source"><b>源页 →</b> 「反事实 + 历史学争论」栏目的四个完整案例（罗马、奥斯曼、大英、苏联），以及史学家如何区分可拨动的决策层与拨不动的结构层：<a href="/history/empire-collapse-day15.html">历史 · 帝国崩溃（Day 15）</a> · 福格尔铁路反事实的原委与反驳、大分流之争的四种解释：<a href="/history/industrial-revolution-day16.html">历史 · 工业革命（Day 16）</a> · CAST 试验、伪科学的五个指纹、p 值的三重陷阱与发表偏倚、为什么营养学没有终身随访试验：<a href="/health-longevity/evidence-literacy-day61.html">健康长寿 · 循证素养（Day 61）</a></div>
+</section>
+<section class="sec">
+<h2>怎么用它</h2>
+<p>拆完要给出用法，否则这篇也只是另一种修辞。大致三档。</p>
+<p><strong>能随机就随机，哪怕规模小得可笑。</strong>这一档的门槛比大多数人以为的低。想知道番茄钟到底有没有用，别只在状态差的日子用它，用抛硬币决定每天用不用，两周后比两组的产出——随机化会自动把「当天状态」这个暗道摊平到两组，省掉你建一堆控制变量。工程里同理：一次灰度就是一次实验，别浪费它。这一档的结论可以直接拿去做决策。</p>
+<p><strong>随机不了，就把押注说出口。</strong>双重差分、工具变量、控制混杂都属于这一档。它们的结论不是「A 导致了 B」，而是「在平行趋势成立的前提下，A 导致了 B」——是一个条件命题，条件必须跟着结论一起走。AI 站那页把这件事和工程做了个很准的类比：你永远没法测出「在所有网络分区下都线性一致」，只能靠协议设计论证加上大量旁证。对待不可检验假设的办法也是同一套：把假设显式写出来，找间接证据加固，做敏感性分析问「假设违背到什么程度结论才翻转」，然后诚实标注不确定性。成熟不是假装没押注，是清楚自己押了哪些、押得多重。</p>
+<p><strong>连假设都说不清的，那是叙事。</strong>这不是贬义。史学反事实就是高质量的叙事，它逼着人把「若不如此会怎样」想明白，并且写成可被反驳的形式，这件事有独立的价值。问题只出在标签贴错的时候——一个叙事被当成一次测量拿去下注，或者反过来，一次干净的试验因为结论不合胃口而被说成「不过是另一种叙述」。两种错误的代价都很实在。</p>
+<p>回到开头那两件事。激素替代疗法那次反转和福格尔那笔账，看起来分属两个世界，但它们缺的是同一格：一个是「这些女性如果没用药会怎样」，一个是「这个国家如果没铺铁路会怎样」。前者可以靠掷硬币把一批可比的陌生人请来顶上，后者只能靠论证，而论证的质量取决于它需要拨动多少东西。斜坡的两端差着三个数量级的可信度，题目却是同一道。</p>
+<p>值得把这道题记牢，倒不是为了挑谁的错。是因为「因为 A 所以 B」这句话我们每天要说很多遍，而其中绝大多数，从来没有人问过那一格是谁顶上的。</p>
+</section>
+<footer>
+<a href="/index.zh.html">← BigCat's Learning Hub</a>
+</footer>
+</div>
+<script defer="" src="https://hub.cissychen.com/comments.js"></script>
+<script defer="" src="https://hub.cissychen.com/search.js"></script>
+<script defer="" src="https://hub.cissychen.com/index-button.js"></script>
+<script defer="" src="https://hub.cissychen.com/i18n-tts.js"></script>
+</body></html>
