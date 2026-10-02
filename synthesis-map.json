@@ -281,6 +281,38 @@
         "/ai-ml/fairness-bias-day51.html",
         "/history/climate-day20.html"
       ]
+    },
+    {
+      "id": "syn-8",
+      "slug": "compounding",
+      "title_zh": "复利：一门不会复利的好生意",
+      "title_en": "Compounding: An Excellent Business That Doesn't Compound",
+      "genre": "A",
+      "published": "2026-10",
+      "pages": {
+        "zh": "/synthesis/compounding.html",
+        "en": "/synthesis/compounding.en.html"
+      },
+      "sources": [
+        "/investing/quality-investing-day11.html",
+        "/investing/long-term-holding-day26.html",
+        "/investing/portfolio-management-day17.html",
+        "/personal-finance/first-principles-day1.html",
+        "/personal-finance/good-vs-bad-debt-day5.html",
+        "/leadership/long-term-game-day31.html",
+        "/writing/writing-delivery-day30.html",
+        "/writing/writing-vocation-day60.html",
+        "/mental-models/investment-wealth-day14.html",
+        "/mental-models/business-models-day10.html"
+      ],
+      "keywords": [
+        "复利",
+        "再投资跑道",
+        "ROIC",
+        "几何增长",
+        "反向复利",
+        "作品体"
+      ]
     }
   ]
 }
