@@ -26,9 +26,11 @@
         "/physics/statistical-mechanics-day8.html",
         "/physics/information-physics-day9.html",
         "/cs-papers-deepread/mathematical-theory-of-communication-paper36.html",
-        "/complexity-science/dissipative-structures-topic15.html"
+        "/complexity-science/dissipative-structures-topic15.html",
+        "/chapter-deepread/dbinternals-ch12-anti-entropy-and-dissemination-book130.html",
+        "/blog-deepread/shtetl-optimized-blog6.html"
       ],
-      "augmented": "2026-08",
+      "augmented": "2026-10",
       "keywords": [
         "熵"
       ],
@@ -178,7 +180,9 @@
         "/leadership/attention-energy-day67.html",
         "/mental-models/energy-attention-day27.html",
         "/parenting/attention-adhd-day17.html",
-        "/psychology/curiosity-boredom-day38.html"
+        "/psychology/curiosity-boredom-day38.html",
+        "/blog-deepread/the-convivial-society-blog11.html",
+        "/deep-reading/four-thousand-weeks-read951.html"
       ],
       "keywords": [
         "注意力",
@@ -194,8 +198,15 @@
         "/psychology/self-control-day58.html",
         "/psychology/adhd-day14.html",
         "/psychology/willpower-day29.html",
-        "/deep-reading/amusing-ourselves-read25.html"
-      ]
+        "/deep-reading/amusing-ourselves-read25.html",
+        "/deep-reading/deep-work-read949.html",
+        "/chapter-deepread/gaisdi-ch03-google-translate-book95.html",
+        "/blog-deepread/nadia-xyz-blog16.html",
+        "/health-longevity/meditation-plan.html",
+        "/chapter-deepread/gaisdi-ch11-text-to-video-generation-book103.html",
+        "/chapter-deepread/gaisdi-ch09-text-to-image-generation-book101.html"
+      ],
+      "augmented": "2026-10"
     },
     {
       "id": "syn-6",
