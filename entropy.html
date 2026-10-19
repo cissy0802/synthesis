@@ -43,6 +43,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -197,6 +201,21 @@ footer a{color:#7b61ff}
 <p><strong>当它只提供不可抗拒感，那就是修辞。</strong>看这个词在句子里承担什么功能：如果它在解释——说明为什么会这样、预言接下来会怎样、指出干预点在哪——它在做工；如果它在免责，「组织变臃肿是熵增，没办法」，那它在偷懒，而且偷的是物理学的权威。真正的第二定律从不用来免责，它给的全是极其具体的可操作结论：冰箱能制冷，代价是电费；卡诺效率给了热机一个够不到但值得逼近的靶心（它算出任何热机的效率上限）；永动机不用试了。一条真定律会告诉你代价是多少，而不是告诉你别挣扎。</p>
 <p>最后回到那四个房间。它们之间的联系是真的：物理熵与信息熵是同一个数学对象，兰道尔原理让比特与焦耳互相兑换，生命的熵账可以精确到瓦特。这份统一性不是巧合。它来自一个朴素到能跨过任何学科边界的问题——在我能看见的之下，还有多少种可能。</p>
 <p>值得把这个词看紧一点，倒不是怕谁用错。是因为真能从一个学科走到另一个学科、一路上什么都不丢的概念，我们手上本来就没几个。</p>
+</section>
+<section class="sec">
+<h2>10. 十条要点</h2>
+<ol class="takeaways">
+<li>玻尔兹曼熵 S = k log W 数的是与同一宏观状态相容的微观排布数，第二定律是靠 10²³ 这个量级才变硬的概率律。</li>
+<li>熵不是物体自带的属性：算熵之前必须先声明按哪些宏观变量粗粒化，看得多粗决定了熵有多大。</li>
+<li>香农从三条公理推出信息熵 H = −Σ p log p，微观态等可能时它与玻尔兹曼熵只差一个换算常数 k。</li>
+<li>语言模型的交叉熵损失以比特为单位，最小化它就是让模型分布贴近真实分布，「学习即压缩」因此能当命题来争论。</li>
+<li>生命不违反热力学第二定律：生命是开放系统，摄入低熵能量、向环境排出更多的熵，总账照样平衡。</li>
+<li>物理、信息、机器学习和生物里的熵问的是同一个问题：在看得见的粗粒度描述之下，还有多少种可能。</li>
+<li>兰道尔原理把擦除一比特的最低耗散钉在 kT ln2，麦克斯韦妖因此被破解：收费的是遗忘，不是测量。</li>
+<li>跨学科互联的真正收益是推理随词一起搬家，定理、下界和不可能性结论直接到手，比如无损压缩不可能短于信息熵。</li>
+<li>把熵借给房间或组织前先问四件事：微观态是什么、量有没有单位、规律是否来自大数、开放系统是否被当成了孤立系统。</li>
+<li>熵的用法分三档：有概率分布就字面计算，耗散结构类比要说清流、能量来源和熵的去向，只剩不可抗拒感的就是修辞。</li>
+</ol>
 </section>
 <footer>
 <a href="/index.zh.html">← BigCat's Learning Hub</a>

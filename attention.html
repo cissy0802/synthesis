@@ -43,6 +43,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -247,6 +251,21 @@ footer a{color:#7b61ff}
 <p><strong>都不是的，当它是修辞——而修辞不是罪名。</strong>看这个词在句子里干什么活：如果它在解释，说明为什么会这样、接下来会怎样、干预点在哪，它在做工；如果它只在给一件事涨价，那它是修辞。薇依那句话是全文引的最好的一句，它当然是修辞。出问题的从来不是修辞本身，是把它搬到「所以科学证明了」那一栏。</p>
 <p>最后回到蒙特利尔。巴赫达瑙借的那个比喻在机制上是错的，神经科学站说得没错，两边确实是两回事。可他的发明是对的，因为他借的从来不是机制，是一个约束的形状。</p>
 <p>能真正跨过学科边界的东西，常常比你以为的更抽象一层。机制不过关，约束过关了。那九个 BLEU，就是过关的收据。</p>
+</section>
+<section class="sec">
+<h2>十条要点</h2>
+<ol class="takeaways">
+<li>2014 年巴赫达瑙给机器翻译加上按需回看原文的注意力模块，BLEU 从 17.82 涨到 26.75。</li>
+<li>神经科学里的注意不是探照灯，而是偏向竞争：给某一路信号加码，让它赢下争抢有限处理带宽的比赛。</li>
+<li>Transformer 的注意力用 softmax 给每个 token 软加权，计算和显存随序列长度平方增长。</li>
+<li>西蒙 1971 年指出信息的富足制造注意力的贫困，把注意力从心理状态改写成可计量的稀缺存量。</li>
+<li>平台用变量比率强化让行为抗消退，刷手机停不下来是环境设计问题，不该归因于自控力差。</li>
+<li>大脑、Transformer、注意力市场和薇依式的注意共有的不是机制，而是一个约束的形状。</li>
+<li>注意力背后的约束有三个部件：一条有硬上限的通道、一个远大于它的候选集、一条必须当场做的分配决定。</li>
+<li>人工系统被算力逼着，独立推出了大脑被能量逼出的同一条结论：关注一切太贵，必须选。</li>
+<li>丘脑网状核会真的掐断信息，softmax 却不丢任何 token；是硬门控还是软加权，要看系统而不看人机。</li>
+<li>关于注意力的说法分三档：报得出数的当测量，能被推翻但无刻度的当模型，其余当修辞。</li>
+</ol>
 </section>
 <footer>
 <a href="/index.zh.html">← BigCat's Learning Hub</a>

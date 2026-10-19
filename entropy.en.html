@@ -42,6 +42,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -287,6 +291,21 @@ What makes this interesting is that it isn't one word borrowed by several groups
 <p>Finally, back to those four rooms. The connection between them is real: physical and information entropy are one mathematical object, Landauer's principle makes bits and joules convertible, life's entropy ledger can be tallied down to the watt. That unity isn't a coincidence. It comes from a question plain enough to cross any disciplinary boundary — given what I can see, how many possibilities remain underneath?</p>
 
 <p>Worth keeping an eye on the word, then — not out of fear that someone will misuse it, but because concepts that genuinely travel from one field to another, losing nothing on the way, are rare enough to be worth guarding.</p>
+</section>
+<section class="sec">
+<h2>10. Ten Takeaways</h2>
+<ol class="takeaways">
+<li>Boltzmann's entropy S = k log W counts the microscopic arrangements compatible with one macroscopic state; the second law is a probability law made rigid by numbers like 10²³.</li>
+<li>Entropy is not a property an object carries on its own: before computing it you must declare which macroscopic variables you coarse-grain by.</li>
+<li>Shannon derived information entropy H = −Σ p log p from three axioms; for equally likely microstates it differs from Boltzmann's entropy only by the constant k.</li>
+<li>A language model's cross-entropy loss is measured in bits, and minimising it pulls the model's distribution toward the true one, so "learning is compression" becomes an arguable claim.</li>
+<li>Life does not violate the second law: living things are open systems that take in low-entropy energy and export more entropy than they shed.</li>
+<li>In physics, information theory, machine learning and biology, entropy answers one question: beneath the coarse description you can see, how many possibilities remain?</li>
+<li>Landauer's principle pins the minimum cost of erasing one bit at kT ln2, which dissolves Maxwell's demon: the charge falls on forgetting, not on measuring.</li>
+<li>Cross-disciplinary connection pays off when the reasoning travels with the word, bringing proven theorems, bounds and impossibility results, such as the entropy floor on lossless compression.</li>
+<li>Before applying entropy to a room or an organisation, ask four things: what the microstates are, whether the quantity has units, whether the law comes from large numbers, and whether an open system is being treated as isolated.</li>
+<li>Entropy works at three levels: compute it literally when you have a probability distribution, spell out the flow, energy source and entropy sink for dissipative-structure analogies, and call the rest rhetoric.</li>
+</ol>
 </section>
 <footer>
   <a href="/index.en.html">← BigCat's Learning Hub</a>

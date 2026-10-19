@@ -43,6 +43,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -210,6 +214,21 @@ footer a{color:#7b61ff}
 <p><strong>剩下的，承认是修辞。</strong>修辞本身不丢人，看它在句子里干什么活就行。如果它在解释——说明为什么前期会平、预言陡会出现在哪、指出通道在哪一环——它在做工。如果它在催人忍耐，「再坚持一下就复利了」，那它是在借数学的权威，给一句其实没有内容的鼓励，而且顺带把一个该问的问题盖住了：这件事到底有没有那条通道。</p>
 <p>最后回到那门糖果生意。它的利润率高到让人眼红，三十五年里赚了十三亿多，追加的本钱不到四千万。按任何一种「好」的标准它都好得过分。而它不复利，原因朴素到有点扫兴：赚来的钱没地方去。</p>
 <p>这句话换成非金融的说法，大概是这篇里最值得带走的一句。复利从不奖励努力，也不奖励质量；它只奖励「产出变回投入」这件事到底有没有发生。于是真正该问的从来不是我够不够拼，而是——我这一轮做出来的东西，明天从哪个口子回到我手上。</p>
+</section>
+<section class="sec">
+<h2>十条要点</h2>
+<ol class="takeaways">
+<li>巴菲特 1989 年的算术：一美元年年翻倍二十年，每年兑现交税和延税不动，结果差了二十七倍。</li>
+<li>复利不是「指数增长」的同义词，而是一个回路：只问这一轮的产出能不能变回下一轮的投入。</li>
+<li>高资本回报率（ROIC）决定生意有多好，再投资跑道决定复利能滚多久，两者俱全才是复利机器。</li>
+<li>See's Candies 回报率极高却不复利：它吸收不了增量资本，赚来的钱没地方再投。</li>
+<li>债务是反向复利：还掉一笔年化 22% 的债，等于锁定了 22% 的无风险回报，所以高息债先灭。</li>
+<li>每一笔经常性支出都偷两次未来：丢掉本可复利几十年的机会成本，又抬高财务自由需要攒到的总额。</li>
+<li>写作的作品体是一条真回路：持续公开、被搜到、被链接，而链接又提高下一篇被搜到的概率。</li>
+<li>复利回路有三个零件：再投资通道、不塌的边际回报率和连续性，缺一个就不转，曲线也因此先平后陡。</li>
+<li>Kelly 公式优化长期几何增长率：下注过了临界点，风险陡升、增长反降，实务多用半 Kelly。</li>
+<li>非金融领域的复利缺统一单位，只给得出曲线形状、给不出曲线上的点，判断时先问第二轮的投入从哪来。</li>
+</ol>
 </section>
 <footer>
 <a href="/index.zh.html">← BigCat's Learning Hub</a>

@@ -43,6 +43,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -250,6 +254,21 @@ footer a{color:#7b61ff}
 <p><strong>机制说得清的，当模型用。</strong>「重建必然填补，填补必然可能填错」这条算不出数，但它能给出预言，而且预言能被检验。举个直接的：如果你接受错误记忆和幻觉是同一个机制的两个出口，那么「让模型再谨慎一点就能消除幻觉」这个方向就是错的。能改善的是不污染输入、不夸大信心、把来源和内容分开存，而不是指望重建变成回放。检索工程那句话说的就是这件事：拿不到对的文档，再谨慎也只能编。</p>
 <p><strong>剩下的是修辞。</strong>当修辞用完全没问题，很多好句子就是这么来的。别拿它当设计依据就行。</p>
 <p>值得把这个词分清楚，倒不是为了纠正谁的用法。是因为这几套系统各自吃过的亏都不便宜：人这边花了几十年才承认遗忘是设计的一部分、确信不等于准确；机器那边正在把同样的路再走一遍，而且有些段落已经不必再走了。</p>
+</section>
+<section class="sec">
+<h2>十条要点</h2>
+<ol class="takeaways">
+<li>大脑不存事件的录像：碎片散在各脑区，海马只记下索引，回忆时当场拼装，缺口拿当下的期待来补。</li>
+<li>再巩固是指每次调取一段记忆，它都会短暂变软、可被改写，再重新封存，所以最常回忆的往事往往被改得最多。</li>
+<li>灾难性遗忘 1989 年就被发现：神经网络拿新任务接着训，梯度下降会原地覆写权重，把旧任务的本事抹掉。</li>
+<li>人脑、模型权重、向量库都只存有损痕迹加一条找回线索，读出靠当场重建；填错了在人叫错误记忆，在机器叫幻觉。</li>
+<li>大脑的模式分离与模式补全，对应工程里的稳定性—可塑性权衡，后者在弹性权重固化里就是一个可调的系数。</li>
+<li>记忆的确信程度和准确程度几乎无关：美国被 DNA 证据平反的冤案里，约七成涉及目击者的错误指认。</li>
+<li>1995 年的互补学习系统理论把记忆分成快慢两套、靠睡眠重放衔接，照此设计的经验重放至今近乎持续学习最强的基线。</li>
+<li>法庭目击者指认攒下的反污染程序可以搬给 AI 产品：不诱导提问、内容与来源分开存、当场记录并带时间戳。</li>
+<li>上下文窗口对应的是工作记忆而非长时记忆，又缺少前额叶那样挑选内容的指挥，所以拉长窗口不等于记性变好。</li>
+<li>错误记忆和幻觉出自同一条重建路径，所以靠让模型更谨慎消不掉幻觉，能改的是别污染输入、别夸大信心、来源分开存。</li>
+</ol>
 </section>
 <footer>
 <a href="/index.zh.html">← BigCat's Learning Hub</a>

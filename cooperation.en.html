@@ -43,6 +43,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -186,6 +190,21 @@ The three answers sound wildly different, but underneath they perform the same m
 <p><strong>When it names a clear mechanism but reports no number, treat it as a useful model, not a verdict.</strong> "The team goes all-in because it's like a family" names a mechanism—it borrows the kin circuit, synthesizing a "fictive-kin" <code>r</code> out of shared experience; but that <code>r</code> can't be quantified, and you can't report "this team's relatedness is 0.3." This tier is a good model: it reminds you what the loyalty is borrowing, and warns you of its dark side (cliques, nepotism, being hijacked by "we're all family" talk). Use it to see the structure, not to pass the sentence.</p>
 <p><strong>When it neither reports a number nor rests on any bookkeeping, it isn't on this table.</strong> The bodhisattva path is this tier—to force it into "it's really self-interest" is a category error, rhetoric or cheap convergence. The fastest way to spot it is question 4: does translating it into "a shrewd self-interest" erase it? If it does, what you face isn't an account kept in some unusual notation but a stance that refuses to keep accounts at all.</p>
 <p>End on the line most easily stepped over. The first three ledgers speak, from beginning to end, of <strong>how</strong> cooperation arises—not of whether you <strong>ought</strong> to cooperate. The distinction isn't pedantry. At the close of <em>The Selfish Gene</em> Dawkins wrote the often-quoted line—"we, alone on earth, can rebel against the tyranny of the selfish replicators": the genes gave us brains, and brains can understand, foresee, and choose generosity; contraception, adoption, giving one's life for a stranger are all disobediences of the genes' "instructions." This theory describes how evolution works; it never legislates how we should live. However cleanly you keep the three ledgers, they won't add up to an "ought"—that step the bookkeeper has to take alone.</p>
+</section>
+<section class="sec">
+<h2>9. Ten takeaways</h2>
+<ol class="takeaways">
+<li>Hamilton's rule, rB &gt; C, says a gene for helping kin spreads whenever relatedness times the recipient's benefit exceeds the helper's cost.</li>
+<li>Fasting experiments on vampire bats found that past blood-sharing predicts who feeds whom better than relatedness does.</li>
+<li>In the repeated Prisoner's Dilemma, Tit-for-Tat won by being nice, retaliatory, forgiving and clear, yet never beat a single opponent head to head.</li>
+<li>With no enforcer above states, nuclear deterrence buys mutual restraint by tying one's own hands so that retaliation looks certain.</li>
+<li>Ostrom found commons that were neither nationalized nor privatized yet lasted centuries through clear boundaries, self-monitoring and graduated sanctions.</li>
+<li>Relatedness r, the re-meeting probability w and credible commitment are one device: converting the short-run gain from betrayal into a future cost.</li>
+<li>Results proven about cooperation in one field carry straight over: BitTorrent hard-codes Tit-for-Tat, and platforms turn reputation into two-way ratings.</li>
+<li>With standard payoffs, once the probability of meeting again w reaches 0.5, a habitual defector among Tit-for-Tat players loses out on the total.</li>
+<li>Ohtsuki's approximate rule b/c &gt; k means more neighbours make cooperation harder, so splitting a large group into small teams lowers the bar.</li>
+<li>The bodhisattva path removes the bounded self as beneficiary, so translating it into "altruism secretly pays" erases its whole point.</li>
+</ol>
 </section>
 <footer>
 <a href="/index.en.html">← BigCat's Learning Hub</a>

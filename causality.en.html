@@ -43,6 +43,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -223,6 +227,21 @@ What makes this interesting is that these five are not five borrowings of one wo
 <p><strong>If you can't even name the assumption, it's narrative.</strong> That isn't an insult. The historical counterfactual is high-quality narrative: it forces someone to think through what would have happened otherwise and write it in a form that can be contested, which has value on its own terms. The damage comes from mislabelling — a narrative staked on as though it were a measurement, or, in the other direction, a clean trial dismissed as "just another story" because its result was unwelcome. Both errors cost real money.</p>
 <p>Back to the two episodes at the start. The hormone therapy reversal and Fogel's number look like citizens of different worlds, but the cell they are missing is the same one: what would have happened to these women untreated, what would have happened to this country unrailroaded. The first can seat a batch of comparable strangers in that cell by coin flip. The second can only argue, and the quality of the argument depends on how much it has to move. The two ends of the slope are orders of magnitude apart in credibility. The question is identical.</p>
 <p>Worth keeping this question close, not in order to catch anyone out. It's that "A caused B" is a sentence we say many times a day, and for the overwhelming majority of them, nobody ever asked who was sitting in that cell.</p>
+</section>
+<section class="sec">
+<h2>Ten takeaways</h2>
+<ol class="takeaways">
+<li>The root problem of causal inference is missing data: for any one person, you only ever observe the outcome with the intervention or without it, never both.</li>
+<li>Random assignment makes treatment independent of who people are, so the control group's average can legitimately stand in for what the treated would have done untreated.</li>
+<li>Observational studies made hormone replacement therapy look heart-protective; a large randomised trial in 2002 found it actually raised cardiovascular risk.</li>
+<li>Moving down from randomised trials to instruments, difference-in-differences and confounder adjustment means leaning harder on untestable assumptions such as exclusion and parallel trends.</li>
+<li>On a causal diagram, a common cause must be adjusted for, a common effect (a collider) must never be conditioned on, and controlling a mediator erases the real effect.</li>
+<li>Bullet holes on returning bombers, grades versus talent among admitted students, and models trained only on clicked items all show spurious correlation created by conditioning on a common effect.</li>
+<li>By adding an intervention operator to causal diagrams, Pearl turned whether a causal effect can be identified from observational data into a computable question.</li>
+<li>A model that predicts superbly on historical data says nothing about whether changing X will change Y; high feature importance only means the feature helps prediction.</li>
+<li>Health news needs relative and absolute risk kept apart: cutting five-year heart attack risk from 2.0% to 1.5% is a 25% relative drop but only 0.5 points absolute.</li>
+<li>A historical counterfactual has a sample size of one and no population to randomise, so its credibility depends on how much it must change: altering a decision beats altering a structure.</li>
+</ol>
 </section>
 <footer>
 <a href="/index.en.html">← BigCat's Learning Hub</a>

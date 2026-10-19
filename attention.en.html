@@ -43,6 +43,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -247,6 +251,21 @@ The analogy was wrong about the mechanism. The invention was right anyway. So wh
 <p><strong>When neither holds, it is rhetoric — and rhetoric is not an accusation.</strong>Look at what the word is doing in the sentence. If it explains — why this happens, what comes next, where to intervene — it is working. If it only raises the price of something, it is rhetoric. Weil's line is the finest thing quoted in this essay and it is of course rhetoric. What goes wrong is never the rhetoric itself. It is filing it under "and therefore science has shown."</p>
 <p>Back to Montreal, finally. The metaphor Bahdanau borrowed was wrong about the mechanism; the neuroscience site is right that the two are separate things. His invention was right anyway, because the mechanism was never what he borrowed. He borrowed the shape of a constraint.</p>
 <p>What genuinely crosses a disciplinary border tends to sit a layer more abstract than you expect. The mechanism failed the crossing. The constraint passed. Those nine BLEU are the receipt.</p>
+</section>
+<section class="sec">
+<h2>Ten takeaways</h2>
+<ol class="takeaways">
+<li>In 2014 Bahdanau gave machine translation an attention module that looks back at the source on demand, lifting BLEU from 17.82 to 26.75.</li>
+<li>In neuroscience, attention is not a spotlight but biased competition: a boost that helps one signal win the race for limited processing bandwidth.</li>
+<li>Transformer attention softly weights every token through a softmax, so its compute and memory grow with the square of sequence length.</li>
+<li>In 1971 Herbert Simon argued that a wealth of information creates a poverty of attention, turning attention from a mental state into a scarce, countable stock.</li>
+<li>Platforms use variable-ratio reinforcement to make behavior resist extinction, so endless scrolling is an environment-design problem, not a failure of self-control.</li>
+<li>What the brain, the Transformer, the attention market and Weil's kind of attention share is not a mechanism but the shape of a constraint.</li>
+<li>The constraint behind attention has three parts: a channel with a hard ceiling, a candidate set far larger than it, and an allocation decision that must be made now.</li>
+<li>Pushed by compute costs, artificial systems independently reached the conclusion energy forced on the brain: attending to everything is too expensive, so something must be chosen.</li>
+<li>The brain's thalamic reticular nucleus truly cuts signals off while a softmax drops no token; whether gating is hard or soft depends on the system, not on human versus machine.</li>
+<li>Claims about attention fall into three tiers: treat countable ones as measurement, falsifiable but unscaled ones as models, and the rest as rhetoric.</li>
+</ol>
 </section>
 <footer>
 <a href="/index.en.html">← BigCat's Learning Hub</a>

@@ -43,6 +43,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -250,6 +254,21 @@ The first is a software defect. The second is just being human. Look underneath,
 <p><strong>When the mechanism is clear, use it as a model.</strong> "Reconstruction must fill gaps, and filling gaps can fill them wrong" yields no number, but it does make predictions, and the predictions can be checked. A direct one: once you accept that false memory and hallucination are two exits from one mechanism, "just make the model more careful and hallucination goes away" is clearly the wrong direction. What can be improved is not contaminating the input, not inflating confidence, and keeping source separate from content — not hoping that reconstruction turns into playback. That's exactly what the retrieval page is saying: without the right document, no amount of caution helps.</p>
 <p><strong>The rest is rhetoric.</strong> Nothing wrong with rhetoric; plenty of good sentences come from it. Just don't build on it.</p>
 <p>Keeping the word straight is worth the trouble, and not in order to correct anyone's usage. It's that both of these systems have paid dearly for what they know: it took decades for people to accept that forgetting is part of the design and that certainty isn't accuracy. The machine side is walking the same road again, and a few stretches of it no longer have to be walked.</p>
+</section>
+<section class="sec">
+<h2>Ten takeaways</h2>
+<ol class="takeaways">
+<li>The brain keeps no recording of an event: fragments sit in separate regions, the hippocampus keeps an index, and recall reassembles them on the spot, filling gaps from present expectations.</li>
+<li>Reconsolidation means every recalled memory briefly turns soft and editable before being stored again, so the memories revisited most are probably the most altered.</li>
+<li>Catastrophic forgetting, identified in 1989, happens because training a network on a new task overwrites shared weights in place and erases skill on the old one.</li>
+<li>Human memory, model weights and vector stores all keep a lossy trace plus a cue, so reading means rebuilding; a wrong fill is false memory in people and hallucination in machines.</li>
+<li>The brain's balance between pattern separation and pattern completion matches the engineering trade-off between stability and plasticity, which elastic weight consolidation exposes as a single coefficient.</li>
+<li>Confidence and accuracy in memory are nearly independent: roughly seventy percent of US convictions overturned by DNA evidence involved eyewitness misidentification.</li>
+<li>Complementary learning systems theory (1995) splits memory into a fast and a slow system linked by sleep replay, and experience replay built on it remains close to the strongest continual-learning baseline.</li>
+<li>The courtroom's anti-contamination rules for eyewitness lineups carry over to AI products: no leading questions, content stored apart from its source, and timestamped records made at the time.</li>
+<li>A context window corresponds to working memory, not long-term memory, and lacks a prefrontal-style controller choosing what gets in, so a longer window is not a better memory.</li>
+<li>Because false memory and hallucination come from the same reconstruction path, making a model more careful won't remove hallucination; clean inputs, honest confidence and tracked sources will help.</li>
+</ol>
 </section>
 <footer>
 <a href="/index.en.html">← BigCat's Learning Hub</a>

@@ -43,6 +43,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -185,6 +189,21 @@ footer a{color:#7b61ff}
 <p><strong>当它说得清机制、却报不出数，就当一个有用的模型，别当定论。</strong>「团队像一家人所以肯拼」说得清机制——它借的是亲缘回路，用共同经历合成了「拟亲」的 <code>r</code>；但这个 <code>r</code> 没法量化，你报不出「这个团队的亲缘度是 0.3」。这一档是好模型：它提醒你这份忠诚借的是什么、也提醒你它的暗面（小圈子、裙带、被「我们是一家人」话术劫持）。用它来看清结构，别用它来下判决。</p>
 <p><strong>当它既报不出数、也根本不靠算账，那它不在这张表上。</strong>菩萨道就是这一档——把它塞进「其实是自利」是一次范畴错误，不是修辞就是廉价收敛。识别它的最快办法就是判据四：翻译成「划算的自利」会不会把它抹掉。会，就说明你面对的不是一本记法特别的账，而是一个拒绝记账的立场。</p>
 <p>最后收在那条最容易被跨过的线上。前三本账，讲的自始至终是合作<strong>如何</strong>发生，不是你<strong>应该</strong>合作。这个区别不是学究气。道金斯在《自私的基因》末尾写下那句常被引用的话——「我们，是地球上唯一能够反抗自私复制者之暴政的存在」：基因给了我们大脑，而大脑能理解、能预谋、能选择慷慨；避孕、收养、为陌生人献身，都是在违背基因的「指令」。这套理论描述进化如何运作，从不规定我们该如何活。把三本账算得再清，也算不出一个「应该」来——那一步，得由算账的人自己迈。</p>
+</section>
+<section class="sec">
+<h2>9. 十条要点</h2>
+<ol class="takeaways">
+<li>汉密尔顿规则 rB &gt; C 说明：只要亲缘度乘以受益者的收益大于利他者的代价，帮亲属的基因就会扩散。</li>
+<li>吸血蝙蝠的禁食实验显示，过去互相喂过血比亲缘度更能预测谁会喂谁，互惠的分量重于血缘。</li>
+<li>重复囚徒困境里，以牙还牙靠善良、可报复、宽容、透明四条原则夺冠，却一场单挑都没赢过。</li>
+<li>国家之上没有执法者，核威慑靠主动绑住自己的手、让报复显得必然，来换取双方的克制。</li>
+<li>奥斯特罗姆发现许多公地既没国有化也没私有化，靠清楚的边界、自我监督和分级制裁运转了几百年。</li>
+<li>亲缘度 r、再相遇概率 w 和可信承诺是同一个装置：把背叛的短期甜头换算成未来要还的代价。</li>
+<li>一个领域证过的合作结论可以直接搬用：BitTorrent 把以牙还牙写进协议，平台把声誉做成双向评分。</li>
+<li>按标准收益算，只要再次相遇的概率 w 不低于 0.5，以牙还牙群体里的长期背叛者在总账上就已吃亏。</li>
+<li>大槻久的近似规则 b/c &gt; k 表明邻居越多合作越难长出，把大群拆成小组就能降低合作门槛。</li>
+<li>菩萨道的不图回报抽掉了有边界的自我这个受益人，硬把它译成「利他其实划算」会抹掉它的要点。</li>
+</ol>
 </section>
 <footer>
 <a href="/index.zh.html">← BigCat's Learning Hub</a>

@@ -43,6 +43,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -210,6 +214,21 @@ footer a{color:#7b61ff}
 <p><strong>Everything else is rhetoric, and should be called that.</strong> There is nothing wrong with rhetoric; just watch what the word is doing in the sentence. If it explains — why the early stretch is flat, where the steep part shows up, which link in the chain carries the return — it is working. If it is there to make you endure ("keep going, it compounds"), it is borrowing the authority of mathematics for an encouragement with no content, and quietly covering up the question that should have been asked: is there a channel here at all?</p>
 <p>Which brings it back to the candy business. Its margins are enviable, it threw off more than $1.35 billion over thirty-five years, and it needed under $40 million of new capital to do it. By any definition of "good" it is almost embarrassingly good. And it does not compound, for a reason flat enough to be deflating: the money it makes has nowhere to go.</p>
 <p>Translated out of finance, that is the line worth taking away. Compounding does not reward effort and it does not reward quality. It rewards one thing only — whether output actually becomes input. So the question is never whether you are working hard enough. It is which door the thing you made this round comes back through tomorrow.</p>
+</section>
+<section class="sec">
+<h2>Ten takeaways</h2>
+<ol class="takeaways">
+<li>In Buffett's 1989 arithmetic, a dollar doubling yearly for twenty years ends 27 times larger if left untouched than if cashed out and taxed every year.</li>
+<li>Compounding is not a synonym for exponential growth; it is a loop that asks whether this round's output becomes next round's input.</li>
+<li>A high return on invested capital (ROIC) makes a business good; a long reinvestment runway decides how long it can compound. A compounding machine needs both.</li>
+<li>See's Candies earned extraordinary returns yet never compounded: it could not absorb more capital, so its profits had nowhere to go.</li>
+<li>Debt is compounding in reverse: paying off a 22% debt locks in a risk-free 22% return, so high-interest debt goes first.</li>
+<li>Every recurring expense steals from the future twice: it forfeits decades of compounding, and it raises the total you need to reach financial independence.</li>
+<li>A body of published writing is a genuine loop: steady publishing gets found and linked, and each link makes the next piece easier to find.</li>
+<li>The compounding loop has three parts: a reinvestment channel, a marginal return that holds up, and continuity. Remove one and it stops, which is why the curve starts flat.</li>
+<li>The Kelly criterion maximizes long-run geometric growth; past a critical bet size, risk climbs and long-run growth falls, so practitioners often bet half-Kelly.</li>
+<li>Outside finance, compounding lacks a common unit, so it gives the curve's shape but not points on it; first ask where the next round's input comes from.</li>
+</ol>
 </section>
 <footer>
 <a href="/index.en.html">← BigCat's Learning Hub</a>

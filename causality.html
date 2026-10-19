@@ -43,6 +43,10 @@ blockquote{margin:18px 0;padding:14px 20px;background:rgba(255,255,255,0.03);bor
 footer{text-align:center;padding:56px 0 12px;font-size:0.78rem;color:#5a6378;font-family:"SF Mono",Menlo,monospace}
 footer a{color:#7b61ff}
 @media(max-width:700px){header h1{font-size:1.4rem}.container{padding:32px 16px 60px}h2{font-size:1.2rem}}
+.takeaways{counter-reset:tk;list-style:none;margin:18px 0 0;padding:0;border:1px solid rgba(123,97,255,0.28);border-radius:12px;background:rgba(123,97,255,0.05)}
+.takeaways li{counter-increment:tk;position:relative;margin:0;padding:11px 18px 11px 52px;border-top:1px solid rgba(123,97,255,0.14);font-size:0.95rem;line-height:1.8;color:#c9cede}
+.takeaways li:first-child{border-top:none}
+.takeaways li::before{content:counter(tk,decimal-leading-zero);position:absolute;left:18px;top:12px;font-family:"SF Mono",Menlo,monospace;font-size:0.78rem;color:#c4b8ff}
 </style>
 </head>
 <body>
@@ -220,6 +224,21 @@ footer a{color:#7b61ff}
 <p><strong>连假设都说不清的，那是叙事。</strong>这不是贬义。史学反事实就是高质量的叙事，它逼着人把「若不如此会怎样」想明白，并且写成可被反驳的形式，这件事有独立的价值。问题只出在标签贴错的时候——一个叙事被当成一次测量拿去下注，或者反过来，一次干净的试验因为结论不合胃口而被说成「不过是另一种叙述」。两种错误的代价都很实在。</p>
 <p>回到开头那两件事。激素替代疗法那次反转和福格尔那笔账，看起来分属两个世界，但它们缺的是同一格：一个是「这些女性如果没用药会怎样」，一个是「这个国家如果没铺铁路会怎样」。前者可以靠掷硬币把一批可比的陌生人请来顶上，后者只能靠论证，而论证的质量取决于它需要拨动多少东西。斜坡的两端差着三个数量级的可信度，题目却是同一道。</p>
 <p>值得把这道题记牢，倒不是为了挑谁的错。是因为「因为 A 所以 B」这句话我们每天要说很多遍，而其中绝大多数，从来没有人问过那一格是谁顶上的。</p>
+</section>
+<section class="sec">
+<h2>十条要点</h2>
+<ol class="takeaways">
+<li>因果推断的根本难题是缺失数据：同一个人被干预和没被干预的两个结果，永远只能观测到其中一个。</li>
+<li>随机分组让是否被干预与个人特征无关，对照组的平均值因此能顶替处理组「没被干预会怎样」那一格。</li>
+<li>激素替代疗法在观察数据里显得护心，2002 年的大型随机对照试验却发现它反而升高心血管风险。</li>
+<li>从随机试验、工具变量、双重差分到控制混杂，越往下越依赖排他性、平行趋势这类无法检验的假设。</li>
+<li>在因果图上，共因要控制，共果（对撞因子）绝不能分层，中介一旦控制就会把真实效应一起抹掉。</li>
+<li>返航飞机的弹孔、录取者的成绩与特长、只用被点击样本训练模型，都是按共果分层造出的假相关。</li>
+<li>珀尔在因果图上加入干预算子，让「因果效应能否从观测数据识别」成了一个可计算的判定。</li>
+<li>在历史数据上预测极准的模型，不代表改动 X 就能改变 Y；特征重要性高只说明它对预测有用。</li>
+<li>五年心梗风险从 2.0% 降到 1.5%，相对降幅 25%，绝对降幅只有 0.5%，两者要分清。</li>
+<li>历史反事实样本量为一、无从随机化，可信度看它要改动多少东西：改一个决策比改一个结构可信。</li>
+</ol>
 </section>
 <footer>
 <a href="/index.zh.html">← BigCat's Learning Hub</a>
