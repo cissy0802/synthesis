@@ -313,6 +313,37 @@
         "反向复利",
         "作品体"
       ]
+    },
+    {
+      "id": "syn-9",
+      "slug": "sleep",
+      "title_zh": "睡眠：两条曲线，和一张会被训练的床",
+      "title_en": "Sleep: Two Curves and a Bed That Learns",
+      "genre": "B",
+      "published": "2026-11",
+      "pages": {
+        "zh": "/synthesis/sleep.html",
+        "en": "/synthesis/sleep.en.html"
+      },
+      "sources": [
+        "/neuroscience/sleep-intervention-topic22.html",
+        "/health-longevity/sleep-day3.html",
+        "/neuroscience/glymphatic-clearance-topic32.html",
+        "/neuroscience/consciousness-switch-topic16.html",
+        "/health-longevity/sleep-disorders-day49.html",
+        "/parenting/sleep-day15.html",
+        "/psychology/dreams-sleep-day45.html",
+        "/parenting/brain-development-day3.html"
+      ],
+      "keywords": [
+        "睡眠",
+        "双过程模型",
+        "睡眠压力",
+        "生物钟",
+        "CBT-I",
+        "类淋巴系统",
+        "睡眠债"
+      ]
     }
   ]
 }
