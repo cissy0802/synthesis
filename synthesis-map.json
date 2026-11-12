@@ -344,6 +344,41 @@
         "类淋巴系统",
         "睡眠债"
       ]
+    },
+    {
+      "id": "syn-10",
+      "slug": "finitude",
+      "title_zh": "死亡：打不过的那一端，和管得了的那一段",
+      "title_en": "Death: The End You Can't Fight, and the Stretch You Can Manage",
+      "genre": "B",
+      "published": "2026-11",
+      "pages": {
+        "zh": "/synthesis/finitude.html",
+        "en": "/synthesis/finitude.en.html"
+      },
+      "sources": [
+        "/health-longevity/aging-day11.html",
+        "/health-longevity/longevity-protocol-day27.html",
+        "/deep-reading/gilgamesh-read89.html",
+        "/philosophy/life-death-day6.html",
+        "/deep-reading/on-the-nature-of-things-read116.html",
+        "/buddhism/impermanence-day20.html",
+        "/deep-reading/four-thousand-weeks-read951.html",
+        "/health-longevity/palliative-care-day44.html",
+        "/book-recommendations/illness-medicine-book23.html",
+        "/book-recommendations/meaning-suffering-book10.html",
+        "/health-longevity/organ-aging-map-day43.html"
+      ],
+      "keywords": [
+        "死亡",
+        "有限性",
+        "姑息照护",
+        "预立医疗计划",
+        "伊壁鸠鲁",
+        "向死而生",
+        "无常",
+        "健康寿命"
+      ]
     }
   ]
 }
